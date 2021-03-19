@@ -1,0 +1,3 @@
+NOTA PARA O ANDRE (e para a ines do futuro)
+
+SE FIZERMOS MAIS QUE 1 SCRIPT NO OCTAVE -> listar os nomes dos ficheiros na primeira linha da makefile desta pasta
