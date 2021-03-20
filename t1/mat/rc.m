@@ -23,4 +23,18 @@ O=vpa(1.0)
 
 A=[R1+R3+R4 , R3 , Z , R4 ; R4 , Z, Z , R6+R7-Kc+R4 ; Z ,Z , O, Z ; Kb*R3, Kb*R3-O,Z,Z]
 B=[Va;Z;Id;Z]
-A\B
+V=A\B
+filename = 'tabela1.txt'
+fid=fopen(filename,'w')
+fprintf(fid,'I1 & %f ',double(V(1)));
+fprintf(fid,'\n\n \')
+fprintf(fid,'I2 & %f ',double(V(2)));
+fprintf(fid,'\n\n \')
+fprintf(fid,'hline\n')
+fprintf(fid,'I3 & %f ',double(V(3)));
+fprintf(fid,'\n\n \')
+fprintf(fid,'hline\n')
+fprintf(fid,'I4 & %f ',double(V(4)));
+fprintf(fid,'\n\n \')
+fprintf(fid,'hline\n')
+fclose(fid)
