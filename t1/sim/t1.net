@@ -1,0 +1,48 @@
+*
+* NGSPICE simulation script
+* Title: t1
+*
+
+* forces current values to be saved
+.options savecurrents
+
+
+*voltage sources
+Va 0 3 -5.18937402699
+
+Vnull 3 c 0
+
+Hvc 4 7 Va -8.32372114868
+
+
+*current sources
+Id 5 8 1.00970251859
+
+Gib 2 5 1 4 7.32338601881
+
+
+*resistors
+R1 0 1 1.02738610688
+
+R2 1 2 2.03394761163
+
+R3 1 4 3.13880655715
+
+R4 3 4 4.00338881943
+
+R5 4 5 3.07163426496
+
+R6 6 c 2.05278260557
+
+R7 7 6 1.01283324471
+
+
+*Control comands
+.control
+op
+*listing
+*print v(5) i(Va) v(3,2)
+echo  "op_TAB"
+print all
+echo  "op_END"
+.endc
