@@ -21,6 +21,6 @@ Kc=vpa(8.32372114868)
 Z = vpa(0.0)
 O=vpa(1.0)
 
-A=[-R1-R3+R4 , -R3 , Z , R4 ; -R4 , Z, Z , -R6-R7-Kc-R4 ; Z ,Z , O, Z ; Kb*R3, -O,Z,Z]
+A=[R1+R3+R4 , R3 , Z , R4 ; R4 , Z, Z , R6+R7-Kc+R4 ; Z ,Z , O, Z ; Kb*R3, Kb*R3-O,Z,Z]
 B=[Va;Z;Id;Z]
 A\B
