@@ -2,7 +2,6 @@ close all
 clear all
 
 pkg load symbolic
-pkg load miscellaneous
 syms I1
 syms I2
 syms I3
@@ -27,7 +26,7 @@ V=A\B
 filename = 'tabela1.txt'
 fid=fopen(filename,'w')
 fprintf(fid,'I1 & %f ',double(V(1)) *1000);
-fprintf(fid,'\n\n \')
+fprintf(fid,'\n\n ')
 fprintf(fid,'I2 & %f ',double(V(2))*1000);
 fprintf(fid,'\n\n \')
 fprintf(fid,'hline\n')
