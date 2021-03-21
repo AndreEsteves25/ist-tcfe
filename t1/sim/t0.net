@@ -41,6 +41,7 @@ R7 7 6 1.01283324471
 .control
 op
 echo  "op_TAB"
+print @Va[i] @Hvc[i]
 print all
 echo  "op_END"
 .endc
