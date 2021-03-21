@@ -6,27 +6,168 @@ Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
 
 No. of Data Rows : 1
 op_TAB
-@va[i] = 1.259429e+00
-@hvc[i] = -1.33726e+00
-@gib[i] = -1.20692e+00
-@id[current] = 1.009703e+00
-@r1[i] = -1.25943e+00
-@r2[i] = -1.20692e+00
-@r3[i] = -5.25053e-02
-@r4[i] = 9.318730e-01
-@r5[i] = 2.216626e+00
-@r6[i] = -3.27556e-01
-@r7[i] = -3.27556e-01
-v(1) = 1.293920e+00
-v(2) = 3.748740e+00
-v(3) = 5.189374e+00
-v(3b) = 5.189374e+00
-v(4) = 1.458724e+00
-v(5) = -5.34994e+00
-v(6) = 4.516972e+00
-v(7) = 4.185212e+00
-hvc#branch = -1.33726e+00
-va#branch = 1.259429e+00
-vnull#branch = 3.275564e-01
+@va[i] = -2.93824e-04
+@hvc[i] = 7.220710e-05
+@gib[i] = -3.07188e-04
+@id[current] = 1.009703e-03
+@r1[i] = 2.938238e-04
+@r2[i] = 3.071875e-04
+@r3[i] = -1.33637e-05
+@r4[i] = -1.23132e-03
+@r5[i] = 1.316890e-03
+@r6[i] = -9.37495e-04
+@r7[i] = -9.37495e-04
+v(1) = -3.01870e-01
+v(2) = -9.26674e-01
+v(3) = -5.18937e+00
+v(3b) = -5.18937e+00
+v(4) = -2.59924e-01
+v(5) = 3.785080e+00
+v(6) = -7.11385e+00
+v(7) = -8.06337e+00
+hvc#branch = 7.220710e-05
+va#branch = -2.93824e-04
+vnull#branch = 9.374954e-04
 op_END
-Note: No ".plot", ".print", or ".fourier" lines; no simulations run
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+No. of Data Rows : 1
+	Node                                  Voltage
+	----                                  -------
+	----	-------
+	V(6)                             -7.11385e+00
+	V(1)                             -3.01870e-01
+	V(2)                             -9.26674e-01
+	V(5)                             3.785080e+00
+	V(7)                             -8.06337e+00
+	V(4)                             -2.59924e-01
+	V(3b)                            -5.18937e+00
+	V(3)                             -5.18937e+00
+
+	Source	Current
+	------	-------
+
+	@r7[i]                           -9.37495e-04
+	@r6[i]                           -9.37495e-04
+	@r5[i]                           1.316890e-03
+	@r4[i]                           -1.23132e-03
+	@r3[i]                           -1.33637e-05
+	@r2[i]                           3.071875e-04
+	@r1[i]                           2.938238e-04
+	@gib[i]                          -3.07188e-04
+	va#branch                        -2.93824e-04
+	vnull#branch                     9.374954e-04
+	hvc#branch                       7.220710e-05
+
+ Resistor models (Simple linear resistor)
+      model                     R
+
+        rsh                     0
+     narrow                     0
+      short                     0
+        tc1                     0
+        tc2                     0
+        tce                     0
+       defw                 1e-05
+          l                 1e-05
+         kf                     0
+         af                     0
+          r                     0
+     bv_max                 1e+99
+         lf                     1
+         wf                     1
+         ef                     1
+
+ CCVS: Linear current controlled current source
+     device                   hvc
+          i           7.22071e-05
+          v               7.80345
+          p           0.000563465
+
+ Isource: Independent current source
+     device                    id
+         dc             0.0010097
+          m                     1
+      acmag                     0
+      pulse         -
+        sin         -
+        exp         -
+        pwl         -
+       sffm         -
+         am         -
+    trnoise         -
+   trrandom         -
+          v               11.8485
+          p            -0.0119634
+    current             0.0010097
+
+ Resistor: Simple linear resistor
+     device                    r7                    r6                    r5
+      model                     R                     R                     R
+ resistance               1012.83               2052.78               3071.63
+         ac               1012.83               2052.78               3071.63
+      dtemp                     0                     0                     0
+     bv_max                 1e+99                 1e+99                 1e+99
+      noisy                     1                     1                     1
+          i          -0.000937495          -0.000937495            0.00131689
+          p           0.000890177            0.00180419            0.00532683
+
+ Resistor: Simple linear resistor
+     device                    r4                    r3                    r2
+      model                     R                     R                     R
+ resistance               4003.39               3138.81               2033.95
+         ac               4003.39               3138.81               2033.95
+      dtemp                     0                     0                     0
+     bv_max                 1e+99                 1e+99                 1e+99
+      noisy                     1                     1                     1
+          i           -0.00123132          -1.33637e-05           0.000307188
+          p            0.00606973           5.60556e-07           0.000191932
+
+ Resistor: Simple linear resistor
+     device                    r1
+      model                     R
+ resistance               1027.39
+         ac               1027.39
+      dtemp                     0
+     bv_max                 1e+99
+      noisy                     1
+          i           0.000293824
+          p           8.86967e-05
+
+ VCCS: Voltage controlled current source
+     device                   gib
+          m                     0
+          i          -0.000307188
+          v               4.71175
+          p           -0.00144739
+
+ Vsource: Independent voltage source
+     device                 vnull                    va
+         dc                     0               5.18937
+      acmag                     0                     0
+      pulse         -         -
+        sin         -         -
+        exp         -         -
+        pwl         -         -
+       sffm         -         -
+         am         -         -
+    trnoise         -         -
+   trrandom         -         -
+          i           0.000937495          -0.000293824
+          p                    -0            0.00152476
+
+
+Total analysis time (seconds) = 0.001
+
+Total elapsed time (seconds) = 0.033 
+
+Total DRAM available = 16221.379 MB.
+DRAM currently available = 12552.371 MB.
+Total ngspice program size =   23.590 MB.
+Resident set size =    5.441 MB.
+Shared ngspice pages =    3.438 MB.
+Text (code) pages =    5.070 MB.
+Stack = 0 bytes.
+Library pages =    9.148 MB.
+
