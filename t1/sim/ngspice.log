@@ -1,0 +1,30 @@
+
+Circuit: *
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+No. of Data Rows : 1
+op_TAB
+@gib[i] = -1.20692e+00
+@id[current] = 1.009703e+00
+@r1[i] = -1.25943e+00
+@r2[i] = -1.20692e+00
+@r3[i] = -5.25053e-02
+@r4[i] = 9.318730e-01
+@r5[i] = 2.216626e+00
+@r6[i] = -3.27556e-01
+@r7[i] = -3.27556e-01
+v(1) = 1.293920e+00
+v(2) = 3.748740e+00
+v(3) = 5.189374e+00
+v(3b) = 5.189374e+00
+v(4) = 1.458724e+00
+v(5) = -5.34994e+00
+v(6) = 4.516972e+00
+v(7) = 4.185212e+00
+hvc#branch = -1.33726e+00
+va#branch = 1.259429e+00
+vnull#branch = 3.275564e-01
+op_END
+Note: No ".plot", ".print", or ".fourier" lines; no simulations run
