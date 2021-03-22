@@ -1,7 +1,9 @@
+all: octave.log octave2.log
+
 octave.log: rc.m
 	octave $< > $@
 
-octave2.log: rc2.m
+octave2.log: rc2.m tabela1.txt octave.log
 	octave $< > $@
 
 clean:
