@@ -17,14 +17,14 @@ op_TAB
 @r5[i] = 1.316890e-03
 @r6[i] = -9.37495e-04
 @r7[i] = -9.37495e-04
-v(1) = -3.01870e-01
-v(2) = -9.26674e-01
-v(3) = -5.18937e+00
-v(3b) = -5.18937e+00
-v(4) = -2.59924e-01
-v(5) = 3.785080e+00
-v(6) = -7.11385e+00
-v(7) = -8.06337e+00
+v(0b) = 0.000000e+00
+v(1) = 5.189374e+00
+v(2) = 4.887504e+00
+v(3) = 4.262700e+00
+v(4) = 4.929450e+00
+v(5) = 8.974454e+00
+v(6) = -1.92447e+00
+v(7) = -2.87400e+00
 hvc#branch = 7.220710e-05
 va#branch = -2.93824e-04
 vnull#branch = 9.374954e-04
@@ -36,14 +36,14 @@ No. of Data Rows : 1
 	Node                                  Voltage
 	----                                  -------
 	----	-------
-	V(6)                             -7.11385e+00
-	V(1)                             -3.01870e-01
-	V(2)                             -9.26674e-01
-	V(5)                             3.785080e+00
-	V(7)                             -8.06337e+00
-	V(4)                             -2.59924e-01
-	V(3b)                            -5.18937e+00
-	V(3)                             -5.18937e+00
+	V(6)                             -1.92447e+00
+	V(2)                             4.887504e+00
+	V(3)                             4.262700e+00
+	V(5)                             8.974454e+00
+	V(7)                             -2.87400e+00
+	V(4)                             4.929450e+00
+	V(0b)                            0.000000e+00
+	V(1)                             5.189374e+00
 
 	Source	Current
 	------	-------
@@ -158,12 +158,12 @@ No. of Data Rows : 1
           p                    -0            0.00152476
 
 
-Total analysis time (seconds) = 0.001
+Total analysis time (seconds) = 0.003
 
-Total elapsed time (seconds) = 0.033 
+Total elapsed time (seconds) = 0.046 
 
 Total DRAM available = 16221.379 MB.
-DRAM currently available = 12552.371 MB.
+DRAM currently available = 11707.930 MB.
 Total ngspice program size =   23.590 MB.
 Resident set size =    5.441 MB.
 Shared ngspice pages =    3.438 MB.
