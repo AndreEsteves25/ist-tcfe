@@ -4,6 +4,7 @@ Circuit: *
 Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
 
 
+
 No. of Data Rows : 1
 op_TAB
 @va[i] = -2.93824e-04
@@ -30,6 +31,7 @@ va#branch = -2.93824e-04
 vnull#branch = 9.374954e-04
 op_END
 Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
 
 
 No. of Data Rows : 1
@@ -157,17 +159,16 @@ No. of Data Rows : 1
           i           0.000937495          -0.000293824
           p                    -0            0.00152476
 
+CPU time since last call: 0.011 seconds.
 
-Total analysis time (seconds) = 0.003
+Total CPU time: 0.011 seconds.
 
-Total elapsed time (seconds) = 0.046 
-
-Total DRAM available = 16221.379 MB.
-DRAM currently available = 11707.930 MB.
-Total ngspice program size =   23.590 MB.
-Resident set size =    5.441 MB.
-Shared ngspice pages =    3.438 MB.
-Text (code) pages =    5.070 MB.
+Total DRAM available = 7790.937500 MB.
+DRAM currently available = 240.058594 MB.
+Total ngspice program size = 16.827148 MB.
+Resident set size = 2.295898 MB.
+Shared ngspice pages = 1.958008 MB.
+Text (code) pages = 1.597656 MB.
 Stack = 0 bytes.
-Library pages =    9.148 MB.
+Library pages = 456.000 kB.
 
