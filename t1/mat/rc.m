@@ -124,7 +124,7 @@ fprintf(fid2,s)
 fprintf(fid2,u)
 fprintf(fid2,s)
 fprintf(fid2,t)
-fprintf(fid2,'\nVc & %f ',Vc);
+fprintf(fid2,'\nVc & %f ',IVc);
 fprintf(fid2,s)
 fprintf(fid2,s)
 fprintf(fid2,u)
