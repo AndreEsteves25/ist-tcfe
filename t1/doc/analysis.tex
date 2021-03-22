@@ -1,7 +1,7 @@
 \section{Theoretical Analysis}
 \label{sec:analysis}
 
-In this section, the circuit shown in Figure~\ref{fig:rc} is analysed
+In this section, the circuit shown in Figure \ref{fig:rc} is analysed
 theoretically.
 
 \subsection{Mesh Analysis}
@@ -16,5 +16,18 @@ I_2=I_b=K_b V_b = K_b R_3 (I_1+I_2)
 \end{cases}
 \end{equation}
 
-where $I_1$ to $I_4$ are the currents flowing through each branch. 
+where $I_1$ to $I_4$ are the currents flowing through each branch as shown in Figure \ref{fig:rc}.
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|l|r|}
+    \hline    
+    {\bf Name} & {\bf Value [A or V]} \\ \hline
+    \input{../mat/tabela1.txt}
+ \end{tabular}
+ \caption{Operating point. A variable preceded by @ is of type {\em current}
+   and expressed in Ampere; other variables are of type {\it voltage} and expressed in
+   Volt.}
+  \label{tab:op}
+\end{table}
 
