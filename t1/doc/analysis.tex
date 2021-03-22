@@ -32,7 +32,7 @@ where $I_1$ to $I_4$ are the currents flowing through each branch as shown in Fi
 \end{table}
 
 \subsection{Node Analysis}
-In this Analysis we have enumerated the 8 nodes, from 0 to 7, as it can be shown in the Figure Figure\ref{fig:rc}. We considered that the GND is connected to node 0, so $V_{0}=0V$. Then V_1 is equal to the voltage on voltage source V_a. Another aspect which we have considered, while analysing this circuit is that the potencial difference between node 4 and node 7 is equal to V_c, so we can say that $V_c=V_4-V_7$. We can also apply KCL in the supernode, 
+In this Analysis we have enumerated the 8 nodes, from 0 to 7, as it can be shown in the Figure Figure\ref{fig:rc}. We considered that the GND is connected to node 0, so $V_{0}=0V$. Then $V_1$ is equal to the voltage on voltage source $V_a$. Another aspect which we have considered, while analysing this circuit is that the potencial difference between node 4 and node 7 is equal to $V_c$, so we can say that $V_c=V_4-V_7$. We can also apply KCL in the supernode, 
 
 
 Following this method on the 8 nodes, and considering that node 0 has $V_{0}=0V$ we obtained the equations
@@ -64,4 +64,17 @@ V_6(-\frac{1}{R_6}-\frac{1}{R_7})+V_7(\frac{1}{R_7})= 0\\
 V_2(\frac{1}{R_3})+V_4(-\frac{1}{R_3}-\frac{1}{R_4}-\frac{1}{R_5})+V_5(\frac{1}{R_5})+V_4(\frac{1}{R_7})+V_7(-\frac{1}{R_7})=I_d\\
 \end{cases}
 \end{equation}
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|l|r|}
+    \hline    
+    {\bf Name} & {\bf Value [A or V]} \\ \hline
+    \input{../mat/tabela1}
+ \end{tabular}
+ \caption{Operating point. A variable preceded by @ is of type {\em current}
+   and expressed in Ampere; other variables are of type {\it voltage} and expressed in
+   Volt.}
+  \label{tab:op}
+\end{table}
 
