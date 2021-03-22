@@ -8,33 +8,36 @@
 
 
 *voltage sources
-Va 0 3 -5.18937402699
+Va 0 3 5.18937402699V
 
-Vnull 3 3b 0.
+Vnull 3 3b 0.V
 
-Hvc 4 7 Vnull -8.32372114868
+Hvc 4 7 Vnull 8.32372114868kOhm
 
 
 *current sources
-Id 5 7 1.00970251859
+Id 7 5 1.00970251859mA
 
-Gib 2 5 1 4 7.32338601881
+Gib 5 2 1 4 7.32338601881mS
 
 
 *resistors
-R1 0 1 1.02738610688
+R1 0 1 1.02738610688kOhm
 
-R2 1 2 2.03394761163
+R2 1 2 2.03394761163kOhm
 
-R3 1 4 3.13880655715
+R3  1 4 3.13880655715kOhm
 
-R4 3 4 4.00338881943
+R4 3 4 4.00338881943kOhm
 
-R5 4 5 3.07163426496
+R5 5 4 3.07163426496kOhm
 
-R6 6 3b 2.05278260557
+R6 6 3b 2.05278260557kOhm
 
-R7 7 6 1.01283324471
+R7 7 6 1.01283324471kOhm
+
+.op
+.end
 
 
 *Control comands
@@ -44,4 +47,5 @@ echo  "op_TAB"
 print @Va[i] @Hvc[i]
 print all
 echo  "op_END"
+
 .endc
