@@ -27,5 +27,3 @@ clean:
 	@rm -rf *.log *.lot *.nlo *.nls *.out *.toc *~ *.*% ./*.pdf ./*.eps
 
 .PHONY: all clean
-
-
