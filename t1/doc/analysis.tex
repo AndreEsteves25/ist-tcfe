@@ -18,3 +18,18 @@ I_2=I_b=K_b V_b = K_b R_3 (I_1+I_2)
 
 where $I_1$ to $I_4$ are the currents flowing through each branch. 
 
+\subsection{Node Analysis}
+Following this method on the 8 nodes, and considering that node 0 has V_{0}=0V we obtained the equations
+
+\begin{equation}
+\begin{cases}
+V_1=V_a\\
+V_1(\frac{1}{R_1})+V_2(-\frac{1}{R_1}-\frac{1}{R_2}-\frac{1}{R_3})+V_3(\frac{1}{R_2})+V_4(\frac{1}{R_3})=0\\
+V_2(\frac{1}{R_2+K_b})+V_3(-\frac{1}{R_2})+V_4(-K_b)=0\\
+V_4+V_6(\frac{K_c}{R_6})-V_7= 0\\
+V_2(-K_b)+V_4(\frac{1}{R_5}+K_b)+V_5(-\frac{1}{R_5})= -I_d\\
+V_6(-\frac{1}{R_6}-\frac{1}{R_7})+V_7(\frac{1}{R_7})= 0\\
+V_2(\frac{1}{R_3})+V_4(-\frac{1}{R_3}-\frac{1}{R_4}-\frac{1}{R_5})+V_5(\frac{1}{R_5})+V_4(\frac{1}{R_7})+V_7(-\frac{1}{R_7})=I_d\\
+\end{cases}
+\end{equation}
+
