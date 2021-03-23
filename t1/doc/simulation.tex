@@ -3,20 +3,17 @@
 
 \subsection{Operating Point Analysis}
 
-Table
-~\ref{tab:op}
-shows the simulated operating point results for the circuit
-under analysis. Compared to the theoretical analysis results, one notices the
-following differences: describe and explain the differences.
+The circuit under analysis was also simulated using Ngspice (revison 31) and table \ref{tab:op} displays the obtained results. It was used the sign convention and the node (and ground) convention already presented in the theoretical analyis except for the voltage sources where ngspice own sign convention implies them to have the inverse sign that they would have in our chosen convention. Apart of that, all data obtained by simulation is in fine tune with the theoretical calculations (all deviations are negligible). It is so, because, given the simplicity of the studied circuit there is no possibility of overaproximation or oversimplification of the system by theoretical models, therefore there is no room for deviations between results obtained with diferent aproaches. 
 
 \begin{table}[h]
   \centering
+  \scalebox{0.8}{
   \begin{tabular}{|l|r|}
     \hline    
     {\bf Name} & {\bf Value [A or V]} \\ \hline
     \input{../sim/op_tab}
- \end{tabular}
- \caption{Operating point. A variable preceded by @ is of type {\em current}
+ \end{tabular}}
+ \caption{Simulation results. A variable preceded by @ is of type {\em current}
    and expressed in Ampere; other variables are of type {\it voltage} and expressed in
    Volt.}
   \label{tab:op}

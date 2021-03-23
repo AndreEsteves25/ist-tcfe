@@ -70,7 +70,7 @@ With these results, one can easily obtain the current flowing through each branc
 
 
 \subsection{Node Analysis}
-In this Analysis we enumerated the 8 nodes, from 0 to 7, as it's shown in the Figure Figure\ref{fig:rc}. We recognized that the GND is connected to node 0, so $V_{0}=0V$. Consequently $V_1$ is equal to the voltage on voltage source $V_a$. In general, we considered node analysis (using KCL and Ohm's Law) on the nodes, in order to discover each voltage associated in each other. Another important aspect we considered while analysing this circuit is that the potencial difference between node 4 and node 7 is equal to $V_c$, so we can say that $V_c=V_4-V_7$. We can also apply KCL in the supernode made up by the linearly dependent voltage source ($V_c$), node 4 and node 7, and state that the sum of the currents that go through $R_5$ and $R_4$ with $I_d$ is equal to the sum of the currents passing on $R_3$ and $R_7$.
+In this Analysis we enumerated the 8 nodes, from 0 to 7, as it's shown in the Figure \ref{fig:rc}. We recognized that the GND is connected to node 0, so $V_{0}=0V$. Consequently $V_1$ is equal to the voltage on voltage source $V_a$. In general, we considered node analysis (using KCL and Ohm's Law) on the nodes, in order to discover each voltage associated in each other. Another important aspect we considered while analysing this circuit is that the potencial difference between node 4 and node 7 is equal to $V_c$, so we can say that $V_c=V_4-V_7$. We can also apply KCL in the supernode made up by the linearly dependent voltage source ($V_c$), node 4 and node 7, and state that the sum of the currents that go through $R_5$ and $R_4$ with $I_d$ is equal to the sum of the currents passing on $R_3$ and $R_7$.
 
 
 Putting all this together we obtained the following equations:
@@ -116,7 +116,7 @@ Finally, solving this linear system, using \textit{GNU Octave}, we have the valu
   \label{tab:op}
 \end{table}
 
-In additional, we can use given equations, $I_b=K_bV_b$ and $I_c=\frac{V_c}{K_c}$, to confirm values obtained before, in mesh analysis: $I_b=-0.307188$ mA; $I_b=0.937495$ mA.
+In additional, we can use given equations, $I_b=K_bV_b$ and $I_c=\frac{V_c}{K_c}$, to confirm values obtained before, in mesh analysis: $I_b=-0.307188$ mA; $I_c=0.937495$ mA.
 
 
 
