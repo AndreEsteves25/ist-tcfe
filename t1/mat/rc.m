@@ -27,43 +27,18 @@ V=A\B
 filename = 'tabela1.tex'
 fid=fopen(filename,'w')
 fid2=fopen('data.tex','w')
-s='\'
-t='hline'
-u=' '
+
 
 I1 = double(V(1)) *1000
 I2 = double(V(2))*1000
 I3 = double(V(3))*1000
 I4 = double(V(4))*1000
 
-fprintf(fid,'I1 & %f ',I1);
-fprintf(fid,s)
-fprintf(fid,s)
-fprintf(fid,u)
-fprintf(fid,s)
-fprintf(fid,t)
-fprintf(fid,'\n')
-fprintf(fid,'I2 & %f ',I2);
-fprintf(fid,s)
-fprintf(fid,s)
-fprintf(fid,u)
-fprintf(fid,s)
-fprintf(fid,t)
-fprintf(fid,'\n')
-fprintf(fid,'I3 & %f ',I3);
-fprintf(fid,s)
-fprintf(fid,s)
-fprintf(fid,u)
-fprintf(fid,s)
-fprintf(fid,t)
-fprintf(fid,'\n')
-fprintf(fid,'I4 & %f ',I4);
-fprintf(fid,s)
-fprintf(fid,s)
-fprintf(fid,u)
-fprintf(fid,s)
-fprintf(fid,t)
-fprintf(fid,'\n')
+
+fprintf(fid,'I1 & %f\\\\ \\hline \n',I1);
+fprintf(fid,'I2 & %f\\\\ \\hline \n',I2);
+fprintf(fid,'I3 & %f\\\\ \\hline \n',I3);
+fprintf(fid,'I4 & %f\\\\ \\hline \n',I4);
 
 IVa = I1
 IR1 = I1
@@ -75,67 +50,19 @@ IR6 = I4
 IR7 = I4
 IVc = I4-I3 
 IId = I3
+IIb = I2
 
-fprintf(fid2,'Va & %f ',IVa);
-fprintf(fid2,s)
-fprintf(fid2,s)
-fprintf(fid2,u)
-fprintf(fid2,s)
-fprintf(fid2,t)
-fprintf(fid2,'\nR1 & %f ',IR1);
-fprintf(fid2,s)
-fprintf(fid2,s)
-fprintf(fid2,u)
-fprintf(fid2,s)
-fprintf(fid2,t)
-fprintf(fid2,'\nR2 & %f ',IR2);
-fprintf(fid2,s)
-fprintf(fid2,s)
-fprintf(fid2,u)
-fprintf(fid2,s)
-fprintf(fid2,t)
-fprintf(fid2,'\nR3 & %f ',IR3);
-fprintf(fid2,s)
-fprintf(fid2,s)
-fprintf(fid2,u)
-fprintf(fid2,s)
-fprintf(fid2,t)
-fprintf(fid2,'\nR4 & %f ',IR4);
-fprintf(fid2,s)
-fprintf(fid2,s)
-fprintf(fid2,u)
-fprintf(fid2,s)
-fprintf(fid2,t)
-fprintf(fid2,'\nR5 & %f ',IR5);
-fprintf(fid2,s)
-fprintf(fid2,s)
-fprintf(fid2,u)
-fprintf(fid2,s)
-fprintf(fid2,t)
-fprintf(fid2,'\nR6 & %f ',IR6);
-fprintf(fid2,s)
-fprintf(fid2,s)
-fprintf(fid2,u)
-fprintf(fid2,s)
-fprintf(fid2,t)
-fprintf(fid2,'\nR7 & %f ',IR7);
-fprintf(fid2,s)
-fprintf(fid2,s)
-fprintf(fid2,u)
-fprintf(fid2,s)
-fprintf(fid2,t)
-fprintf(fid2,'\nVc & %f ',IVc);
-fprintf(fid2,s)
-fprintf(fid2,s)
-fprintf(fid2,u)
-fprintf(fid2,s)
-fprintf(fid2,t)
-fprintf(fid2,'\nId & %f ',IId);
-fprintf(fid2,s)
-fprintf(fid2,s)
-fprintf(fid2,u)
-fprintf(fid2,s)
-fprintf(fid2,t)
+fprintf(fid2,'Va & %f\\\\ \\hline \n',IVa);
+fprintf(fid2,'R1 & %f\\\\ \\hline \n',IR1);
+fprintf(fid2,'R2 & %f\\\\ \\hline \n',IR2);
+fprintf(fid2,'R3 & %f\\\\ \\hline \n',IR3);
+fprintf(fid2,'R4 & %f\\\\ \\hline \n',IR4);
+fprintf(fid2,'R5 & %f\\\\ \\hline \n',IR5);
+fprintf(fid2,'R6 & %f\\\\ \\hline \n',IR6);
+fprintf(fid2,'R7 & %f\\\\ \\hline \n',IR7);
+fprintf(fid2,'Vc & %f\\\\ \\hline \n',IVc);
+fprintf(fid2,'Id & %f\\\\ \\hline \n',IId);
+fprintf(fid2,'Ib & %f\\\\ \\hline \n',IIb);
 
 fclose(fid)
 fclose(fid2)
