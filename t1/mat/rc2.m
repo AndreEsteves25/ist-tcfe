@@ -38,6 +38,9 @@ s='\'
 t='hline'
 u=' '
 
+Vb= double(V(2)) - double(V(4))
+Vc= double(V(4)) - double(V(7))
+
 fprintf(fid,'V0 & %f ',double(O));
 fprintf(fid,s)
 fprintf(fid,s)
@@ -88,6 +91,20 @@ fprintf(fid,s)
 fprintf(fid,t)
 fprintf(fid,'\n')
 fprintf(fid,'V7 & %f ',double(V(7)));
+fprintf(fid,s)
+fprintf(fid,s)
+fprintf(fid,u)
+fprintf(fid,s)
+fprintf(fid,t)
+fprintf(fid,'\n')
+fprintf(fid,'Vb & %f ',Vb);
+fprintf(fid,s)
+fprintf(fid,s)
+fprintf(fid,u)
+fprintf(fid,s)
+fprintf(fid,t)
+fprintf(fid,'\n')
+fprintf(fid,'Vc & %f ',Vc);
 fprintf(fid,s)
 fprintf(fid,s)
 fprintf(fid,u)
