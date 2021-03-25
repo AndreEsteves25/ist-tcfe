@@ -86,19 +86,39 @@ V_4= V_7+V_c\\
 \end{cases}
 \end{equation}
 
-Now we substitute $V_b=V_2-V_4$ and $V_c=-K_c\frac{V_6}{R_6}$ and obtained the following equations system:
+Now we substitute $V_b=V_2-V_4$ and $V_c=-K_c\frac{V_6}{R_6}$ and obtained the following equations system, presented in matrix form:
 
-\begin{equation}
-\begin{cases}
-V_1=V_a\\
-V_1(\frac{1}{R_1})+V_2(-\frac{1}{R_1}-\frac{1}{R_2}-\frac{1}{R_3})+V_3(\frac{1}{R_2})+V_4(\frac{1}{R_3})=0\\
-V_2(\frac{1}{R_2+K_b})+V_3(-\frac{1}{R_2})+V_4(-K_b)=0\\
-V_4+ V_6(\frac{K_c}{R_6})- V_7= 0\\
-V_2(-K_b)+V_4(\frac{1}{R_5}+K_b)+V_5(-\frac{1}{R_5})= -I_d\\
-V_6(-\frac{1}{R_6}-\frac{1}{R_7})+V_7(\frac{1}{R_7})= 0\\
-V_2(\frac{1}{R_3})+V_4(-\frac{1}{R_3}-\frac{1}{R_4}-\frac{1}{R_5})+V_5(\frac{1}{R_5})+V_4(\frac{1}{R_7})+V_7(-\frac{1}{R_7})=I_d\\
-\end{cases}
-\end{equation}
+\begin{gather}
+    \begin{bmatrix}
+     1 & 0 & 0 & 0 & 0 & 0 & 0  \\
+     \frac{1}{R_1} & -\frac{1}{R_1}-\frac{1}{R_2}-\frac{1}{R_3} &\frac{1}{R_2} & \frac{1}{R_3} & 0 & 0 & 0\\
+     0 & \frac{1}{R_2+K_b} & -\frac{1}{R_2}& -K_b & 0 & 0 & 0\\
+     0 & 0 & 0 & 1 & 0 & \frac{K_c}{R_6} & -1\\
+     0 & -K_b & 0 & \frac{1}{R_5}+K_b & -\frac{1}{R_5} & 0 & 0\\
+     0 & 0 & 0 & 0 & 0 & -\frac{1}{R_6}-\frac{1}{R_7} & \frac{1}{R_7}\\
+     0 & \frac{1}{R_3} & 0 & -\frac{1}{R_3}-\frac{1}{R_4}-\frac{1}{R_5} & \frac{1}{R_5} & \frac{1}{R_7} & -\frac{1}{R_7}
+    \end{bmatrix}
+    \begin{bmatrix}
+     V_1\\
+     V_2\\
+     V_3\\
+     V_4\\
+     V_5\\
+     V_6\\
+     V_7
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+     V_a\\
+     0\\
+     0\\
+     0\\
+     -I_d\\
+     0\\
+     I_d
+    \end{bmatrix}
+\end{gather}
+
 
 Finally, solving this linear system, using \textit{GNU Octave}, we have the values of each voltage, in the circuit:
 

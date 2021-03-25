@@ -30,85 +30,21 @@ A=[Z,O,O,O,O,O,O; Z/R1,-Z/R1-Z/R2-Z/R3,Z/R2,Z/R3,O,O,O; O,Kb+Z/R2,-Z/R2,-Kb,O,O,
 B=[Va;O;O;O;-Id;O;Id]
 V=A\B
 
-
-
-filename = 'tabelaNodes.tex'
-fid=fopen(filename,'w')
-s='\'
-t='hline'
-u=' '
-
 Vb= double(V(2)) - double(V(4))
 Vc= double(V(4)) - double(V(7))
 
-fprintf(fid,'V0 & %f ',double(O));
-fprintf(fid,s)
-fprintf(fid,s)
-fprintf(fid,u)
-fprintf(fid,s)
-fprintf(fid,t)
-fprintf(fid,'\n')
-fprintf(fid,'V1 & %f ',double(V(1)));
-fprintf(fid,s)
-fprintf(fid,s)
-fprintf(fid,u)
-fprintf(fid,s)
-fprintf(fid,t)
-fprintf(fid,'\n')
-fprintf(fid,'V2 & %f ',double(V(2)));
-fprintf(fid,s)
-fprintf(fid,s)
-fprintf(fid,u)
-fprintf(fid,s)
-fprintf(fid,t)
-fprintf(fid,'\n')
-fprintf(fid,'V3 & %f ',double(V(3)));
-fprintf(fid,s)
-fprintf(fid,s)
-fprintf(fid,u)
-fprintf(fid,s)
-fprintf(fid,t)
-fprintf(fid,'\n')
-fprintf(fid,'V4 & %f ',double(V(4)));
-fprintf(fid,s)
-fprintf(fid,s)
-fprintf(fid,u)
-fprintf(fid,s)
-fprintf(fid,t)
-fprintf(fid,'\n')
-fprintf(fid,'V5 & %f ',double(V(5)));
-fprintf(fid,s)
-fprintf(fid,s)
-fprintf(fid,u)
-fprintf(fid,s)
-fprintf(fid,t)
-fprintf(fid,'\n')
-fprintf(fid,'V6 & %f ',double(V(6)));
-fprintf(fid,s)
-fprintf(fid,s)
-fprintf(fid,u)
-fprintf(fid,s)
-fprintf(fid,t)
-fprintf(fid,'\n')
-fprintf(fid,'V7 & %f ',double(V(7)));
-fprintf(fid,s)
-fprintf(fid,s)
-fprintf(fid,u)
-fprintf(fid,s)
-fprintf(fid,t)
-fprintf(fid,'\n')
-fprintf(fid,'Vb & %f ',Vb);
-fprintf(fid,s)
-fprintf(fid,s)
-fprintf(fid,u)
-fprintf(fid,s)
-fprintf(fid,t)
-fprintf(fid,'\n')
-fprintf(fid,'Vc & %f ',Vc);
-fprintf(fid,s)
-fprintf(fid,s)
-fprintf(fid,u)
-fprintf(fid,s)
-fprintf(fid,t)
-fprintf(fid,'\n')
+filename = 'tabelaNodes.tex'
+fid=fopen(filename,'w')
+
+fprintf(fid,'V0 & %f\\\\ \\hline \n',double(O));
+fprintf(fid,'V1 & %f\\\\ \\hline \n',double(V(1)));
+fprintf(fid,'V2 & %f\\\\ \\hline \n',double(V(2)));
+fprintf(fid,'V3 & %f\\\\ \\hline \n',double(V(3)));
+fprintf(fid,'V4 & %f\\\\ \\hline \n',double(V(4)));
+fprintf(fid,'V5 & %f\\\\ \\hline \n',double(V(5)));
+fprintf(fid,'V6 & %f\\\\ \\hline \n',double(V(6)));
+fprintf(fid,'V7 & %f\\\\ \\hline \n',double(V(7)));
+fprintf(fid,'Vb & %f\\\\ \\hline \n',Vb);
+fprintf(fid,'Vc & %f\\\\ \\hline \n',Vc);
+
 fclose(fid)
