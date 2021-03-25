@@ -41,7 +41,7 @@ fprintf(fid,'V1 & %f\\\\ \\hline \n',double(V(1)));
 fprintf(fid,'V2 & %f\\\\ \\hline \n',double(V(2)));
 fprintf(fid,'V3 & %f\\\\ \\hline \n',double(V(3)));
 fprintf(fid,'V4 & %f\\\\ \\hline \n',double(V(4)));
-fprintf(fid,'V5 & %f\\\\ \\hline \n',double(V(5)));~
+fprintf(fid,'V5 & %f\\\\ \\hline \n',double(V(5)));
 fprintf(fid,'V6 & %f\\\\ \\hline \n',double(V(6)));
 fprintf(fid,'V7 & %f\\\\ \\hline \n',double(V(7)));
 fprintf(fid,'Vb & %f\\\\ \\hline \n',Vb);
