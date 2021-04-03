@@ -1,0 +1,92 @@
+\section{Simulation Analysis}
+\label{sec:simulation}
+
+\subsection{Operating Point Analysis}
+
+The circuit under analysis was also simulated using Ngspice (revision 31) and table \ref{tab:op} displays the obtained results. It was used the sign convention and the node (and ground) convention already presented in the theoretical analysis except for the voltage sources where Ngspice's own sign convention implies them to have the inverse sign that they would have in our chosen convention. Apart from that, all data obtained by simulation is in fine tune with the theoretical calculations (all deviations are negligible). It is so because given the simplicity of the studied circuit there is no possibility of over-approximation or oversimplification of the system by theoretical models, therefore there is no room for deviations between results obtained with different approaches. 
+
+\begin{table}[h]
+  \centering
+  \scalebox{0.8}{
+  \begin{tabular}{|l|r|}
+    \hline    
+    {\bf Name} & {\bf Value [A or V]} \\ \hline
+    \input{../sim/op_tab}
+ \end{tabular}}
+ \caption{Simulation results. A variable preceded by @ is of type {\em current}
+   and expressed in Ampere; other variables are of type {\it voltage} and expressed in
+   Volt.}
+  \label{tab:op}
+\end{table}
+
+%\lipsum[1-1]
+
+
+%\subsection{Transient Analysis}
+
+%Figure
+%~\ref{fig:trans} 
+%shows the simulated transient analysis results for the
+%circuit under analysis. Compared to the theoretical analysis results, one
+%notices the following differences: describe and explain the differences.
+
+%\begin{figure}[h] \centering
+%\includegraphics[width=0.6\linewidth]{trans.pdf}
+%\caption{Transient output voltage}
+%\label{fig:trans}
+%\end{figure}
+
+%\lipsum[1-1]
+
+
+
+%\subsection{Frequency Analysis}
+
+%\subsubsection{Magnitude Response}
+
+%Figure
+%~\ref{fig:acm}
+%shows the magnitude of the frequency response for the
+%circuit under analysis. Compared to the theoretical analysis results, one
+%notices the following differences: describe and explain the differences.
+
+%\begin{figure}[h] \centering
+%\includegraphics[width=0.6\linewidth]{acm.pdf}
+%\caption{Magnitude response}
+%\label{fig:acm}
+%\end{figure}
+
+%\lipsum[1-1]
+
+%\subsubsection{Phase Response}
+
+%Figure
+%~\ref{fig:acp}
+%shows the magnitude of the frequency response for the
+%circuit under analysis. Compared to the theoretical analysis results, one
+%notices the following differences: describe and explain the differences.
+
+%\begin{figure}[h] \centering
+%\includegraphics[width=0.6\linewidth]{acp.pdf}
+%\caption{Phase response}
+%\label{fig:acp}
+%\end{figure}
+
+%\lipsum[1-1]
+
+%\subsubsection{Input Impedance}
+
+%Figure~\ref{fig:zim} shows the magnitude of the frequency response for the
+%circuit under analysis. Compared to the theoretical analysis results, one
+%notices the following differences: describe and explain the differences.
+
+%\begin{figure}[h] \centering
+%\includegraphics[width=0.6\linewidth]{zim.pdf}
+%\caption{Input impedance}
+%\label{fig:zim}
+%\end{figure}
+
+%\lipsum[1-1]
+
+
+
