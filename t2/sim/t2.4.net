@@ -1,0 +1,71 @@
+*
+* NGSPICE simulation script
+*Title: t2.4
+*
+
+* forces current values to be saved
+.options savecurrents
+
+
+*voltage sources
+Vs 1 0 sin (0 1 1k) 
+
+Vnull 0 0b 0.V
+
+Hvd 5 8 Vnull 8.32372114868kOhm
+
+
+*current sources
+Gib 6 3 2 5 7.32338601881mS
+
+*capacitor
+C 6 8 1.00970251859uF
+.ic V(6) = 8.061307e+00 V(8) = 0
+
+
+*resistors
+R1 1 2 1.02738610688kOhm
+
+R2 3 2 2.03394761163kOhm
+
+R3  2 5 3.13880655715kOhm
+
+R4 5 0 4.00338881943kOhm
+
+R5 6 5 3.07163426496kOhm
+
+R6 0b 7 2.05278260557kOhm
+
+R7 7 8 1.01283324471kOhm
+
+.op
+.end
+
+
+*Control comands
+.control
+
+*makes plots in color
+set hcopypscolor=1
+set color0=white
+set color1=black
+set color2=red
+set color3=blue
+set color4=violet
+set color5=rgb:3/8/0
+set color6=rgb:4/0/0
+
+op
+echo  "op_TAB"
+*print @Vs[i] @Hvd[i] 
+print all
+echo  "op_END"
+
+echo "********************************************"
+echo  "Transient analysis"
+echo "********************************************"
+tran 1e-5 20e-3
+
+hardcopy t2.4.ps V(6)
+
+.endc

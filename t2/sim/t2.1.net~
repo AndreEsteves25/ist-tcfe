@@ -1,0 +1,52 @@
+*
+* NGSPICE simulation script
+*Title: t2.1
+*
+
+* forces current values to be saved
+.options savecurrents
+
+
+*voltage sources
+Vs 1 0 5.18937402699V
+
+Vnull 0 0b 0.V
+
+Hvd 5 8 Vnull 8.32372114868kOhm
+
+
+*current sources
+Gib 6 3 2 5 7.32338601881mS
+
+*capacitor
+C 6 8 1.00970251859uF
+
+
+*resistors
+R1 1 2 1.02738610688kOhm
+
+R2 3 2 2.03394761163kOhm
+
+R3  2 5 3.13880655715kOhm
+
+R4 5 0 4.00338881943kOhm
+
+R5 6 5 3.07163426496kOhm
+
+R6 0b 7 2.05278260557kOhm
+
+R7 7 8 1.01283324471kOhm
+
+.op
+.end
+
+
+*Control comands
+.control
+op
+echo  "op_TAB"
+*print @Vs[i] @Hvd[i] 
+print all
+echo  "op_END"
+
+.endc
