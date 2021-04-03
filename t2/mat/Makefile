@@ -1,9 +1,6 @@
-all: octave.log octave2.log
+all: octave.log
 
-octave.log: rc.m
-	octave $< > $@
-
-octave2.log: rc2.m data.tex octave.log
+octave.log: alinea1.m
 	octave $< > $@
 
 clean:
