@@ -12,7 +12,7 @@ R6 = vpa(2.05278260557*1000)
 R7 = vpa(1.01283324471*1000)
 Vs = vpa(5.18937402699)
 Id = vpa(1.00970251859/1000)
-C  = vpa(1.00970251859) %uF
+C  = vpa(1.00970251859*10^-6) %uF
 Kb=vpa(7.32338601881/1000) %mS
 Kd=vpa(8.32372114868*1000) %KOhm
 O = vpa(0.0)
@@ -97,5 +97,29 @@ fprintf(fid,'V7 & %f\\\\ \\hline \n',double(V(7)));
 fprintf(fid,'V8 & %f\\\\ \\hline \n',double(V(8)));
 fprintf(fid,'Vb & %f\\\\ \\hline \n',Vb);
 fprintf(fid,'Vd & %f\\\\ \\hline \n',double(Vd));
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%alinea 3
+Ix = (double(V(6)) - double(V(5)))/ double(R5)+ double(Kb)*(double(V(2)) - double(V(5)))
+Req= double(Vx/Ix)
+C=double(C)
+V6=double(V(6))
+%time vector
+t = 0.: 1.e-6: 20.e-3;
+a=Req*C
+%natural solution
+v6n =( exp(-t./(Req*C)))*V6 
+
+hf=figure()
+
+plot(t,v6n)
+
+grid on
+
+axis([0, 20e-3, 0, 9]);
+xlabel("t[s]");
+ylabel("v6n[V]");
+%print(hf, "t2-3.pdf");
+print (hf,"t2-3.eps", "-depsc");
 
 fclose(fid)
