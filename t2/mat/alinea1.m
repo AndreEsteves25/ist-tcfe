@@ -33,6 +33,7 @@ V=A\B
 Id=-double(V(7))*G6
 Vb= double(V(2)) - double(V(5))
 Vd= Kd*Id
+Vx= V(6) - V(8)
 
 filename = 'tabelaNodes1.tex'
 fid=fopen(filename,'w')
@@ -72,5 +73,29 @@ fprintf(fid,'I(R6) & %e\\\\ \\hline \n',double(I6));
 fprintf(fid,'I(R7) & %e\\\\ \\hline \n',double(I7));
 fprintf(fid,'Ib & %e\\\\ \\hline \n',double(Ib));
 
+
+fclose(fid)
+
+A=[Z,O,O,O,O,O,O,O; O,G1+G2+G3,-G2,O,-G3,O,O,O; O,-G2-Kb,G2,O,Kb,O,O,O; O,O,O,Z,O,O,O,O; O,O,O,O,Z,O,Kd*G6,-Z; O,O,O,O,O,Z,O,-Z; O,Kb-G3,O,O,G3+G4-Kb,O,-G7,G7; O,O,O,O,O,O,G6+G7, -G7]
+B=[O;O;O;O;O;Vx;O;O]
+V=A\B
+
+Id=-double(V(7))*G6
+Vb= double(V(2)) - double(V(5))
+Vd= Kd*Id
+
+filename = 'tabelaNodes2.tex'
+fid=fopen(filename,'w')
+
+fprintf(fid,'V1 & %f\\\\ \\hline \n',double(V(1)));
+fprintf(fid,'V2 & %f\\\\ \\hline \n',double(V(2)));
+fprintf(fid,'V3 & %f\\\\ \\hline \n',double(V(3)));
+fprintf(fid,'V4 & %f\\\\ \\hline \n',double(V(4)));
+fprintf(fid,'V5 & %f\\\\ \\hline \n',double(V(5)));
+fprintf(fid,'V6 & %f\\\\ \\hline \n',double(V(6)));
+fprintf(fid,'V7 & %f\\\\ \\hline \n',double(V(7)));
+fprintf(fid,'V8 & %f\\\\ \\hline \n',double(V(8)));
+fprintf(fid,'Vb & %f\\\\ \\hline \n',Vb);
+fprintf(fid,'Vd & %f\\\\ \\hline \n',double(Vd));
 
 fclose(fid)
