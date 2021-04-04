@@ -144,7 +144,7 @@ Zc=1/(j*w*C)
 A=[Z,O,O,O,O,O,O;
 -G1, G1+G2+G3,O,-G3,O,O,O;
 O,-G2-Kb,G2,Kb,O,O,O;
-O,O,O,-Z,O,Kd*G6,Z;
+O,O,O,-Z,O,-Kd*G6,Z;
 O,-G3,O,G3+G4+G5,-(G5+j*w*C),G7,j*w*C;
 O,Kb,O,-(Kb+G5),G5+j*w*C,O,-j*w*C;
 O,O,O,O,O,G6+G7,-G7];
