@@ -51,7 +51,6 @@ fprintf(fid,'Vd & %f\\\\ \\hline \n',double(Vd));
 
 
 V6init = double(V(6))
-
 fclose(fid)
 
 I1=(double(V(2))-double(V(1)))*G1
@@ -181,6 +180,8 @@ fprintf(fid,'V6 & %f\\\\ \\hline \n',arg(double(V(5))));
 fprintf(fid,'V7 & %f\\\\ \\hline \n',arg(double(V(6))));
 fprintf(fid,'V8 & %f\\\\ \\hline \n',arg(double(V(7))));
 
+Amp = abs(double(V(5)))
+fase = arg(double(V(5)))
 fclose(fid)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -189,21 +190,28 @@ fclose(fid)
 
 %%%VS
 t = -5.e-3: 1.e-6: 0;
-vs = double(Vs)+0.*t
-hf2=figure()
+vs = double(Vs)+0.*t;
+hf2=figure();
 plot(t,vs,"color","b");
-hold on
+hold on;
 t = 0.: 1.e-6: 20e-3;
-vs = sin(w*t)
+vs = sin(w*t);
 plot(t,vs,"color","b");
 
 
 %%%V6
-%t = -5.e-3: 1.e-6: 0;
-%v6 = 
+t = -5.e-3: 1.e-6: 0;
+v6 = V6init +0*t;
+plot(t,v6,"color","r")
+hold on
+t = 0.: 1.e-6: 20e-3;
+v6f = imag(double(V(5))*exp(j*w*t));
+%v6f = Amp*sin(w*t+fase);
+v6 = v6n+v6f;
+plot(t,v6,"color","r");
 grid on
 
-axis([-5e-3, 20e-3, -1.5, 9]);
+axis([-5e-3, 20e-3, -1.5, 10]);
 xlabel("t[s]");
 ylabel("v6n[V]");
 %print(hf, "t2-3.pdf");
