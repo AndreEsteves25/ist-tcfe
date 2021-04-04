@@ -20,7 +20,7 @@ Gib 6 3 2 5 0mS
 
 *capacitor
 C 6 8 1.00970251859uF
-.ic V(6) = 8.061307e+00 V(8) = 0
+.ic V(6) = 8.747018e+00 V(8) = 0
 
 
 *resistors

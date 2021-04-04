@@ -15,7 +15,7 @@ Vnull 0 0b 0.V
 Hvd 5 8 Vnull 8.32372114868kOhm
 
 *capacitor as voultage source
-Vc 6 8 8.061307V
+Vc 6 8 8.747018e+00V
 
 
 *current sources

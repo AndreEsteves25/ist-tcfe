@@ -47,6 +47,7 @@ op
 echo  "op_TAB"
 *print @Vs[i] @Hvd[i] 
 print all
+print v(6,8)
 echo  "op_END"
 
 .endc
