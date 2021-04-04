@@ -49,6 +49,9 @@ fprintf(fid,'V8 & %f\\\\ \\hline \n',double(V(8)));
 fprintf(fid,'Vb & %f\\\\ \\hline \n',Vb);
 fprintf(fid,'Vd & %f\\\\ \\hline \n',double(Vd));
 
+
+V6init = double(V(6))
+
 fclose(fid)
 
 I1=(double(V(2))-double(V(1)))*G1
@@ -97,6 +100,8 @@ fprintf(fid,'V7 & %f\\\\ \\hline \n',double(V(7)));
 fprintf(fid,'V8 & %f\\\\ \\hline \n',double(V(8)));
 fprintf(fid,'Vb & %f\\\\ \\hline \n',Vb);
 fprintf(fid,'Vd & %f\\\\ \\hline \n',double(Vd));
+
+
 
 fclose(fid)
 
@@ -177,3 +182,29 @@ fprintf(fid,'V7 & %f\\\\ \\hline \n',arg(double(V(6))));
 fprintf(fid,'V8 & %f\\\\ \\hline \n',arg(double(V(7))));
 
 fclose(fid)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%alinea 5
+
+
+%%%VS
+t = -5.e-3: 1.e-6: 0;
+vs = double(Vs)+0.*t
+hf2=figure()
+plot(t,vs,"color","b");
+hold on
+t = 0.: 1.e-6: 20e-3;
+vs = sin(w*t)
+plot(t,vs,"color","b");
+
+
+%%%V6
+%t = -5.e-3: 1.e-6: 0;
+%v6 = 
+grid on
+
+axis([-5e-3, 20e-3, -1.5, 9]);
+xlabel("t[s]");
+ylabel("v6n[V]");
+%print(hf, "t2-3.pdf");
+print (hf2,"t2-5.eps", "-depsc");
