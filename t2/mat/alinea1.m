@@ -156,6 +156,8 @@ O,-G3,O,G3+G4+G5,-(G5+j*w*C),-G7,j*w*C+G7;
 O,Kb,O,-(Kb+G5),G5+j*w*C,O,-j*w*C;
 O,O,O,O,O,G6+G7,-G7];
 
+
+
 B=[Z;O;O;O;O;O;O];
 V=A\B
 
@@ -163,13 +165,13 @@ V=A\B
 filename = 'amplitudes.tex'
 fid=fopen(filename,'w')
 
-fprintf(fid,'V1 & %f\\\\ \\hline \n',abs(double(V(1))));
-fprintf(fid,'V2 & %f\\\\ \\hline \n',abs(double(V(2))));
-fprintf(fid,'V3 & %f\\\\ \\hline \n',abs(double(V(3))));
-fprintf(fid,'V5 & %f\\\\ \\hline \n',abs(double(V(4))));
-fprintf(fid,'V6 & %f\\\\ \\hline \n',abs(double(V(5))));
-fprintf(fid,'V7 & %f\\\\ \\hline \n',abs(double(V(6))));
-fprintf(fid,'V8 & %f\\\\ \\hline \n',abs(double(V(7))));
+fprintf(fid,'V1 & %e\\\\ \\hline \n',abs(double(V(1))));
+fprintf(fid,'V2 & %e\\\\ \\hline \n',abs(double(V(2))));
+fprintf(fid,'V3 & %e\\\\ \\hline \n',abs(double(V(3))));
+fprintf(fid,'V5 & %e\\\\ \\hline \n',abs(double(V(4))));
+fprintf(fid,'V6 & %e\\\\ \\hline \n',abs(double(V(5))));
+fprintf(fid,'V7 & %e\\\\ \\hline \n',abs(double(V(6))));
+fprintf(fid,'V8 & %e\\\\ \\hline \n',abs(double(V(7))));
 
 fclose(fid)
 
@@ -179,13 +181,13 @@ fclose(fid)
 filename = 'phases.tex'
 fid=fopen(filename,'w')
 
-fprintf(fid,'V1 & %f\\\\ \\hline \n',arg(double(V(1))));
-fprintf(fid,'V2 & %f\\\\ \\hline \n',arg(double(V(2))));
-fprintf(fid,'V3 & %f\\\\ \\hline \n',arg(double(V(3))));
-fprintf(fid,'V5 & %f\\\\ \\hline \n',arg(double(V(4))));
-fprintf(fid,'V6 & %f\\\\ \\hline \n',arg(double(V(5))));
-fprintf(fid,'V7 & %f\\\\ \\hline \n',arg(double(V(6))));
-fprintf(fid,'V8 & %f\\\\ \\hline \n',arg(double(V(7))));
+fprintf(fid,'V1 & %e\\\\ \\hline \n',arg(double(V(1))));
+fprintf(fid,'V2 & %e\\\\ \\hline \n',arg(double(V(2))));
+fprintf(fid,'V3 & %e\\\\ \\hline \n',arg(double(V(3))));
+fprintf(fid,'V5 & %e\\\\ \\hline \n',arg(double(V(4))));
+fprintf(fid,'V6 & %e\\\\ \\hline \n',arg(double(V(5))));
+fprintf(fid,'V7 & %e\\\\ \\hline \n',arg(double(V(6))));
+fprintf(fid,'V8 & %e\\\\ \\hline \n',arg(double(V(7))));
 
 Amp = abs(double(V(5)))
 fase = arg(double(V(5)))
