@@ -3,20 +3,20 @@ clear all
 
 pkg load symbolic
 format short g
-R1=vpa(1.02738610688*1000)
-R2=vpa(2.03394761163*1000)
-R3 = vpa(3.13880655715*1000)
-R4 = vpa(4.00338881943*1000)
-R5 = vpa(3.07163426496*1000)
-R6 = vpa(2.05278260557*1000)
-R7 = vpa(1.01283324471*1000)
-Vs = vpa(5.18937402699)
-Id = vpa(1.00970251859/1000)
-C  = vpa(1.00970251859*10^-6) %uF
-Kb=vpa(7.32338601881/1000) %mS
-Kd=vpa(8.32372114868*1000) %KOhm
-O = vpa(0.0)
-Z=vpa(1.0)
+R1=1.02738610688*1000
+R2=(2.03394761163*1000)
+R3 =(3.13880655715*1000)
+R4 = (4.00338881943*1000)
+R5 =(3.07163426496*1000)
+R6 = (2.05278260557*1000)
+R7 = (1.01283324471*1000)
+Vs = (5.18937402699)
+Id = (1.00970251859/1000)
+C  = (1.00970251859*10^-6) %uF
+Kb=(7.32338601881/1000) %mS
+Kd=(8.32372114868*1000) %KOhm
+O = (0.0)
+Z=(1.0)
 
 G1 = Z/R1
 G2 = Z/R2
@@ -201,17 +201,22 @@ vs = double(Vs)+0.*t;
 hf2=figure();
 plot(t,vs,"color","b");
 hold on;
+
+v6 = V6init +0*t;
+plot(t,v6,"color","r");
+
+hold on
+
 t = 0.: 1.e-6: 20e-3;
 vs = sin(w*t);
 plot(t,vs,"color","b");
 
 
 %%%V6
-t = -5.e-3: 1.e-6: 0;
-v6 = V6init +0*t;
-plot(t,v6,"color","r")
+
+
 hold on
-t = 0.: 1.e-6: 20e-3;
+legend("Vs(t)","V6(t)")
 %v6f = imag(double(V(5))*exp(j*w*t));
 v6f = Amp*sin(w*t+fase);
 v6 = v6n+v6f;
@@ -223,3 +228,49 @@ xlabel("t[s]");
 ylabel("v6n[V]");
 %print(hf, "t2-3.pdf");
 print (hf2,"t2-5.eps", "-depsc");
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%alinea6
+clear f
+f=logspace(-2,6,100)
+for i = 1 : 100
+  w = 2*pi*f(i)
+  A=[Z,O,O,O,O,O,O;
+-G1, G1+G2+G3,-G2,-G3,O,O,O;
+O,-G2-Kb,G2,Kb,O,O,O;
+O,O,O,Z,O,Kd*G6,-Z;
+O,-G3,O,G3+G4+G5,-(G5+j*w*C),-G7,j*w*C+G7;
+O,Kb,O,-(Kb+G5),G5+j*w*C,O,-j*w*C;
+O,O,O,O,O,G6+G7,-G7];
+
+
+B=[Z;O;O;O;O;O;O];
+V=A\B;
+
+magn6(i) = abs(double(V(5)));
+phase6(i) = arg(V(5));
+
+Vc = V(5) - V(7);
+magnc(i)= abs(Vc);
+phasec(i)=arg(Vc);
+
+endfor
+
+hf3=figure()
+plot(log10(f),20*log10(magn6),"color","r");
+hold on;
+plot(log10(f),20*log10(magnc),"color","b");
+hold on;
+plot(log10(f),20*log10(1)+0*f,"color","g");
+
+grid on;
+legend("V6(t)","Vc(t)","Vs(t)");
+%axis([-5e-3, 20e-3, -1.5, 10]);
+xlabel("log(f)");
+ylabel("magnitude dB");
+%print(hf, "t2-3.pdf");
+print (hf3,"t2-6.eps", "-depsc");
+
+%EM FALTA : FAZER PLOT DAS FASES MAS TOU A ESPERA QUE O STOR ME RESPONDA
+%EM GRUAS!
