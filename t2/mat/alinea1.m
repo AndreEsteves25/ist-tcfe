@@ -26,8 +26,8 @@ G5 = Z/R5
 G6 = Z/R6
 G7 = Z/R7
 
-A=[Z,O,O,O,O,O,O,O; -G1,G1+G2+G3,-G2,O,-G3,O,O,O; O,-G2-Kb,G2,O,Kb,O,O,O; O,O,O,Z,O,O,O,O;O,O,O,O,Z,O,Kd*G6,-Z; O,-G3,O,O,G3+G4+G5,-G5,-G7,G7; O,Kb,O,O,-Kb-G5,G5,O,O; O,O,O,O,O,O,G6+G7, -G7]
-B=[Vs;O;O;O;O;O;O;O]
+A=[Z,O,O,O,O,O,O,O; -G1,G1+G2+G3,-G2,O,-G3,O,O,O; O,-G2-Kb,G2,O,Kb,O,O,O; O,O,O,Z,O,O,O,O;O,O,O,O,Z,O,Kd*G6,-Z; O,-G3,O,O,G3+G4+G5,-G5,-G7,G7; O,Kb,O,O,-Kb-G5,G5,O,O; O,O,O,O,O,O,G6+G7, -G7];
+B=[Vs;O;O;O;O;O;O;O];
 V=A\B
 
 Id=-double(V(7))*G6
@@ -76,8 +76,8 @@ fprintf(fid,'Ib & %e\\\\ \\hline \n',double(Ib));
 
 fclose(fid)
 
-A=[Z,O,O,O,O,O,O,O; O,G1+G2+G3,-G2,O,-G3,O,O,O; O,-G2-Kb,G2,O,Kb,O,O,O; O,O,O,Z,O,O,O,O; O,O,O,O,Z,O,Kd*G6,-Z; O,O,O,O,O,Z,O,-Z; O,Kb-G3,O,O,G3+G4-Kb,O,-G7,G7; O,O,O,O,O,O,G6+G7, -G7]
-B=[O;O;O;O;O;Vx;O;O]
+A=[Z,O,O,O,O,O,O,O; O,G1+G2+G3,-G2,O,-G3,O,O,O; O,-G2-Kb,G2,O,Kb,O,O,O; O,O,O,Z,O,O,O,O; O,O,O,O,Z,O,Kd*G6,-Z; O,O,O,O,O,Z,O,-Z; O,Kb-G3,O,O,G3+G4-Kb,O,-G7,G7; O,O,O,O,O,O,G6+G7, -G7];
+B=[O;O;O;O;O;Vx;O;O];
 V=A\B
 
 Id=-double(V(7))*G6
@@ -111,11 +111,11 @@ V6=double(V(6))
 t = 0.: 1.e-6: 20.e-3;
 a=Req*C
 %natural solution
-v6n =( exp(-t./(Req*C)))*V6 
+v6n =( exp(-t./(Req*C)))*V6 ;
 
 hf=figure()
 
-plot(t,v6n)
+plot(t,v6n);
 
 grid on
 
@@ -143,8 +143,37 @@ O,-G2-Kb,G2,Kb,O,O,O;
 O,O,O,-Z,O,Kd*G6,Z;
 O,-G3,O,G3+G4+G5,-(G5+j*w*C),G7,j*w*C;
 O,Kb,O,-(Kb+G5),G5+j*w*C,O,-j*w*C;
-O,O,O,O,O,G6+G7,-G7]
+O,O,O,O,O,G6+G7,-G7];
 
-B=[Vs;O;O;O;O;O;O]
+B=[Vs;O;O;O;O;O;O];
 V=A\B
 
+%printing out table w/ the complex amplitudes in the nodes
+filename = 'amplitudes.tex'
+fid=fopen(filename,'w')
+
+fprintf(fid,'V1 & %f\\\\ \\hline \n',abs(double(V(1))));
+fprintf(fid,'V2 & %f\\\\ \\hline \n',abs(double(V(2))));
+fprintf(fid,'V3 & %f\\\\ \\hline \n',abs(double(V(3))));
+fprintf(fid,'V5 & %f\\\\ \\hline \n',abs(double(V(4))));
+fprintf(fid,'V6 & %f\\\\ \\hline \n',abs(double(V(5))));
+fprintf(fid,'V7 & %f\\\\ \\hline \n',abs(double(V(6))));
+fprintf(fid,'V8 & %f\\\\ \\hline \n',abs(double(V(7))));
+
+fclose(fid)
+
+%printing out table w/ the phase in each node
+%(fase relativa a V1)
+%acho que nao e preciso mas so para ver
+filename = 'phases.tex'
+fid=fopen(filename,'w')
+
+fprintf(fid,'V1 & %f\\\\ \\hline \n',arg(double(V(1))));
+fprintf(fid,'V2 & %f\\\\ \\hline \n',arg(double(V(2))));
+fprintf(fid,'V3 & %f\\\\ \\hline \n',arg(double(V(3))));
+fprintf(fid,'V5 & %f\\\\ \\hline \n',arg(double(V(4))));
+fprintf(fid,'V6 & %f\\\\ \\hline \n',arg(double(V(5))));
+fprintf(fid,'V7 & %f\\\\ \\hline \n',arg(double(V(6))));
+fprintf(fid,'V8 & %f\\\\ \\hline \n',arg(double(V(7))));
+
+fclose(fid)
