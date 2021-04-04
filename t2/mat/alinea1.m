@@ -98,6 +98,9 @@ fprintf(fid,'V8 & %f\\\\ \\hline \n',double(V(8)));
 fprintf(fid,'Vb & %f\\\\ \\hline \n',Vb);
 fprintf(fid,'Vd & %f\\\\ \\hline \n',double(Vd));
 
+fclose(fid)
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %alinea 3
 Ix = (double(V(6)) - double(V(5)))/ double(R5)+ double(Kb)*(double(V(2)) - double(V(5)))
@@ -122,4 +125,26 @@ ylabel("v6n[V]");
 %print(hf, "t2-3.pdf");
 print (hf,"t2-3.eps", "-depsc");
 
-fclose(fid)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%alinea4
+
+
+%capacitor impedance
+f=1e3 %Hz
+w=2*pi*f
+Zc=1/(j*w*C)
+
+%running nodal analysis to discover the phasor voltages in all nodes
+
+% V1  V2  V3  V5  V6  V7  V8
+A=[Z,O,O,O,O,O,O;
+-G1, G1+G2+G3,O,-G3,O,O,O;
+O,-G2-Kb,G2,Kb,O,O,O;
+O,O,O,-Z,O,Kd*G6,Z;
+O,-G3,O,G3+G4+G5,-(G5+j*w*C),G7,j*w*C;
+O,Kb,O,-(Kb+G5),G5+j*w*C,O,-j*w*C;
+O,O,O,O,O,G6+G7,-G7]
+
+B=[Vs;O;O;O;O;O;O]
+V=A\B
+
