@@ -26,7 +26,14 @@ G5 = Z/R5
 G6 = Z/R6
 G7 = Z/R7
 
-A=[Z,O,O,O,O,O,O,O; -G1,G1+G2+G3,-G2,O,-G3,O,O,O; O,-G2-Kb,G2,O,Kb,O,O,O; O,O,O,Z,O,O,O,O;O,O,O,O,Z,O,Kd*G6,-Z; O,-G3,O,O,G3+G4+G5,-G5,-G7,G7; O,Kb,O,O,-Kb-G5,G5,O,O; O,O,O,O,O,O,G6+G7, -G7];
+A=[Z,O,O,O,O,O,O,O;
+-G1,G1+G2+G3,-G2,O,-G3,O,O,O;
+O,-G2-Kb,G2,O,Kb,O,O,O;
+O,O,O,Z,O,O,O,O;
+O,O,O,O,Z,O,Kd*G6,-Z;
+O,-G3,O,O,G3+G4+G5,-G5,-G7,G7;
+O,Kb,O,O,-Kb-G5,G5,O,O;
+O,O,O,O,O,O,G6+G7, -G7];
 B=[Vs;O;O;O;O;O;O;O];
 V=A\B
 
@@ -142,14 +149,14 @@ Zc=1/(j*w*C)
 
 % V1  V2  V3  V5  V6  V7  V8
 A=[Z,O,O,O,O,O,O;
--G1, G1+G2+G3,O,-G3,O,O,O;
+-G1, G1+G2+G3,-G2,-G3,O,O,O;
 O,-G2-Kb,G2,Kb,O,O,O;
-O,O,O,-Z,O,-Kd*G6,Z;
-O,-G3,O,G3+G4+G5,-(G5+j*w*C),G7,j*w*C;
+O,O,O,Z,O,Kd*G6,-Z;
+O,-G3,O,G3+G4+G5,-(G5+j*w*C),-G7,j*w*C+G7;
 O,Kb,O,-(Kb+G5),G5+j*w*C,O,-j*w*C;
 O,O,O,O,O,G6+G7,-G7];
 
-B=[Vs;O;O;O;O;O;O];
+B=[Z;O;O;O;O;O;O];
 V=A\B
 
 %printing out table w/ the complex amplitudes in the nodes
@@ -205,8 +212,8 @@ v6 = V6init +0*t;
 plot(t,v6,"color","r")
 hold on
 t = 0.: 1.e-6: 20e-3;
-v6f = imag(double(V(5))*exp(j*w*t));
-%v6f = Amp*sin(w*t+fase);
+%v6f = imag(double(V(5))*exp(j*w*t));
+v6f = Amp*sin(w*t+fase);
 v6 = v6n+v6f;
 plot(t,v6,"color","r");
 grid on
