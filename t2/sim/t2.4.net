@@ -20,8 +20,7 @@ Gib 6 3 2 5 7.32338601881mS
 
 *capacitor
 C 6 8 1.00970251859uF
-.ic V(6) = 8.747018e+00 V(8) = 0
-
+.ic V(0) = 0 V(0b) = 0 V(1) = 0 V(2) = 0 V(3) = 0 v(5) = 0 V(6) = 8.747018e+00 V(7) = 0 V(8) = 0
 
 *resistors
 R1 1 2 1.02738610688kOhm
@@ -66,6 +65,6 @@ echo  "Transient analysis"
 echo "********************************************"
 tran 1e-5 20e-3
 
-hardcopy t2.4.ps V(6)
+hardcopy t2.4.ps V(6) V(1)
 
 .endc
