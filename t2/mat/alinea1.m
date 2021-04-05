@@ -235,7 +235,7 @@ print (hf2,"t2-5.eps", "-depsc");
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %alinea6
 clear f
-f=logspace(-2,6,100)
+f=logspace(-1,6,100)
 for i = 1 : 100
   w = 2*pi*f(i)
   A=[Z,O,O,O,O,O,O;
@@ -268,7 +268,7 @@ plot(log10(f),20*log10(1)+0*f,"color","g");
 
 grid on;
 legend("V6(t)","Vc(t)","Vs(t)");
-%axis([-5e-3, 20e-3, -1.5, 10]);
+%axis([0.1, 1e6, -1.5, 10]);
 xlabel("log(f)");
 ylabel("magnitude dB");
 %print(hf, "t2-3.pdf");
