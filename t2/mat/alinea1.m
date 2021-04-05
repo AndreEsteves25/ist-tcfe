@@ -15,7 +15,7 @@ R5 = a(36)*1000;
 R6 = a(38)*1000;
 R7 = a(40)*1000;
 Vs = a(42);
-C = a(44) *10^-6;
+C = a(44);
 Kb = a(46)/1000;
 Kd = a(48)*1000;
 O = (0.0)
@@ -67,8 +67,6 @@ fprintf(fid,".param pVx = %.11fV",Vx);
 fclose(fid)
 
 
-
-  
 filename = 'tabelaNodes1.tex'
 fid=fopen(filename,'w')
 
