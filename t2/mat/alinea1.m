@@ -7,17 +7,17 @@ format short g
 
 [a] = textread("../data.txt", "%f", 'delimiter', '= ', "endofline", "\n");
 #a
-R1 = a(28)*1000
-R2 = a(30)*1000
-R3 = a(32)*1000
-R4 = a(34)*1000
-R5 = a(36)*1000
-R6 = a(38)*1000
-R7 = a(40)*1000
-Vs = a(42)
-C = a(44) *10^-6
-Kb = a(46)/1000
-Kd = a(48)*1000
+R1 = a(28)*1000;
+R2 = a(30)*1000;
+R3 = a(32)*1000;
+R4 = a(34)*1000;
+R5 = a(36)*1000;
+R6 = a(38)*1000;
+R7 = a(40)*1000;
+Vs = a(42);
+C = a(44) *10^-6;
+Kb = a(46)/1000;
+Kd = a(48)*1000;
 O = (0.0)
 Z=(1.0)
 
@@ -261,7 +261,7 @@ magnc(i)= abs(Vc);
 phasec(i)=arg(Vc);
 
 endfor
-
+%ploting magnitudes..
 hf3=figure()
 plot(log10(f),20*log10(magn6),"color","r");
 hold on;
@@ -275,7 +275,17 @@ legend("V6(t)","Vc(t)","Vs(t)");
 xlabel("log(f)");
 ylabel("magnitude dB");
 %print(hf, "t2-3.pdf");
-print (hf3,"t2-6.eps", "-depsc");
+print (hf3,"t2-6magn.eps", "-depsc");
 
-%EM FALTA : FAZER PLOT DAS FASES MAS TOU A ESPERA QUE O STOR ME RESPONDA
-%EM GRUAS!
+%ploting phases...
+hf4=figure()
+plot(log10(f),phase6*180./pi,"color","r");
+hold on;
+plot(log10(f),phasec*180./pi,"color","b");
+hold on;
+plot(log10(f),0*f,"color","g");
+grid on;
+legend("V6(t)","Vc(t)","Vs(t)");
+xlabel("log(f)");
+ylabel("phase (degrees)");
+print (hf4,"t2-6phas.eps", "-depsc");
