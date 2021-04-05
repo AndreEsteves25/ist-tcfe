@@ -68,7 +68,7 @@ echo  "Transient analysis"
 echo "********************************************"
 tran 1e-5 20e-3
 
-*hardcopy t2.4.ps V(6)
+hardcopy t2.4.ps V(6)
 
 echo "********************************************"
 echo  "Frequency analysis"

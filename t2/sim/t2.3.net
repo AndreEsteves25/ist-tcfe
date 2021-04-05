@@ -45,10 +45,10 @@ R7 7 8 1.01283324471kOhm
 *Control comands
 .control
 op
-echo  "op_TAB"
+*echo  "op_TAB"
 *print @Vs[i] @Hvd[i] 
-print all
-echo  "op_END"
+*print all
+*echo  "op_END"
 
 echo "********************************************"
 echo  "Transient analysis"
@@ -56,5 +56,6 @@ echo "********************************************"
 tran 1e-5 20e-3
 
 hardcopy t2.3.ps V(6)
+echo t2.3_FIG
 
 .endc

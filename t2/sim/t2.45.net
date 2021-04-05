@@ -1,6 +1,6 @@
 *
 * NGSPICE simulation script
-*Title: t2.4
+*Title: t2.5
 *
 
 * forces current values to be saved
@@ -8,7 +8,7 @@
 
 
 *voltage sources
-Vs 1 0 sin (0 1 1k) 
+Vs 1 0 0 ac 1.0 sin (0 1 1k) 
 
 Vnull 0 0b 0.V
 
@@ -20,7 +20,8 @@ Gib 6 3 2 5 7.32338601881mS
 
 *capacitor
 C 6 8 1.00970251859uF
-.ic V(0) = 0 V(0b) = 0 V(1) = 0 V(2) = 0 V(3) = 0 v(5) = 0 V(6) = 8.747018e+00 V(7) = 0 V(8) = 0
+.ic V(6) = 8.747018e+00 V(8) = 0
+
 
 *resistors
 R1 1 2 1.02738610688kOhm
@@ -44,6 +45,7 @@ R7 7 8 1.01283324471kOhm
 *Control comands
 .control
 
+
 *makes plots in color
 set hcopypscolor=1
 set color0=white
@@ -54,17 +56,30 @@ set color4=violet
 set color5=rgb:3/8/0
 set color6=rgb:4/0/0
 
+
 op
-echo  "op_TAB"
+*echo  "op_TAB"
 *print @Vs[i] @Hvd[i] 
-print all
-echo  "op_END"
+*print all
+*echo  "op_END"
 
 echo "********************************************"
 echo  "Transient analysis"
 echo "********************************************"
 tran 1e-5 20e-3
 
-hardcopy t2.4.ps V(6) V(1)
+hardcopy t2.4.ps V(6)
+echo t2.4_FIG
+
+echo "********************************************"
+echo  "Frequency analysis"
+echo "********************************************"
+
+ac dec 10 0.1 1MEG
+
+*hardcopy t2.5.ps db(v(6)) db(v(1))
+*hardcopy t2.5.ps vdb(6) vdb(1)
+hardcopy t2.5.ps v(6) v(1)
+echo t2.5_FIG
 
 .endc
