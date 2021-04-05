@@ -22,8 +22,18 @@ O = (0.0)
 Z=(1.0)
 
 %writing data to ngspice
-fid=fopen("../sim/ngspicedata.txt","w");
-fprintf(fid,"%3.8f \n%3.8f \n%3.8f \n%3.8f \n%3.8f \n%3.8f \n%3.8f \n%1.11f \n%.17f \n%.14f \n",R1,R2,R3,R4,R5,R6,R7,Vs,C,Kb,Kd)
+fid=fopen("../sim/data1.txt","w");
+fprintf(fid,".param pR1 = %3.8fOhm\n",R1);
+fprintf(fid,".param pR2 = %3.8fOhm\n",R2);
+fprintf(fid,".param pR3 = %3.8fOhm\n",R3);
+fprintf(fid,".param pR4 = %3.8fOhm\n",R4);
+fprintf(fid,".param pR5 = %3.8fOhm\n",R5);
+fprintf(fid,".param pR6 = %3.8fOhm\n",R6);
+fprintf(fid,".param pR7 = %3.8fOhm\n",R7);
+fprintf(fid,".param pVs = %1.11fV\n",Vs);
+fprintf(fid,".param pC = %.17fF\n",C);
+fprintf(fid,".param pKb = %.14fS\n",Kb);
+fprintf(fid,".param pKd = %3.8fOhm\n",Kd);
 fclose(fid);
 
 G1 = Z/R1
@@ -50,6 +60,15 @@ Vb= double(V(2)) - double(V(5))
 Vd= Kd*Id
 Vx= V(6) - V(8)
 
+fid = fopen("../sim/data2.txt","w");
+
+fprintf(fid,".param pVx = %.11fV",Vx);
+
+fclose(fid)
+
+
+
+  
 filename = 'tabelaNodes1.tex'
 fid=fopen(filename,'w')
 
@@ -64,9 +83,13 @@ fprintf(fid,'V8 & %f\\\\ \\hline \n',double(V(8)));
 fprintf(fid,'Vb & %f\\\\ \\hline \n',Vb);
 fprintf(fid,'Vd & %f\\\\ \\hline \n',double(Vd));
 
+fclose(fid)
+
+
+
 
 V6init = double(V(6))
-fclose(fid)
+
 
 I1=(double(V(2))-double(V(1)))*G1
 I2=(double(V(2))-double(V(3)))*G2
@@ -115,10 +138,14 @@ fprintf(fid,'V8 & %f\\\\ \\hline \n',double(V(8)));
 fprintf(fid,'Vb & %f\\\\ \\hline \n',Vb);
 fprintf(fid,'Vd & %f\\\\ \\hline \n',double(Vd));
 
-
-
 fclose(fid)
 
+
+fid = fopen("../sim/data3.txt","w");
+
+fprintf(fid,".param pV6 = %.11fV\n",V(6));
+fprintf(fid,".param pV8 = %.11fV",V(8));
+fclose(fid)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %alinea 3
