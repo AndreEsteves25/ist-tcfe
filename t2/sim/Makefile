@@ -31,6 +31,6 @@ ngspice.log: t2.1.net
 	ngspice -b t2.45.net -o 45.log
 
 clean:
-	@rm -f *.log *.tex *.pdf *.ps *~
+	@rm -f *.log *.tex *.pdf *.ps *.txt *~
 
 .PHONY: all clean
