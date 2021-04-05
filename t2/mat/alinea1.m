@@ -31,10 +31,12 @@ fprintf(fid,".param pR5 = %3.8fOhm\n",R5);
 fprintf(fid,".param pR6 = %3.8fOhm\n",R6);
 fprintf(fid,".param pR7 = %3.8fOhm\n",R7);
 fprintf(fid,".param pVs = %1.11fV\n",Vs);
-fprintf(fid,".param pC = %.17fF\n",C);
+fprintf(fid,".param pC = %.17fuF\n",C);
 fprintf(fid,".param pKb = %.14fS\n",Kb);
 fprintf(fid,".param pKd = %3.8fOhm\n",Kd);
 fclose(fid);
+
+C = a(44) *10^-6;
 
 G1 = Z/R1
 G2 = Z/R2
