@@ -31,7 +31,7 @@ fprintf(fid,".param pR5 = %3.8fOhm\n",R5);
 fprintf(fid,".param pR6 = %3.8fOhm\n",R6);
 fprintf(fid,".param pR7 = %3.8fOhm\n",R7);
 fprintf(fid,".param pVs = %1.11fV\n",Vs);
-fprintf(fid,".param pC = %.17fuF\n",C);
+fprintf(fid,".param pC = %.11fuF\n",C);
 fprintf(fid,".param pKb = %.14fS\n",Kb);
 fprintf(fid,".param pKd = %3.8fOhm\n",Kd);
 fclose(fid);
