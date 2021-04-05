@@ -4,7 +4,7 @@ clear all
 pkg load symbolic
 format short g
 
-
+%reading data from data.txt
 [a] = textread("../data.txt", "%f", 'delimiter', '= ', "endofline", "\n");
 #a
 R1 = a(28)*1000;
@@ -20,6 +20,11 @@ Kb = a(46)/1000;
 Kd = a(48)*1000;
 O = (0.0)
 Z=(1.0)
+
+%writing data to ngspice
+fid=fopen("../sim/ngspicedata.txt","w");
+fprintf(fid,"%3.8f \n%3.8f \n%3.8f \n%3.8f \n%3.8f \n%3.8f \n%3.8f \n%1.11f \n%.17f \n%.14f \n",R1,R2,R3,R4,R5,R6,R7,Vs,C,Kb,Kd)
+fclose(fid);
 
 G1 = Z/R1
 G2 = Z/R2
