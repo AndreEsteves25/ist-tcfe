@@ -44,6 +44,17 @@ R7 7 8 1.01283324471kOhm
 
 *Control comands
 .control
+
+*makes plots in color
+set hcopypscolor=1
+set color0=white
+set color1=black
+set color2=red
+set color3=blue
+set color4=violet
+set color5=rgb:3/8/0
+set color6=rgb:4/0/0
+
 op
 *echo  "op_TAB"
 *print @Vs[i] @Hvd[i] 
