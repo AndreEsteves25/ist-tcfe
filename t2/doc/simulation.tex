@@ -1,45 +1,76 @@
 \section{Simulation Analysis}
 \label{sec:simulation}
 
-The circuit under analysis was also simulated using Ngspice (revision 31) and maintaning the already mentioned node convention (\ref{fig:rc}). The forward subsections establish a comparation between theoretical and simulation results.
+The circuit under analysis was also simulated using Ngspice (revision 31) and maintaning the already mentioned node convention (figure \ref{fig:rc}). The forward subsections establish a comparation between theoretical and simulation results.
 
 \subsection{Operating Point Analysis for t$<$0}
 
-At t<0, all voltage and current sources have constant output, so the capacitor is inactive (equivalent to an open circuit), leaving a simple and linear circuit. So it is not strange that theoretical(\ref{tab:op1}) and simulation(\ref{tab:op1}) results are in fine tune.
+At t$<$0, all voltage and current sources have constant output, so the capacitor is inactive (equivalent to an open circuit), leaving a simple and linear circuit. So it is not strange that theoretical(table \ref{comp1}) and simulation (table \ref{tab:op1}) results are in fine tune.
 
 
-\begin{table}[h]
-  \centering
-  \scalebox{0.8}{
+\begin{table}[!htb]
+  \begin{minipage}{.5\linewidth}
+     \centering
   \begin{tabular}{|l|r|}
     \hline    
     {\bf Name} & {\bf Value [A or V]} \\ \hline
     \input{../sim/op_tab1}
- \end{tabular}}
+ \end{tabular}
  \caption{Simulation results. A variable preceded by @ is of type {\em current}
    and expressed in Ampere; other variables are of type {\it voltage} and expressed in
    Volt.}
-  \label{tab:op1}
+ \label{tab:op1}
+  \end{minipage}%
+  \hspace{3mm}
+    \begin{minipage}{.5\linewidth}
+      \centering
+        \begin{tabular}{|c|c|}
+        \hline    
+        {\bf Branch} & {\bf I[A]} \\ \hline
+        \input{../mat/tabelaIbranches1.tex}
+        \hline
+        \hline    
+        {\bf Node} & {\bf V\textsubscript{i} [V]} \\ \hline
+        \input{../mat/tabelaNodes1.tex}
+        \end{tabular}
+        \caption{Current values on each branch and voltage values on each node(t$<$0)}
+        \label{comp1}
+    \end{minipage} 
 \end{table}
+
+
 
 
 \subsection{Operating Point Analysis for t$=$0}
 
-Having simulated the circuit for t$<$0, there must be performed an intermidate step at t=0, before jumping to the transient analyis imposed by the sinosoidal output of Vs at t$\geq$0. This additional step is the calculation of the initial conditions for the capacitor' terminals at the transient phase. This values are obtained having Vs=0, and replacing the capacitor by a voltage source that imposes the voltage diference verified between the capacitor' terminals at t<0 (nodes 6 and 8). Given the conditions of simplicity, this step, much like the previous one, shows a great deal of consistency between simulation (table \ref{tab:op1}) and theoretical (table \ref{tab:op1}) results. 
+Having simulated the circuit for t$<$0, there must be performed an intermidate step at t=0, before jumping to the transient analyis imposed by the sinosoidal output of Vs at t$\geq$0. This additional step is the calculation of the initial conditions for the capacitor' terminals at the transient phase. This values are obtained having Vs=0, and replacing the capacitor by a voltage source that imposes the voltage diference verified between the capacitor' terminals at t$<$0 (nodes 6 and 8). Given the conditions of simplicity, this step, much like the previous one, shows a great deal of consistency between simulation (table \ref{tab:op2}) and theoretical (table \ref{comp2}) results. 
 
-\begin{table}[h]
-  \centering
-  \scalebox{0.8}{
+\begin{table}[!htb]
+  \begin{minipage}{.5\linewidth}
+     \centering
   \begin{tabular}{|l|r|}
     \hline    
     {\bf Name} & {\bf Value [A or V]} \\ \hline
     \input{../sim/op_tab2}
- \end{tabular}}
+ \end{tabular}
  \caption{Simulation results. A variable preceded by @ is of type {\em current}
    and expressed in Ampere; other variables are of type {\it voltage} and expressed in
    Volt.}
-  \label{tab:op2}
+ \label{tab:op2}
+  \end{minipage}%
+  \hspace{3mm}
+    \begin{minipage}{.5\linewidth}
+      \centering
+        \begin{tabular}{|c|c|}
+        \hline    
+        {\bf Node} & {\bf V\textsubscript{i} [V]} \\ \hline
+        \input{../mat/tabelaNodes2.tex}
+        \end{tabular}
+        \caption{Current values on each branch and voltage values on each node(t$<$0)}
+        \label{comp2}
+    \end{minipage} 
 \end{table}
+
 
 %\lipsum[1-1]
 
@@ -59,14 +90,23 @@ Having find the initial conditions for the capacitor, it followed the simulation
 
 \subsubsection{Natural Response}
 
-With the purpose of gaining more terms of comparation between theoretical and simulation results, a simulation of the natural response (wich corresponds to switch of all sources leaving behind the resistors and the capacitor) of the circuit under the capacitor's influence was made and in the likes of the previous results the theoretical analyis (table \ref{fig:trans1}) and the simulation (table \ref{fig:trans1}) were greatly tuned.
+With the purpose of gaining more terms of comparation between theoretical and simulation results, a simulation of the natural response (wich corresponds to switch of all sources leaving behind the resistors and the capacitor) of the circuit under the capacitor's influence was made and in the likes of the previous results the theoretical analyis (table \ref{compnat}) and the simulation (table \ref{fig:trans1}) were greatly tuned.
 
 \begin{figure}[h] \centering
-\includegraphics[width=0.6\linewidth]{../sim/t2.3.pdf}
-\caption{Transient voltage in node 6 related to time (natural response)}
-\label{fig:trans1}
+  \begin{minipage}{.5\linewidth}
+    \vspace{-3mm}
+    \includegraphics[width=0.8\linewidth]{../sim/t2.3.pdf}
+    \caption{Transient voltage in node 6 related to time (natural response)}
+    \label{fig:trans1}
+    \end{minipage}%
+    \begin{minipage}{.5\textwidth}
+  \centering
+    \includegraphics[width=\linewidth]{t2-3.eps}
+    \caption{Transient voltage in node 6 related to time (natural response)}
+    \label{compnat}
+      \end{minipage}%
 \end{figure}
-
+  
 \subsubsection{Total Response}
 
 The transient analyisis was closed with the simulation of the total response (initial conditions for t=0 were set and a simulation of the complete circuit was performed) and being this a simple and linear circuits it was verified (one more time) that the theoretical analysis (figure \ref{fig:trans2}) and the simluation (figure \ref{fig:trans2}) had output tuned results.
