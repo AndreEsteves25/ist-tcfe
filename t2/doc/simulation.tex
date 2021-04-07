@@ -90,33 +90,42 @@ Having find the initial conditions for the capacitor, it followed the simulation
 
 \subsubsection{Natural Response}
 
-With the purpose of gaining more terms of comparation between theoretical and simulation results, a simulation of the natural response (wich corresponds to switch of all sources leaving behind the resistors and the capacitor) of the circuit under the capacitor's influence was made and in the likes of the previous results the theoretical analyis (table \ref{compnat}) and the simulation (table \ref{fig:trans1}) were greatly tuned.
+With the purpose of gaining more terms of comparation between theoretical and simulation results, a simulation of the natural response (wich corresponds to switch of all sources leaving behind the resistors and the capacitor) of the circuit under the capacitor's influence was made and in the likes of the previous results the theoretical analyis (figure \ref{fig:compnat}) and the simulation (figure \ref{fig:trans1}) were greatly tuned.
 
 \begin{figure}[h] \centering
-  \begin{minipage}{.5\linewidth}
-    \vspace{-3mm}
-    \includegraphics[width=0.8\linewidth]{../sim/t2.3.pdf}
+  \begin{minipage}{.5\textwidth}
+    \includegraphics[width=\textwidth]{../sim/t2.3.pdf}
     \caption{Transient voltage in node 6 related to time (natural response)}
     \label{fig:trans1}
     \end{minipage}%
-    \begin{minipage}{.5\textwidth}
+  \begin{minipage}{.5\textwidth}
+    \vspace{10mm}
   \centering
-    \includegraphics[width=\linewidth]{t2-3.eps}
+    \includegraphics[width=\textwidth]{t2-3.eps}
     \caption{Transient voltage in node 6 related to time (natural response)}
-    \label{compnat}
+    \label{fig:compnat}
       \end{minipage}%
 \end{figure}
   
 \subsubsection{Total Response}
 
-The transient analyisis was closed with the simulation of the total response (initial conditions for t=0 were set and a simulation of the complete circuit was performed) and being this a simple and linear circuits it was verified (one more time) that the theoretical analysis (figure \ref{fig:trans2}) and the simluation (figure \ref{fig:trans2}) had output tuned results.
+The transient analyisis was closed with the simulation of the total response (initial conditions for t=0 were set and a simulation of the complete circuit was performed) and being this a simple and linear circuits it was verified (one more time) that the theoretical analysis (figure \ref{fig:comptot}) and the simluation (figure \ref{fig:trans2}) had output tuned results.
+
 
 \begin{figure}[h] \centering
-\includegraphics[width=0.6\linewidth]{../sim/t2.4.pdf}
-\caption{Transient voltage in node 6 related to time (total response)}
-\label{fig:trans2}
+  \begin{minipage}{.5\textwidth}
+    \includegraphics[width=\textwidth]{../sim/t2.4.pdf}
+    \caption{Transient voltage in node 6 related to time (total response)}
+    \label{fig:trans2}
+    \end{minipage}%
+  \begin{minipage}{.5\textwidth}
+    \vspace{10mm}
+  \centering
+    \includegraphics[width=\textwidth]{t2-5.eps}
+    \caption{Total solution t=[-5,20]ms (V(6) and Vs)}
+    \label{fig:comptot}
+      \end{minipage}%
 \end{figure}
-
 
 %\lipsum[1-1]
 
@@ -128,24 +137,44 @@ Finally, the circuit' relation to the frequency of the source Vs.
 
 \subsubsection{Magnitude Response}
 
-First it was computed the magnitude of V(6) and V(6) - V(8) (and V(1) wich is obviously constant) relation to frequency (figure \ref{fig:acm}). The result leads to two important points. First of all, as expected Vs is invariant and both V(6) and V(6)-V(8) are not. And secondly, both V(6) and V(6)-V(8) drop with the increase of frequency. However, V(6) tends towars an constant value and V(6)-V(8) gets asymptotic to a straigh (but not horizontal) line. And as always, theoretical analysis (figure \ref{fig:acm}) and simulation (figure \ref{fig:acm}) results agree with hight precision.
+First it was computed the magnitude of V(6) and V(6) - V(8) (and V(1) wich is obviously constant) relation to frequency (figure \ref{fig:acm}). The result leads to two important points. First of all, as expected Vs is invariant and both V(6) and V(6)-V(8) are not. And secondly, both V(6) and V(6)-V(8) drop with the increase of frequency. However, V(6) tends towars an constant value and V(6)-V(8) gets asymptotic to a straigh (but not horizontal) line. And as always, theoretical analysis (figure \ref{fig:compmagn}) and simulation (figure \ref{fig:acm}) results agree with hight precision.
+
+
 
 \begin{figure}[h] \centering
-\includegraphics[width=0.6\linewidth]{../sim/t2.5.pdf}
-\caption{Magnitude response in dB (retated to frequency of Vs)}
-\label{fig:acm}
+  \begin{minipage}{.5\textwidth}
+    \includegraphics[width=\textwidth]{../sim/t2.5.pdf}
+    \caption{Magnitude response in dB (related to the frequency of Vs)}
+    \label{fig:acm}
+    \end{minipage}%
+  \begin{minipage}{.5\textwidth}
+    \vspace{10mm}
+  \centering
+    \includegraphics[width=\textwidth]{t2-6magn.eps}
+    \caption{Magnitude response}
+    \label{fig:compmagn}
+      \end{minipage}%
 \end{figure}
 
 %\lipsum[1-1]
 
 \subsubsection{Phase Response}
 
-Secondly it was determined the relation between frequency of Vs and the phases of V(6), V(6)-V(8) and V(1) (Vs itself). As expected Vs is in phase with itself, and also as expected from the Thevenin theorem  and the usual solution of an RC circuit (with the resistor in serie with the capacitor) V(6) and V(6)-V(8) are proportional to same arctangent function (with V(6) having a proportionality constant of 1 wich exacly what is obtained for an equivalent node in an RC circuit as previously described). And as it occur in all previous comparisons the theroretical results (figure \ref{fig:acm} and simulation results(figure \ref{fig:acm} are consistent with one another.
+Secondly it was determined the relation between frequency of Vs and the phases of V(6), V(6)-V(8) and V(1) (Vs itself). As expected Vs is in phase with itself, and also as expected from the Thevenin theorem  and the usual solution of an RC circuit (with the resistor in serie with the capacitor) V(6) and V(6)-V(8) are proportional to same arctangent function (with V(6) having a proportionality constant of 1 wich exacly what is obtained for an equivalent node in an RC circuit as previously described). And as it occur in all previous comparisons the theroretical results (figure \ref{fig:comphas}) and simulation results (figure \ref{fig:acp}) are consistent with one another.
 
 \begin{figure}[h] \centering
-\includegraphics[width=0.6\linewidth]{../sim/t2.5.2.pdf}
-\caption{Phase response in degrees (retated to frequency of Vs)}
-\label{fig:acp}
+  \begin{minipage}{.5\textwidth}
+    \includegraphics[width=\textwidth]{../sim/t2.5.2.pdf}
+    \caption{Phase response in degrees (related to the frequency of Vs)}
+    \label{fig:acp}
+    \end{minipage}%
+  \begin{minipage}{.5\textwidth}
+    \vspace{10mm}
+  \centering
+    \includegraphics[width=\textwidth]{t2-6phas.eps}
+    \caption{Phase response}
+    \label{fig:comphas}
+      \end{minipage}%
 \end{figure}
 
 %\lipsum[1-1]
