@@ -3,6 +3,43 @@
 \subsection{Nodal Method at t$<$0}
 
 In general, we considered node analysis (using KCL and Ohm's Law) on the nodes, to discover each voltage associated with each other.
+[MAIS CENAS QUE QUEIRAS DIZER ANDRE, NAO PERCEBO UM CU DISTO]
+
+\begin{gather}
+\begin{bmatrix}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+-G_1 & G_1+G_2+G_3 & -G_2& 0 & -G_3 & 0 & 0 & 0\\
+0 & -G_2-K_b & G_2 & 0 & K_b & 0 & 0 & 0\\
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 1 & 0 & K_d G_6 & -1\\
+0 & -G_3 & 0 & 0 & G_3+G_4+G_5 & -G_5 & -G_7 & G_7\\
+0 & K_b & 0 & 0 & -K_b-G_5 & G_5 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0 & G_6+G_7 & -G_7
+\end{bmatrix}
+\begin{bmatrix}
+ V_1\\
+ V_2\\
+ V_3\\
+ V_4\\
+ V_5\\
+ V_6\\
+ V_7\\
+ V_8
+\end{bmatrix}
+=
+\begin{bmatrix}
+ V_S\\
+ 0\\
+ 0\\
+ 0\\
+ 0\\
+ 0\\
+ 0\\
+ 0
+\end{bmatrix}
+\end{gather}
+
+[DESTA VEZ TEMOS AS EQS POR ORDEM?]
 
 Using the scientific programming language GNU Octave to solve the system above, we achieved the following:
 
