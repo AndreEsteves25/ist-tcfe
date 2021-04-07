@@ -44,7 +44,27 @@ In general, we considered node analysis (using KCL and Ohm's Law) on the nodes, 
 Using the scientific programming language GNU Octave to solve the system above, we achieved the following:
 
 
-
-
-
+\begin{table}[!htb]
+    %\caption{Global caption}
+    \begin{minipage}{.5\linewidth}
+      
+      \centering
+        \begin{tabular}{|c|c|}
+        \hline    
+        {\bf Node} & {\bf V\textsubscript{i} [V]} \\ \hline
+        \input{../mat/tabelaNodes1.tex}
+        \end{tabular}
+        \caption{Voltage values on each node (t$<$0)}
+    \end{minipage}%
+    \begin{minipage}{.5\linewidth}
+      \centering
+        
+        \begin{tabular}{|c|c|}
+        \hline    
+        {\bf Branch} & {\bf I[A]} \\ \hline
+        \input{../mat/tabelaIbranches1.tex}
+        \end{tabular}
+        \caption{Current values on each branch (t$<$0)}
+    \end{minipage} 
+\end{table}
 
