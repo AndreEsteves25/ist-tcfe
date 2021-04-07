@@ -24,15 +24,15 @@ C 6 8 pC
 
 
 *resistors
-R1 1 2 pR1
+R1 2 1 pR1
 
-R2 3 2 pR2
+R2 2 3 pR2
 
 R3  2 5 pR3
 
 R4 5 0 pR4
 
-R5 6 5 pR5
+R5 5 6 pR5
 
 R6 0b 7 pR6
 
