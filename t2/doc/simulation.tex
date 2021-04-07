@@ -3,7 +3,7 @@
 
 The circuit under analysis was also simulated using Ngspice (revision 31) and maintaning the already mentioned node convention (\ref{fig:rc}). The forward subsections establish a comparation between theoretical and simulation results.
 
-\subsection{Operating Point Analysis for t < 0}
+\subsection{Operating Point Analysis for t$<$0}
 
 At t<0, all voltage and current sources have constant output, so the capacitor is inactive (equivalent to an open circuit), leaving a simple and linear circuit. So it is not strange that theoretical(\ref{tab:op1}) and simulation(\ref{tab:op1}) results are in fine tune.
 
@@ -21,9 +21,9 @@ At t<0, all voltage and current sources have constant output, so the capacitor i
   \label{tab:op1}
 \end{table}
 
-\subsection{Operating Point Analysis for t = 0}
+\subsection{Operating Point Analysis for t$=$0}
 
-Having simulated the circuit for t<0, there must be performed an intermidate step at t=0, before jumping to the transient analyis imposed by the sinosoidal output of Vs at t$\geq$0. This additional step is the calculation of the initial conditions for the capacitor' terminals at the transient phase. This values are obtained having Vs=0, and replacing the capacitor by a voltage source that imposes the voltage diference verified between the capacitor' terminals at t<0 (nodes 6 and 8). Given the conditions of simplicity, this step, much like the previous one, shows a great deal of consistency between simulation (\ref{tab:op1}) and theoretical (\ref{tab:op1}) results. 
+Having simulated the circuit for t$<$0, there must be performed an intermidate step at t=0, before jumping to the transient analyis imposed by the sinosoidal output of Vs at t$\geq$0. This additional step is the calculation of the initial conditions for the capacitor' terminals at the transient phase. This values are obtained having Vs=0, and replacing the capacitor by a voltage source that imposes the voltage diference verified between the capacitor' terminals at t<0 (nodes 6 and 8). Given the conditions of simplicity, this step, much like the previous one, shows a great deal of consistency between simulation (table \ref{tab:op1}) and theoretical (table \ref{tab:op1}) results. 
 
 \begin{table}[h]
   \centering
@@ -51,27 +51,27 @@ Having simulated the circuit for t<0, there must be performed an intermidate ste
 %notices the following differences: describe and explain the differences.
 
 
-\subsection{Transient Analysis for t>0}
+\subsection{Transient Analysis for t$>$0}
 
 Having find the initial conditions for the capacitor, it followed the simulation of the time evolution of the system.
 
 \subsubsection{Natural Response}
 
-With the purpose of gaining more terms of comparation between theoretical and simulation results, a simulation of the natural response (wich corresponds to switch of all sources leaving behind the resistors and the capacitor) of the circuit under the capacitor's influence was made and in the likes of the previous results the theoretical analyis (\ref{fig:trans1}) and the simulation (\ref{fig:trans1}) were greatly tuned.
+With the purpose of gaining more terms of comparation between theoretical and simulation results, a simulation of the natural response (wich corresponds to switch of all sources leaving behind the resistors and the capacitor) of the circuit under the capacitor's influence was made and in the likes of the previous results the theoretical analyis (table \ref{fig:trans1}) and the simulation (table \ref{fig:trans1}) were greatly tuned.
 
 \begin{figure}[h] \centering
 \includegraphics[width=0.6\linewidth]{../sim/t2.3.pdf}
-\caption{Transient voltage in node 6 (natural response)}
+\caption{Transient voltage in node 6 related to time (natural response)}
 \label{fig:trans1}
 \end{figure}
 
 \subsubsection{Total Response}
 
-The transient analyisis was closed with the simulation of the total response (initial conditions for t=0 were set and a simulation of the complete circuit was performed) and being this a simple and linear circuits it was verified (one more time) that the theoretical analysis (\ref{fig:trans2}) and the simluation (\ref{fig:trans2}) had output tuned results.
+The transient analyisis was closed with the simulation of the total response (initial conditions for t=0 were set and a simulation of the complete circuit was performed) and being this a simple and linear circuits it was verified (one more time) that the theoretical analysis (figure \ref{fig:trans2}) and the simluation (figure \ref{fig:trans2}) had output tuned results.
 
 \begin{figure}[h] \centering
 \includegraphics[width=0.6\linewidth]{../sim/t2.4.pdf}
-\caption{Transient voltage in node 6 (total response)}
+\caption{Transient voltage in node 6 related to time (total response)}
 \label{fig:trans2}
 \end{figure}
 
@@ -80,37 +80,31 @@ The transient analyisis was closed with the simulation of the total response (in
 
 
 
-%\subsection{Frequency Analysis}
+\subsection{Frequency Analysis}
 
-%\subsubsection{Magnitude Response}
+Finally, the circuit' relation to the frequency of the source Vs.
 
-%Figure
-%~\ref{fig:acm}
-%shows the magnitude of the frequency response for the
-%circuit under analysis. Compared to the theoretical analysis results, one
-%notices the following differences: describe and explain the differences.
+\subsubsection{Magnitude Response}
 
-%\begin{figure}[h] \centering
-%\includegraphics[width=0.6\linewidth]{acm.pdf}
-%\caption{Magnitude response}
-%\label{fig:acm}
-%\end{figure}
+First it was computed the magnitude of V(6) and V(6) - V(8) (and V(1) wich is obviously constant) relation to frequency (figure \ref{fig:acm}). The result leads to two important points. First of all, as expected Vs is invariant and both V(6) and V(6)-V(8) are not. And secondly, both V(6) and V(6)-V(8) drop with the increase of frequency. However, V(6) tends towars an constant value and V(6)-V(8) gets asymptotic to a straigh (but not horizontal) line. And as always, theoretical analysis (figure \ref{fig:acm}) and simulation (figure \ref{fig:acm}) results agree with hight precision.
+
+\begin{figure}[h] \centering
+\includegraphics[width=0.6\linewidth]{../sim/t2.5.pdf}
+\caption{Magnitude response in dB (retated to frequency of Vs)}
+\label{fig:acm}
+\end{figure}
 
 %\lipsum[1-1]
 
-%\subsubsection{Phase Response}
+\subsubsection{Phase Response}
 
-%Figure
-%~\ref{fig:acp}
-%shows the magnitude of the frequency response for the
-%circuit under analysis. Compared to the theoretical analysis results, one
-%notices the following differences: describe and explain the differences.
+Secondly it was determined the relation between frequency of Vs and the phases of V(6), V(6)-V(8) and V(1) (Vs itself). As expected Vs is in phase with itself, and also as expected from the Thevenin theorem  and the usual solution of an RC circuit (with the resistor in serie with the capacitor) V(6) and V(6)-V(8) are proportional to same arctangent function (with V(6) having a proportionality constant of 1 wich exacly what is obtained for an equivalent node in an RC circuit as previously described). And as it occur in all previous comparisons the theroretical results (figure \ref{fig:acm} and simulation results(figure \ref{fig:acm} are consistent with one another.
 
-%\begin{figure}[h] \centering
-%\includegraphics[width=0.6\linewidth]{acp.pdf}
-%\caption{Phase response}
-%\label{fig:acp}
-%\end{figure}
+\begin{figure}[h] \centering
+\includegraphics[width=0.6\linewidth]{../sim/t2.5.2.pdf}
+\caption{Phase response in degrees (retated to frequency of Vs)}
+\label{fig:acp}
+\end{figure}
 
 %\lipsum[1-1]
 
