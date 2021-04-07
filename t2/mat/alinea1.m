@@ -151,7 +151,7 @@ fid= fopen("capacitor.tex","w");
 fprintf(fid,'Vx & %f\\\\ \\hline \n',Vx);
 fprintf(fid,'Ix & %f\\\\ \\hline \n',Ix);
 fprintf(fid,'R\\textsubscript{eq} & %f\\\\ \\hline \n',Req);
-fprintf(fid,' $ \tau$ & %f\\\\ \\hline \n',timec);
+fprintf(fid,' $\\tau$ & %f\\\\ \\hline \n',timec);
 fclose(fid);
 
 fid = fopen("../sim/data3.txt","w");
