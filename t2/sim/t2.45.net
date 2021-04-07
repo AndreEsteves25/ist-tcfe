@@ -80,9 +80,13 @@ echo "********************************************"
 
 ac dec 10 0.1 1MEG
 
-*hardcopy t2.5.ps db(v(6)) db(v(1))
+hardcopy t2.5.ps db(v(6)) db(v(1)) db(v(6,8))
 *hardcopy t2.5.ps vdb(6) vdb(1)
-hardcopy t2.5.ps v(6) v(1)
+*hardcopy t2.5.ps v(6) v(1)
 echo t2.5_FIG
+
+hardcopy t2.5.2.ps 57.3*vp(6) 57.3*vp(1) 57.3*vp(6,8)
+echo t2.5.2_FIG
+
 
 .endc
