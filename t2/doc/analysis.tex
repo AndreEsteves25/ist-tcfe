@@ -70,4 +70,30 @@ Using the scientific programming language GNU Octave to solve the system above, 
 \end{table}
 
 \subsection{Circuit at t=0}
+At t=0, V\textsubscript{S}=0. In order to obtain R\textsubscript{eq}, the equivalent resistance seen by the capacitor, we ran nodal analysis once again, for this time instant, and the computed R\textsubscript{eq} = V\textsubscript{x} / I\textsubscript{x}, where V\textsubscript{x} = V(6)-V(8).
 
+The following tables show the voltages obtained on each node, as well as the data that caracterizes the capacitor.
+
+\begin{table}[!htb]
+    %\caption{Global caption}
+    \begin{minipage}{.5\linewidth}
+      
+      \centering
+        \begin{tabular}{|c|c|}
+        \hline    
+        {\bf Node} & {\bf V\textsubscript{i} [V]} \\ \hline
+        \input{../mat/tabelaNodes2.tex}
+        \end{tabular}
+        \caption{Voltage values on each node (t=0)}
+    \end{minipage}%
+    \begin{minipage}{.5\linewidth}
+      \centering
+        
+        \begin{tabular}{|c|c|}
+        \hline    
+        {\bf } & {\bf } \\ \hline
+        \input{../mat/capacitor.tex}
+        \end{tabular}
+        \caption{Data that caracterizes the capacitor at t=0}
+    \end{minipage} 
+\end{table}

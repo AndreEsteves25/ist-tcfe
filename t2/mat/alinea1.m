@@ -140,6 +140,14 @@ fprintf(fid,'Vd & %f\\\\ \\hline \n',double(Vd));
 
 fclose(fid)
 
+Ix = (double(V(6)) - double(V(5)))/ double(R5)+ double(Kb)*(double(V(2)) - double(V(5)))
+Req= double(Vx/Ix)
+
+fid= fopen("capacitor.tex","w");
+fprintf(fid,'Vx & %f\\\\ \\hline \n',Vx);
+fprintf(fid,'Ix & %f\\\\ \\hline \n',Ix);
+fprintf(fid,'R\\textsubscript{eq} & %f\\\\ \\hline \n',Req);
+fclose(fid);
 
 fid = fopen("../sim/data3.txt","w");
 
@@ -149,8 +157,7 @@ fclose(fid)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %alinea 3
-Ix = (double(V(6)) - double(V(5)))/ double(R5)+ double(Kb)*(double(V(2)) - double(V(5)))
-Req= double(Vx/Ix)
+
 C=double(C)
 V6=double(V(6))
 %time vector
