@@ -3,7 +3,7 @@
 \subsection{Nodal Method at t$<$0}
 
 
-In this Analysis, we enumerated the 8 nodes, from 1 to 8, as it's shown in Figure \ref{rc}. We recognized that the GND is connected to node 4, so $V_{4}=0V$.Consequently $V_1$ is equal to the voltage on voltage source $v_s(t)$, and considering that we are working with the circuit at t$<$0, $v_s=V_1=V_s$.
+In this Analysis, we enumerated the 8 nodes, from 1 to 8, as it's shown in Figure \ref{rc}. We recognized that the GND is connected to node 4, so $V_{4}=0V$.Consequently $V_1$ is equal to the voltage on voltage source $v_s(t)$, and considering that we are working with the circuit at t<0, $v_s=V_1=V_s$.
 In general, we considered node analysis on the nodes (using KCL and Ohm's Law, and considering that the currents are leaving the nodes) , to discover each voltage associated with each other. 
 Since we are studying the circuit without a sinusoidal voltage source, for now, there's no variation over time of the voltage value on the capacitor, so there's no current flowing through it, $I_c=0A$, and the circuit behaves like an open circuit.
 Another important aspect we considered while analyzing this circuit is that the potential difference between node 5 and node 8 is equal to $V_d$, so we can say that $V_d=V_5-V_8$. We can also apply KCL in the supernode made up by the linearly dependent voltage source ($V_d$), node 5 and node 8, and state that the sum of the currents leaving it is equal to 0 ($\frac{V_5}{R_4} + \frac{V_5-V_6}{R_5} + \frac{V_8-V_7}{R_7} + \frac{V_5-V_2}{R_3}=0$).
@@ -74,7 +74,44 @@ Using the scientific programming language GNU Octave to solve the system above, 
 \end{table}
 
 \subsection{Circuit at t=0}
-At t=0, V\textsubscript{S}=0. In order to obtain R\textsubscript{eq}, the equivalent resistance seen by the capacitor, we ran nodal analysis once again, for this time instant, and the computed R\textsubscript{eq} = V\textsubscript{x} / I\textsubscript{x}, where V\textsubscript{x} = V(6)-V(8).
+At t=0, we considered that V\textsubscript{S}=0´ and the capacitor as a voltage source with a fixed potential difference $V\textsubscript{x} = V(6)-V(8)$, where V(6) and V(8) are the values obtained for t<0. Then, in order to obtain R\textsubscript{eq} , the equivalent resistance seen by the capacitor,  we ran nodal analysis once again, considering that there's a supernode that includes node 5, 6 and 8.
+\begin{gather}
+\begin{bmatrix}
+1    & 0           & 0    & 0           & 0 & 0 & 0 & 0\\
+-G_1 & G_1+G_2+G_3 & -G_2 & 0           & -G_3 & 0 & 0 & 0\\
+0    & -G_2-K_b    & G_2  & 0           & K_b & 0 & 0 & 0\\
+0    & 0           & 0    & 1           & 0 & 0 & 0 & 0\\
+0    & 0           & 0    & 0           & 1 & 0 & K_d G_6 & -1\\
+0    & 0           & 0    & 0           & 0 & 1 & 0 & -1\\
+0    & 0           & 0    & 0           & 0 & 0 & G_6+G_7 & -G_7\\
+0    & K_b-G_3     & 0    & G_3+G_4-K_b & 0 & 0 & -G_7 & G_7
+\end{bmatrix}
+\begin{bmatrix}
+ V_1\\
+ V_2\\
+ V_3\\
+ V_4\\
+ V_5\\
+ V_6\\
+ V_7\\
+ V_8
+\end{bmatrix}
+=
+\begin{bmatrix}
+ 0\\
+ 0\\
+ 0\\
+ 0\\
+ 0\\
+ V_x\\
+ 0\\
+ 0
+\end{bmatrix}
+\end{gather}
+
+
+Then we used the following expression $I_x = \frac{V_6-V_5}{R_5} + K_b(V_2 - V_5)$, to obtain $I_x$ and we computed $R\textsubscript{eq} = V\textsubscript{x} / I\textsubscript{x}$. Lastly we obtained the value of the time constant $\tau=R_{eq}C$
+
 
 The following tables show the voltages obtained on each node, as well as the data that caracterizes the capacitor.
 
@@ -101,6 +138,7 @@ The following tables show the voltages obtained on each node, as well as the dat
         \caption{Data that caracterizes the capacitor at t=0}
     \end{minipage} 
 \end{table}
+\newpage
 \subsection{Natural Solution}
 It is know that the natural solution for a capacitor in a circuit takes the following form:
 \begin{equation}

@@ -85,11 +85,7 @@ fprintf(fid,'Vd & %f\\\\ \\hline \n',double(Vd));
 
 fclose(fid)
 
-
-
-
 V6init = double(V(6))
-
 
 I1=(double(V(2))-double(V(1)))*G1
 I2=(double(V(2))-double(V(3)))*G2
@@ -116,7 +112,15 @@ fprintf(fid,'Ib & %e\\\\ \\hline \n',double(Ib));
 
 fclose(fid)
 
-A=[Z,O,O,O,O,O,O,O; O,G1+G2+G3,-G2,O,-G3,O,O,O; O,-G2-Kb,G2,O,Kb,O,O,O; O,O,O,Z,O,O,O,O; O,O,O,O,Z,O,Kd*G6,-Z; O,O,O,O,O,Z,O,-Z; O,Kb-G3,O,O,G3+G4-Kb,O,-G7,G7; O,O,O,O,O,O,G6+G7, -G7];
+%%%%%%%% alinea 2
+A=[Z,O,O,O,O,O,O,O; 
+O,G1+G2+G3,-G2,O,-G3,O,O,O; 
+O,-G2-Kb,G2,O,Kb,O,O,O; 
+O,O,O,Z,O,O,O,O; 
+O,O,O,O,Z,O,Kd*G6,-Z;
+O,O,O,O,O,Z,O,-Z; 
+O,Kb-G3,O,O,G3+G4-Kb,O,-G7,G7; 
+O,O,O,O,O,O,G6+G7, -G7];
 B=[O;O;O;O;O;Vx;O;O];
 V=A\B
 
@@ -142,11 +146,12 @@ fclose(fid)
 
 Ix = (double(V(6)) - double(V(5)))/ double(R5)+ double(Kb)*(double(V(2)) - double(V(5)))
 Req= double(Vx/Ix)
-
+timec= Req*C
 fid= fopen("capacitor.tex","w");
 fprintf(fid,'Vx & %f\\\\ \\hline \n',Vx);
 fprintf(fid,'Ix & %f\\\\ \\hline \n',Ix);
 fprintf(fid,'R\\textsubscript{eq} & %f\\\\ \\hline \n',Req);
+fprintf(fid,' $ \tau$ & %f\\\\ \\hline \n',timec);
 fclose(fid);
 
 fid = fopen("../sim/data3.txt","w");
