@@ -1,9 +1,11 @@
 \section{Simulation Analysis}
 \label{sec:simulation}
 
-\subsection{Operating Point Analysis}
+The circuit under analysis was also simulated using Ngspice (revision 31) and maintaning the already mentioned node convention (\ref{fig:rc}). The forward subsections establish a comparation between theoretical and simulation results.
 
-The circuit under analysis was also simulated using Ngspice (revision 31) and table \ref{tab:op} displays the obtained results. It was used the sign convention and the node (and ground) convention already presented in the theoretical analysis except for the voltage sources where Ngspice's own sign convention implies them to have the inverse sign that they would have in our chosen convention. Apart from that, all data obtained by simulation is in fine tune with the theoretical calculations (all deviations are negligible). It is so because given the simplicity of the studied circuit there is no possibility of over-approximation or oversimplification of the system by theoretical models, therefore there is no room for deviations between results obtained with different approaches. 
+\subsection{Operating Point Analysis for t < 0}
+
+At t<0, all voltage and current sources have constant output, so the capacitor is inactive (equivalent to an open circuit), leaving a simple and linear circuit. So it is not strange that theoretical(\ref{tab:op1}) and simulation(\ref{tab:op1}) results are in fine tune.
 
 \begin{table}[h]
   \centering
@@ -11,12 +13,30 @@ The circuit under analysis was also simulated using Ngspice (revision 31) and ta
   \begin{tabular}{|l|r|}
     \hline    
     {\bf Name} & {\bf Value [A or V]} \\ \hline
-    \input{../sim/op_tab}
+    \input{../sim/op_tab1}
  \end{tabular}}
  \caption{Simulation results. A variable preceded by @ is of type {\em current}
    and expressed in Ampere; other variables are of type {\it voltage} and expressed in
    Volt.}
-  \label{tab:op}
+  \label{tab:op1}
+\end{table}
+
+\subsection{Operating Point Analysis for t = 0}
+
+Having simulated the circuit for t<0, there must be performed an intermidate step at t=0, before jumping to the transient analyis imposed by the sinosoidal output of Vs at t$\geq$0. This additional step is the calculation of the initial conditions for the capacitor' terminals at the transient phase. This values are obtained having Vs=0, and replacing the capacitor by a voltage source that imposes the voltage diference verified between the capacitor' terminals at t<0 (nodes 6 and 8). Given the conditions of simplicity, this step, much like the previous one, shows a great deal of consistency between simulation (\ref{tab:op1}) and theoretical (\ref{tab:op1}) results. 
+
+\begin{table}[h]
+  \centering
+  \scalebox{0.8}{
+  \begin{tabular}{|l|r|}
+    \hline    
+    {\bf Name} & {\bf Value [A or V]} \\ \hline
+    \input{../sim/op_tab2}
+ \end{tabular}}
+ \caption{Simulation results. A variable preceded by @ is of type {\em current}
+   and expressed in Ampere; other variables are of type {\it voltage} and expressed in
+   Volt.}
+  \label{tab:op2}
 \end{table}
 
 %\lipsum[1-1]
@@ -30,19 +50,39 @@ The circuit under analysis was also simulated using Ngspice (revision 31) and ta
 %circuit under analysis. Compared to the theoretical analysis results, one
 %notices the following differences: describe and explain the differences.
 
-%\begin{figure}[h] \centering
-%\includegraphics[width=0.6\linewidth]{trans.pdf}
-%\caption{Transient output voltage}
-%\label{fig:trans}
-%\end{figure}
+
+\subsection{Transient Analysis for t>0}
+
+Having find the initial conditions for the capacitor, it followed the simulation of the time evolution of the system.
+
+\subsubsection{Natural Response}
+
+With the purpose of gaining more terms of comparation between theoretical and simulation results, a simulation of the natural response (wich corresponds to switch of all sources leaving behind the resistors and the capacitor) of the circuit under the capacitor's influence was made and in the likes of the previous results the theoretical analyis (\ref{fig:trans1}) and the simulation (\ref{fig:trans1}) were greatly tuned.
+
+\begin{figure}[h] \centering
+\includegraphics[width=0.6\linewidth]{t2.3.pdf}
+\caption{Transient voltage in node 6 (natural response)}
+\label{fig:trans1}
+\end{figure}
+
+\subsubsection{Total Response}
+
+The transient analyisis was closed with the simulation of the total response (initial conditions for t=0 were set and a simulation of the complete circuit was performed) and being this a simple and linear circuits it was verified (one more time) that the theoretical analysis (\ref{fig:trans2}) and the simluation (\ref{fig:trans2}) had output tuned results.
+
+\begin{figure}[h] \centering
+\includegraphics[width=0.6\linewidth]{t2.4.pdf}
+\caption{Transient voltage in node 6 (total response)}
+\label{fig:trans2}
+\end{figure}
+
 
 %\lipsum[1-1]
 
 
 
-%\subsection{Frequency Analysis}
+\subsection{Frequency Analysis}
 
-%\subsubsection{Magnitude Response}
+\subsubsection{Magnitude Response}
 
 %Figure
 %~\ref{fig:acm}
@@ -58,7 +98,7 @@ The circuit under analysis was also simulated using Ngspice (revision 31) and ta
 
 %\lipsum[1-1]
 
-%\subsubsection{Phase Response}
+\subsubsection{Phase Response}
 
 %Figure
 %~\ref{fig:acp}
