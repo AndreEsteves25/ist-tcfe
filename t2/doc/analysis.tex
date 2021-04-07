@@ -91,9 +91,27 @@ The following tables show the voltages obtained on each node, as well as the dat
         
         \begin{tabular}{|c|c|}
         \hline    
-        {\bf } & {\bf } \\ \hline
+        {\bf } & {\bf Value} \\ \hline
         \input{../mat/capacitor.tex}
         \end{tabular}
         \caption{Data that caracterizes the capacitor at t=0}
     \end{minipage} 
 \end{table}
+\subsection{Natural Solution}
+It is know that the natural solution for a capacitor in a circuit takes the following form:
+\begin{equation}
+ V_n(t)=A e^{- \frac{t}{RC}}
+\end{equation}
+
+Imposing the boundary condition that at t=0, V\textsubscript{6}(0)= V\textsubscript x, we have:
+
+\begin{equation}
+ V_6(t)=V_x e^{- \frac{t}{R_{eq} C}}
+\end{equation}
+
+The following plot shows the natural solution within the first 20ms.
+\begin{figure}[h] \centering
+\includegraphics[width=0.8\linewidth]{t2-3.eps}
+\caption{Natural solution t=[0,20]ms}
+\label{fig:forced}
+\end{figure}
