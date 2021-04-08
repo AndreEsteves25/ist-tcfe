@@ -69,7 +69,7 @@ echo  "Transient analysis"
 echo "********************************************"
 tran 1e-5 20e-3
 
-hardcopy t2.3.ps V(6)
-echo t2.3_FIG
+hardcopy t23.ps V(6)
+echo t23_FIG
 
 .endc
