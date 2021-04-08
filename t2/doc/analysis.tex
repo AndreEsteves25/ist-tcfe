@@ -135,7 +135,12 @@ The following tables show the voltages obtained on each node, as well as the dat
     \end{minipage} 
 \end{table}
 \newpage
-\subsection{Natural Solution}
+
+\subsection{Transient Analysis for t$>$0}
+
+When t$>$0, the voltages source has a sinusoidal behaviour, with frequency f=1kHz, which causes the voltage over the capacitor to have also an exponential decay (natural solution) superimposed with an sinusoidal behaviour with the same frequency as the source(forced solution).
+
+\subsubsection{Natural Response}
 It is know that the natural solution for a capacitor in a circuit takes the following form:
 \begin{equation}
  V_n(t)=A e^{- \frac{t}{RC}}
@@ -149,9 +154,36 @@ Imposing the boundary condition that at t=0, V\textsubscript{6}(0)= V\textsubscr
 
 The following plot shows the natural solution within the first 20ms.
 \begin{figure}[h] \centering
-\includegraphics[width=0.8\linewidth]{t2-3.eps}
+\includegraphics[width=0.5\linewidth]{t2-3.eps}
 \caption{Natural solution t=[0,20]ms}
-\label{fig:forced}
+\label{fig:natural}
 \end{figure}
 
-\subsection{Forced Solution}
+\subsubsection{Total Response}
+
+To compute the forced solution, we began by running nodal analysis once more in order to determine the phasor voltages in all nodes (achieving the complex amplitude and phase at eah node). It is known that the phasor voltage in the first node is given by V\textsubscript S =1.
+
+Superimposing the natural solution with the forced solution we obtain the behavior of the capacitor over time.
+
+\begin{figure}[h] \centering
+\includegraphics[width=0.5\linewidth]{t2-5.eps}
+\caption{Total solution t=[-5,20]ms (V(6) and V\textsubscript S )}
+\label{fig:natural}
+\end{figure}
+
+As we can see, the capacitor is out of phase with the voltage source and there's a disruptance at t=0.
+
+[INCOMPLETO PQ QUERIAS ESCREVER CENAS AQUI ANDRE]
+
+[Inserir se quiseres tabelas que eu tou a imprimir no octave relativas à amplitude e fase de cada no (acho que o stor n pediu mas acho q tmb n fica nada mal)]
+
+\subsection{Frequecy Analysis}
+
+At last, it was studied the frequency responses
+
+
+\subsubsection{Magnitude Response}
+
+\subsubsection{Phase Response}
+
+
