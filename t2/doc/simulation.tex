@@ -43,7 +43,9 @@ At t$<$0, all voltage and current sources have constant output, so the capacitor
 
 \subsection{Operating Point Analysis for t$=$0}
 
-Having simulated the circuit for t$<$0, there must be performed an intermidate step at t=0, before jumping to the transient analyis imposed by the sinosoidal output of Vs at t$\geq$0. This additional step is the calculation of the initial conditions for the capacitor' terminals at the transient phase. This values are obtained having Vs=0, and replacing the capacitor by a voltage source that imposes the voltage diference verified between the capacitor' terminals at t$<$0 (nodes 6 and 8). Given the conditions of simplicity, this step, much like the previous one, shows a great deal of consistency between simulation (table \ref{tab:op2}) and theoretical (table \ref{comp2}) results. 
+Having simulated the circuit for t$<$0, there must be performed an intermidate step at t=0, before jumping to the transient analyis imposed by the sinosoidal output of Vs at t$\geq$0. This additional step is the calculation of the initial conditions for the capacitor' terminals at the transient phase. This values are obtained having Vs=0, and replacing the capacitor by a voltage source that imposes the voltage diference verified between the capacitor' terminals at t$<$0 (nodes 6 and 8). Given the conditions of simplicity, this step, much like the previous one, shows a great deal of consistency between simulation (table \ref{tab:op2}) and theoretical (table \ref{comp2}) results.
+
+\newpage
 
 \begin{table}[!htb]
   \begin{minipage}{.5\linewidth}
@@ -83,7 +85,7 @@ Having simulated the circuit for t$<$0, there must be performed an intermidate s
 %circuit under analysis. Compared to the theoretical analysis results, one
 %notices the following differences: describe and explain the differences.
 
-
+\vspace{-3mm}
 \subsection{Transient Analysis for t$>$0}
 
 Having find the initial conditions for the capacitor, it followed the simulation of the time evolution of the system.
@@ -92,23 +94,25 @@ Having find the initial conditions for the capacitor, it followed the simulation
 
 With the purpose of gaining more terms of comparation between theoretical and simulation results, a simulation of the natural response (wich corresponds to switch of all sources leaving behind the resistors and the capacitor) of the circuit under the capacitor's influence was made and in the likes of the previous results the theoretical analyis (figure \ref{fig:compnat}) and the simulation (figure \ref{fig:trans1}) were greatly tuned.
 
-
+\vspace{-70mm}
 \begin{figure}[h] \centering
   \begin{minipage}{.5\textwidth}
-    \includegraphics[width=0.9\textwidth]{../sim/t23.pdf}
+    \includegraphics[width=0.8\textwidth]{../sim/t23.pdf}
     \caption{Transient voltage in node 6 related to time (natural response) - simulation}
     \label{fig:trans1}
     \end{minipage}%
   \begin{minipage}{.5\textwidth}
-    \vspace{10mm}
+    %\vspace{10mm}
   \centering
-    \includegraphics[width=0.9\textwidth]{t2-3.eps}
+    \includegraphics[width=0.8\textwidth]{t2-3.eps}
     \caption{Transient voltage in node 6 related to time (natural response) - theoretical analysis}
     \label{fig:compnat}
       \end{minipage}%
 \end{figure}
 
+\newpage
 \subsubsection{Total Response}
+
 
 The transient analyisis was closed with the simulation of the total response (initial conditions for t=0 were set and a simulation of the complete circuit was performed) and being this a simple and linear circuits it was verified (one more time) that the theoretical analysis (figure \ref{fig:comptot}) and the simluation (figure \ref{fig:trans2}) had output tuned results.
 
