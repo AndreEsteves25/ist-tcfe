@@ -3,12 +3,10 @@
 \subsection{Nodal Method at t$<$0}
 
 
-In this Analysis, we enumerated the 8 nodes, from 1 to 8, as it's shown in Figure \ref{rc}. We recognized that the GND is connected to node 4, so $V_{4}=0V$.Consequently $V_1$ is equal to the voltage on voltage source $v_s(t)$, and considering that we are working with the circuit at t<0, $v_s=V_1=V_s$.
+In this Analysis, we enumerated the 8 nodes, from 1 to 8, as it's shown in Figure \ref{fig:rc}. We recognized that the GND is connected to node 4, so $V_{4}=0V$.Consequently $V_1$ is equal to the voltage on voltage source $v_s(t)$, and considering that we are working with the circuit at t<0, $v_s=V_1=V_s$.
 In general, we considered node analysis on the nodes (using KCL and Ohm's Law, and considering that the currents are leaving the nodes) , to discover each voltage associated with each other. 
 Since we are studying the circuit without a sinusoidal voltage source, for now, there's no variation over time of the voltage value on the capacitor, so there's no current flowing through it, $I_c=0A$, and the circuit behaves like an open circuit.
 Another important aspect we considered while analyzing this circuit is that the potential difference between node 5 and node 8 is equal to $V_d$, so we can say that $V_d=V_5-V_8$. We can also apply KCL in the supernode made up by the linearly dependent voltage source ($V_d$), node 5 and node 8, and state that the sum of the currents leaving it is equal to 0 ($\frac{V_5}{R_4} + \frac{V_5-V_6}{R_5} + \frac{V_8-V_7}{R_7} + \frac{V_5-V_2}{R_3}=0$).
-
-[MAIS CENAS QUE QUEIRAS DIZER ANDRE, NAO PERCEBO UM CU DISTO, ACHO QUE E ISTO NAO SEI O QUE DIZER MAIS AAAA]
 
 \begin{gather}
 \begin{bmatrix}
@@ -44,8 +42,6 @@ Another important aspect we considered while analyzing this circuit is that the 
 \end{bmatrix}
 \end{gather}
 
-[DESTA VEZ TEMOS AS EQS POR ORDEM? ACHO QUE SIMMM]
-
 Using the scientific programming language GNU Octave to solve the system above, we achieved the following:
 
 
@@ -74,7 +70,7 @@ Using the scientific programming language GNU Octave to solve the system above, 
 \end{table}
 
 \subsection{Circuit at t=0}
-At t=0, we considered that V\textsubscript{S}=0´ and the capacitor as a voltage source with a fixed potential difference $V\textsubscript{x} = V(6)-V(8)$, where V(6) and V(8) are the values obtained for t<0. Then, in order to obtain R\textsubscript{eq} , the equivalent resistance seen by the capacitor,  we ran nodal analysis once again, considering that there's a supernode that includes node 5, 6 and 8.
+At t=0,  V\textsubscript{S}=0 and we considered the capacitor as a voltage source with a fixed potential difference $V\textsubscript{x} = V(6)-V(8)$, where V(6) and V(8) are the values obtained for t<0. Then, in order to obtain R\textsubscript{eq} , the equivalent resistance seen by the capacitor,  we ran nodal analysis once again, considering that there's a supernode that includes node 5, 6 and 8.
 \begin{gather}
 \begin{bmatrix}
 1    & 0           & 0    & 0           & 0 & 0 & 0 & 0\\
@@ -157,3 +153,5 @@ The following plot shows the natural solution within the first 20ms.
 \caption{Natural solution t=[0,20]ms}
 \label{fig:forced}
 \end{figure}
+
+\subsection{Forced Solution}

@@ -11,7 +11,7 @@ LODFIGS = $(patsubst %.odg,%.pdf,$(wildcard *.odg))
 all: $(FILE).pdf
 	evince $< &
 
-$(FILE).pdf: $(wildcard *.tex) $(LODFIGS)
+$(FILE).pdf: $(wildcard *.tex) $(LODFIGS) ../sim/t2.5.pdf
 	cp -f ../mat/*.eps .
 	pdflatex  $(FILE).tex
 	pdflatex  $(FILE).tex
