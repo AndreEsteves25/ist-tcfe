@@ -1,11 +1,11 @@
 \section{Simulation Analysis}
 \label{sec:simulation}
 
-The circuit under analysis was also simulated using Ngspice (revision 31) and maintaning the already mentioned node convention (figure \ref{fig:rc}). The forward subsections establish a comparation between theoretical and simulation results.
+The circuit under analysis was also simulated using Ngspice (revision 31) and maintaining the already mentioned node convention (figure \ref{fig:rc}). The forward subsections establish a comparison between theoretical and simulation results.
 
 \subsection{Operating Point Analysis for t$<$0}
 
-At t$<$0, all voltage and current sources have constant output, so the capacitor is inactive (equivalent to an open circuit), leaving a simple and linear circuit. So it is not strange that theoretical(table \ref{comp1}) and simulation (table \ref{tab:op1}) results are in fine tune.
+At t$<$0, all voltage and current sources have constant output, so the capacitor is inactive (equivalent to an open circuit), leaving a simple and linear circuit. So it is not strange that theoretical(table \ref{comp1}) and simulation (table \ref{tab:op1}) results are in fine-tune.
 
 
 \begin{table}[!htb]
@@ -43,7 +43,7 @@ At t$<$0, all voltage and current sources have constant output, so the capacitor
 
 \subsection{Operating Point Analysis for t$=$0}
 
-Having simulated the circuit for t$<$0, there must be performed an intermidate step at t=0, before jumping to the transient analyis imposed by the sinosoidal output of Vs at t$\geq$0. This additional step is the calculation of the initial conditions for the capacitor' terminals at the transient phase. This values are obtained having Vs=0, and replacing the capacitor by a voltage source that imposes the voltage diference verified between the capacitor' terminals at t$<$0 (nodes 6 and 8). Given the conditions of simplicity, this step, much like the previous one, shows a great deal of consistency between simulation (table \ref{tab:op2}) and theoretical (table \ref{comp2}) results. 
+Having simulated the circuit for t$<$0, there must be performed an intermediate step at t=0, before jumping to the transient analysis imposed by the sinusoidal output of Vs at t$\geq$0. This additional step is the calculation of the initial conditions for the capacitor' terminals at the transient phase. These values are obtained having Vs=0, and replacing the capacitor by a voltage source that imposes the voltage difference verified between the capacitor' terminals at t$<$0 (nodes 6 and 8). Given the conditions of simplicity, this step, much like the previous one, shows a great deal of consistency between simulation (table \ref{tab:op2}) and theoretical (table \ref{comp2}) results. 
 
 \begin{table}[!htb]
   \begin{minipage}{.5\linewidth}
@@ -90,8 +90,7 @@ Having find the initial conditions for the capacitor, it followed the simulation
 
 \subsubsection{Natural Response}
 
-With the purpose of gaining more terms of comparation between theoretical and simulation results, a simulation of the natural response (wich corresponds to switch of all sources leaving behind the resistors and the capacitor) of the circuit under the capacitor's influence was made and in the likes of the previous results the theoretical analyis (figure \ref{fig:compnat}) and the simulation (figure \ref{fig:trans1}) were greatly tuned.
-
+To gain more terms of comparison between theoretical and simulation results, a simulation of the natural response (which corresponds to switch off all sources leaving behind the resistors and the capacitor) of the circuit under the capacitor's influence was made and in the likes of the previous results, the theoretical analysis (figure \ref{fig:compnat}) and the simulation (figure \ref{fig:trans1}) were greatly tuned.
 
 \begin{figure}[h] \centering
   \begin{minipage}{.5\textwidth}
@@ -109,9 +108,7 @@ With the purpose of gaining more terms of comparation between theoretical and si
 \end{figure}
 
 \subsubsection{Total Response}
-
-The transient analyisis was closed with the simulation of the total response (initial conditions for t=0 were set and a simulation of the complete circuit was performed) and being this a simple and linear circuits it was verified (one more time) that the theoretical analysis (figure \ref{fig:comptot}) and the simluation (figure \ref{fig:trans2}) had output tuned results.
-
+The transient analysis was closed with the simulation of the total response (initial conditions for t=0 were set and a simulation of the complete circuit was performed) and is this a simple and linear circuit it was verified (one more time) that the theoretical analysis (figure \ref{fig:comptot}) and the simulation (figure \ref{fig:trans2}) had output tuned results.
 
 \begin{figure}[h] \centering
   \begin{minipage}{.5\textwidth}
@@ -134,11 +131,11 @@ The transient analyisis was closed with the simulation of the total response (in
 
 \subsection{Frequency Analysis}
 
-Finally, the circuit' relation to the frequency of the source Vs.
+Finally, the circuit's relation to the frequency of the source Vs.
 
 \subsubsection{Magnitude Response}
 
-First it was computed the magnitude of V(6) and V(6) - V(8) (and V(1) wich is obviously constant) relation to frequency (figure \ref{fig:acm}). The result leads to two important points. First of all, as expected Vs is invariant and both V(6) and V(6)-V(8) are not. And secondly, both V(6) and V(6)-V(8) drop with the increase of frequency. However, V(6) tends towars an constant value and V(6)-V(8) gets asymptotic to a straigh (but not horizontal) line. And as always, theoretical analysis (figure \ref{fig:compmagn}) and simulation (figure \ref{fig:acm}) results agree with hight precision.
+First, it was computed the magnitude of V(6) and V(6) - V(8) (and V(1) which is obviously constant) in relation to frequency (figure \ref{fig:acm}). The result leads to two important points. First of all, as expected Vs is invariant and both V(6) and V(6)-V(8) are not. And secondly, both V(6) and V(6)-V(8) drop with the increase of frequency. However, V(6) tends towards a constant value, and V(6)-V(8) gets asymptotic to a straight (but not horizontal) line. And as always, theoretical analysis (figure \ref{fig:compmagn}) and simulation (figure \ref{fig:acm}) results agree with hight precision.
 
 
 
@@ -161,7 +158,7 @@ First it was computed the magnitude of V(6) and V(6) - V(8) (and V(1) wich is ob
 
 \subsubsection{Phase Response}
 
-Secondly it was determined the relation between frequency of Vs and the phases of V(6), V(6)-V(8) and V(1) (Vs itself). As expected Vs is in phase with itself, and also as expected from the Thevenin theorem  and the usual solution of an RC circuit (with the resistor in serie with the capacitor) V(6) and V(6)-V(8) are proportional to same arctangent function (with V(6) having a proportionality constant of 1 wich exacly what is obtained for an equivalent node in an RC circuit as previously described). And as it occur in all previous comparisons the theroretical results (figure \ref{fig:comphas}) and simulation results (figure \ref{fig:acp}) are consistent with one another.
+Secondly, it was determined the relation between the frequency of Vs and the phases of V(6), V(6)-V(8), and V(1) (Vs itself). As expected Vs is in phase with itself, and also as expected from the Thevenin theorem and the usual solution of an RC circuit (with the resistor in series with the capacitor) V(6) and V(6)-V(8) are proportional to same arctangent function (with V(6) having a proportionality constant of 1 wich exactly what is obtained for an equivalent node in an RC circuit as previously described). And as it occurs in all previous comparisons the theoretical results (figure \ref{fig:comphas}) and simulation results (figure \ref{fig:acp}) are consistent with one another.
 
 \begin{figure}[h] \centering
   \begin{minipage}{.5\textwidth}
