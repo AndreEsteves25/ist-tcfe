@@ -163,6 +163,41 @@ The following plot shows the natural solution within the first 20ms.
 
 To compute the forced solution, we began by running nodal analysis once more in order to determine the phasor voltages in all nodes (achieving the complex amplitude and phase at eah node). It is known that the phasor voltage in the first node is given by V\textsubscript S =1.
 
+\begin{gather}
+\begin{bmatrix}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+-G_1 & G_1+G_2+G_3 & -G_2& 0 & -G_3 & 0 & 0 & 0\\
+0 & -G_2-K_b & G_2 & 0 & K_b & 0 & 0 & 0\\
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 1 & 0 & K_d G_6 & -1\\
+0 & K_b & 0 & 0 & -K_b-G_5 & G_5+jwC & 0 & -jwC\\
+0 & 0 & 0 & 0 & 0 & 0 & G_6+G_7 & -G_7\\
+0 & -G_3 & 0 & 0 & G_3+G_4+G_5 & -G_5-jwC & -G_7 & jwC+G_7\\
+\end{bmatrix}
+\begin{bmatrix}
+ V_1\\
+ V_2\\
+ V_3\\
+ V_4\\
+ V_5\\
+ V_6\\
+ V_7\\
+ V_8
+\end{bmatrix}
+=
+\begin{bmatrix}
+ 1\\
+ 0\\
+ 0\\
+ 0\\
+ 0\\
+ 0\\
+ 0\\
+ 0
+\end{bmatrix}
+\end{gather}
+
+
 Superimposing the natural solution with the forced solution we obtain the behavior of the capacitor over time.
 
 \begin{figure}[h] \centering
@@ -174,16 +209,29 @@ Superimposing the natural solution with the forced solution we obtain the behavi
 As we can see, the capacitor is out of phase with the voltage source and there's a disruptance at t=0.
 
 [INCOMPLETO PQ QUERIAS ESCREVER CENAS AQUI ANDRE]
+\begin{table}[!htb]
+    %\caption{Global caption}
+    \begin{minipage}{.5\linewidth}
+      
+      \centering
+        \begin{tabular}{|c|c|}
+        \hline    
+        {\bf Node} & {\bf Amplitude} \\ \hline
+        \input{../mat/amplitudes.tex}
+        \end{tabular}
+        \caption{Amplitude values on each node}
+    \end{minipage}%
+    \begin{minipage}{.5\linewidth}
+      \centering
+        
+        \begin{tabular}{|c|c|}
+        \hline    
+        {\bf Node} & {\bf Phase} \\ \hline
+        \input{../mat/phases.tex}
+        \end{tabular}
+        \caption{Current values on each node }
+    \end{minipage} 
+\end{table}
 
-[Inserir se quiseres tabelas que eu tou a imprimir no octave relativas à amplitude e fase de cada no (acho que o stor n pediu mas acho q tmb n fica nada mal)]
-
-\subsection{Frequecy Analysis}
-
-At last, it was studied the frequency responses
-
-
-\subsubsection{Magnitude Response}
-
-\subsubsection{Phase Response}
 
 
