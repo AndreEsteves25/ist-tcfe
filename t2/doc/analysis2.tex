@@ -1,10 +1,28 @@
 \subsection{Frequecy Analysis}
 
-At last, it was studied the frequency responses
+At last, it was studied the frequency responses.
 
+To obtain the phasor in each node, it was computed a loop (with 100 iterations, one for each frequency) with a nodal analysis similar to the previous one.
 
 \subsubsection{Magnitude Response}
 
+We computed the absolute value of each relevant phasor to obtain the magnitude response.
+
+\begin{figure}[h] \centering
+\includegraphics[width=0.5\linewidth]{t2-6magn.eps}
+\caption{Magnitude response}\label{fig:magn}
+\end{figure}
+
+Here we can see that the capacitor's terminal voltage decreases drastically as f rises. This radical change isn't felt this strongly in node 6.
+
+
 \subsubsection{Phase Response}
 
+Finally, we computed the argument of each relevant phasor to obtain the phase response.
+\begin{figure}[h] \centering
+\includegraphics[width=0.5\linewidth]{t2-6phas.eps}
+\caption{Magnitude response}\label{fig:phase}
+\end{figure}
+
+As we can see, the capacitor's terminal voltage goes to -180 degrees as f rises.
 
