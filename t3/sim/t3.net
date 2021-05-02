@@ -1,0 +1,74 @@
+*
+* Low-Pass Filter + Limiter
+*
+
+* forces current values to be saved
+.options savecurrents
+
+******************************************
+* input voltage source
+Vs 1 0 0 sin(0 17.55 50)
+
+*Envelope detector
+Da1 1 2 Default
+Ra1 2 0 1k
+Ca1 2 0 1000u
+
+*Voltage regulator
+Rb1 2 3 3k
+Db1 3 4 Default
+Db2 4 5 Default
+Db3 5 6 Default
+Db4 6 7 Default
+Db5 7 8 Default
+Db6 8 9 Default
+Db7 9 10 Default
+Db8 10 11 Default
+Db9 11 12 Default
+Db10 12 13 Default
+Db11 13 14 Default
+Db12 14 15 Default
+Db13 15 16 Default
+Db14 16 17 Default
+Db15 17 18 Default
+Db16 18 19 Default
+Db17 19 20 Default
+Db18 20 0 Default
+
+.model Default D
+.op
+.end
+
+.control
+
+*makes plots in color
+set hcopypscolor=1
+set color0=white
+set color1=black
+set color2=red
+set color3=blue
+set color4=violet
+set color5=rgb:3/8/0
+set color6=rgb:4/0/0
+
+
+******************************************
+* analise no tempo
+tran 1e-5 0.3 0.1
+
+
+print mean(V(3))
+print mean(-V(3)+12)
+print {maximum(v(3)) - minimum (v(3))}
+print 1./((mean(-V(3)+12) + maximum(v(3)) - minimum (v(3)) + 0.000001)*(0.1*19 + 4 + 1000))
+*plot  v(3) 11 12 13
+
+
+******************************************
+hardcopy t3out.ps v(3)
+hardcopy t3env.ps v(2)
+
+
+
+.endc
+
