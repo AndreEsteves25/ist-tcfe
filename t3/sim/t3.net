@@ -49,8 +49,9 @@ Da4 6 1 Default
 Ra1 2 6 100k
 Ca1 2 6 100u
 
-*Rb1 2 3 100k
-*Db1 2 7 Default
+
+*Rb1 2 3 1k
+*Db1 3 6 Default
 *Db2 7 0 Default
 *Db3 8 0 Default
 
@@ -80,10 +81,9 @@ print maximum(v(2)-v(6))
 print mean(V(2)-v(6))
 print mean(V(2)-v(6)-12)
 print {maximum(v(2)-v(6)) - minimum (v(2)-v(6))}
-print 1./((mean(V(2)-V(6)-12) + maximum(v(2)-v(6)) - minimum (v(2)-v(6)) + 0.000001)*(0.1*7 + 190))
+print 1./((mean(V(2)-V(6)-12) + maximum(v(2)-v(6)) - minimum (v(2)-v(6)) + 0.000001)*(0.1*4 + 200))
 *plot  v(3) 11 12 13 v(2)
-*plot v(4)-v(3)
-*plot v(2)-v(3)
+plot v(2)-v(6)
 
 ******************************************
 *hardcopy t3out.ps v(3)
