@@ -49,33 +49,6 @@ Dbp24 323 324 Default
 Dbp25 324 4 Default
 
 
-Dbn1 4 41 Default
-Dbn2 41 42 Default
-Dbn3 42 43 Default
-Dbn4 43 44 Default
-Dbn5 44 45 Default
-Dbn6 45 46 Default
-Dbn7 46 47 Default
-Dbn8 47 48 Default
-Dbn9 48 49 Default
-Dbn10 49 410 Default
-Dbn11 410 411 Default
-Dbn12 411 412 Default
-Dbn13 412 413 Default
-Dbn14 413 414 Default
-Dbn15 414 415 Default
-Dbn16 415 416 Default
-Dbn17 416 417 Default
-Dbn18 417 418 Default
-Dbn19 418 419 Default
-Dbn20 419 420 Default
-Dbn21 420 421 Default
-Dbn22 421 422 Default
-Dbn23 422 423 Default
-Dbn24 423 424 Default
-Dbn25 424 3 Default
-
-
 *.include s.txt
 
 
@@ -106,7 +79,7 @@ print maximum(v(3)-v(4))
 print mean(V(3)-v(4))
 print abs(mean(V(3)-v(4)-12))
 print abs({maximum(v(3)-v(4)) - minimum (v(3)-v(4))})
-print 1./((abs(mean(V(3)-V(4)-12)) + abs(maximum(v(3)-v(4)) - minimum (v(3)-v(4))) + 0.000001)*(0.1*54 + 20))
+print 1./((abs(mean(V(3)-V(4)-12)) + abs(maximum(v(3)-v(4)) - minimum (v(3)-v(4))) + 0.000001)*(0.1*29 + 20))
 *plot  v(3)-v(4) 11 12 13
 
 
