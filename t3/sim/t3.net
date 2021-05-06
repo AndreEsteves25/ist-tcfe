@@ -10,17 +10,17 @@
 
 *13.13068
 *input voltage source
-Vi 1 0 0 sin(0 13.13068 50)
+Vi 1 0 0 sin(0 13.115 50)
 Da1 1 2 Default
 Da2 0 2 Default
 Da3 4 0 Default
 Da4 4 1 Default
 
 *envelope detector
-Ca1 2 4 10u
+Ca1 2 4 1u
 
 *voltage regulator
-Rb1 2 3 10k
+Rb1 2 3 1k
 
 Dbp1 3 31 Default
 Dbp2 31 32 Default
@@ -79,7 +79,7 @@ print maximum(v(3)-v(4))
 print mean(V(3)-v(4))
 print abs(mean(V(3)-v(4)-12))
 print abs({maximum(v(3)-v(4)) - minimum (v(3)-v(4))})
-print 1./((abs(mean(V(3)-V(4)-12)) + abs(maximum(v(3)-v(4)) - minimum (v(3)-v(4))) + 0.000001)*(0.1*29 + 20))
+print 1./((abs(mean(V(3)-V(4)-12)) + abs(maximum(v(3)-v(4)) - minimum (v(3)-v(4))) + 0.000001)*(0.1*29 + 2))
 *plot  v(3)-v(4) 11 12 13
 *plot v(3)-v(4)
 *plot (311)-v(312)
