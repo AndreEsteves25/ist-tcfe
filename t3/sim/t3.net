@@ -82,7 +82,8 @@ print abs({maximum(v(3)-v(4)) - minimum (v(3)-v(4))})
 print 1./((abs(mean(V(3)-V(4)-12)) + abs(maximum(v(3)-v(4)) - minimum (v(3)-v(4))) + 0.000001)*(0.1*29 + 20))
 *plot  v(3)-v(4) 11 12 13
 *plot v(3)-v(4)
-
+*plot (311)-v(312)
+print mean(V(311)-v(312))*25
 ******************************************
 hardcopy t3out.ps v(3)-v(4)
 hardcopy t3outcomp.ps v(3)-v(4)-12 
