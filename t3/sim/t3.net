@@ -8,7 +8,7 @@
 ******************************************
 
 
-
+*13.13068
 *input voltage source
 Vi 1 0 0 sin(0 13.13068 50)
 Da1 1 2 Default
@@ -73,7 +73,7 @@ set color6=rgb:4/0/0
 
 ******************************************
 * analise no tempo
-tran 2e-4 1.2 1.0
+tran 2e-4 3.2 3.0
 
 print maximum(v(3)-v(4))
 print mean(V(3)-v(4))
@@ -81,7 +81,7 @@ print abs(mean(V(3)-v(4)-12))
 print abs({maximum(v(3)-v(4)) - minimum (v(3)-v(4))})
 print 1./((abs(mean(V(3)-V(4)-12)) + abs(maximum(v(3)-v(4)) - minimum (v(3)-v(4))) + 0.000001)*(0.1*29 + 20))
 *plot  v(3)-v(4) 11 12 13
-
+*plot v(3)-v(4)
 
 ******************************************
 hardcopy t3out.ps v(3)-v(4)
