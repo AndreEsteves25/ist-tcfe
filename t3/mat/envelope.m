@@ -10,10 +10,10 @@ w=2*pi*f;
 Vp = 230; %Hz
 
 %chosen variables
-Vs=13.13068; %V
-Ca1=10e-5;   %F
-Rb1=10e4;    %Ohm
-nb_diodes = 25;
+Vs=13.25625; %V
+Ca1=10e-6;   %F
+Rb1=10e3;    %Ohm
+nb_diodes = 23;
 
 T=1/2/f; %meio periodo
 
@@ -22,6 +22,7 @@ VS = Vs*cos(w*t);
 Vbridge = abs(VS);
 
 %calular dentinhos
+
 Vripple=Vs*(1-exp(-T/Rb1/Ca1))
 %vO = zeros(1, length(t));
 
@@ -59,7 +60,8 @@ vD = 12 /nb_diodes;
 eta=1;
 VT=0.025;
 Is=1e-14;
-rd= eta*VT/(Is* exp( vD/(eta*VT)) );
+rd= eta*VT/(Is* exp( vD/(eta*VT)) )
+Req=nb_diodes*rd/(nb_diodes*rd+Rb1)
 new_ripple=nb_diodes*rd/(nb_diodes*rd+Rb1)*Vripple
 
 t=linspace(0,T,100);

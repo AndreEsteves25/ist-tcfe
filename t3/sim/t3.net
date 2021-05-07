@@ -10,17 +10,17 @@
 
 *13.13068
 *input voltage source
-Vi 1 0 0 sin(0 13.115 50)
+Vi 1 0 0 sin(0 13.25625 50)
 Da1 1 2 Default
 Da2 0 2 Default
 Da3 4 0 Default
 Da4 4 1 Default
 
 *envelope detector
-Ca1 2 4 1u
+Ca1 2 4 10u
 
 *voltage regulator
-Rb1 2 3 1k
+Rb1 2 3 10k
 
 Dbp1 3 31 Default
 Dbp2 31 32 Default
@@ -44,9 +44,12 @@ Dbp19 318 319 Default
 Dbp20 319 320 Default
 Dbp21 320 321 Default
 Dbp22 321 322 Default
-Dbp23 322 323 Default
-Dbp24 323 324 Default
-Dbp25 324 4 Default
+*Dbp23 322 323 Default
+*Dbp24 323 324 Default
+*Dbp25 324 325 Default
+*Dbp26 325 326 Default
+*Dbp27 326 327 Default
+Dbp28 322 4 Default
 
 
 *.include s.txt
@@ -79,11 +82,11 @@ print maximum(v(3)-v(4))
 print mean(V(3)-v(4))
 print abs(mean(V(3)-v(4)-12))
 print abs({maximum(v(3)-v(4)) - minimum (v(3)-v(4))})
-print 1./((abs(mean(V(3)-V(4)-12)) + abs(maximum(v(3)-v(4)) - minimum (v(3)-v(4))) + 0.000001)*(0.1*29 + 2))
+print 1./((abs(mean(V(3)-V(4)-12)) + abs(maximum(v(3)-v(4)) - minimum (v(3)-v(4))) + 0.000001)*(0.1*27 + 20))
 *plot  v(3)-v(4) 11 12 13
 *plot v(3)-v(4)
 *plot (311)-v(312)
-print mean(V(311)-v(312))*25
+*print mean(V(311)-v(312))*25
 ******************************************
 hardcopy t3out.ps v(3)-v(4)
 hardcopy t3outcomp.ps v(3)-v(4)-12 
