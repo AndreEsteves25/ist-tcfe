@@ -1,9 +1,6 @@
 all: octave.log
 
-octave.log: alinea1.m
-	octave $< > $@
-
-envelope.log: envelope.m
+octave.log: envelope.m
 	octave $< > $@
 
 clean:
