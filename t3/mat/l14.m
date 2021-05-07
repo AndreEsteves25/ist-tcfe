@@ -55,7 +55,7 @@ print ("vlpf.eps", "-depsc");
 %envelope detector
 A=5
 t=linspace(0, 1e-3, 100);
-f=1000;
+f=100;
 w=2*pi*f;
 vS = A * cos(w*t);
 vOhr = zeros(1, length(t));
