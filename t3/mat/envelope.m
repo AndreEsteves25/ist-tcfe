@@ -91,11 +91,11 @@ cost=Ca1*10^6+Rb1/1000+(nb_diodes+4)*0.1
 merit=1/(cost* (new_ripple+10^(-6) )) %it was assumed that the voltage oscillates around 12V
 
 
-filename = 'tabela2.tex';
+filename = 'tabela.tex';
 fid=fopen(filename,'w');
 fprintf(fid,'cost & %f\\\\ \\hline \n',cost);
 fprintf(fid,'cost & 12\\\\ \\hline \n');
 fprintf(fid,'deviation & 0\\\\ \\hline \n');
 fprintf(fid,'merit & %f\\\\ \\hline \n',merit);
-fprintf(fid,'ripple & %f\\\\ \\hline \n',ripplef);
+fprintf(fid,'ripple & %f\\\\ \\hline \n',new_ripple);
 fclose(fid)
