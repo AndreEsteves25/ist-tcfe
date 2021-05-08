@@ -60,6 +60,7 @@ figure;
 plot(t,bridge)
 hold
 plot(t,vENV)
+legend("bridge output","envelope output")
 print ("envelope2.eps", "-depsc");
 
 
@@ -90,6 +91,12 @@ print ("final.eps", "-depsc");
 cost=Ca1*10^6+Rb1/1000+(nb_diodes+4)*0.1
 merit=1/(cost* (new_ripple+10^(-6) )) %it was assumed that the voltage oscillates around 12V
 
+figure;
+plot(t,12+0*t);
+hold on;
+plot(t,ripplef+12);
+legend("DC level","final output");
+print ("final2.eps", "-depsc");
 
 filename = 'tabela.tex';
 fid=fopen(filename,'w');

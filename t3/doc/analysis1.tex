@@ -29,6 +29,22 @@ The voltage regulator consists of a resistor and a limiter (25 diodes in series)
 
 We followed the incremental diode model to analise this subcircuit, assuming that the mean output voltage is 12V (confirmed by the ngspice simulation).
 
+
+\begin{figure}[h] \centering
+  \begin{minipage}{.5\textwidth}
+    \includegraphics[width=.9\textwidth]{final.eps}
+    \caption{Final voltage ripple}
+    \label{fig:simenv}
+    \end{minipage}%
+  \begin{minipage}{.5\textwidth}
+  \centering
+    \includegraphics[width=.99\textwidth]{final2.eps}
+    \caption{Final output (DC level and its deviation)}
+    \label{fig:compenv}
+      \end{minipage}%
+\end{figure}
+
+
 \begin{figure}[h]
     \centering
     \includegraphics[width = 0.6\linewidth]{final.eps}
