@@ -40,8 +40,7 @@ figure
 plot(t,Vbridge);
 hold;
 vO=-m*t+Vs;
-plot(t,vO);
-title("Envelope Detector");
+
 
 vENV = zeros(1,2000);
 bridge = zeros (1,2000);
@@ -52,6 +51,8 @@ for i=1:20
     endfor
 endfor
 
+plot(t,vENV);
+title("Envelope Detector");
 xlabel("t[s]");
 %legend("bridge","envelope")
 print ("envelope.eps", "-depsc");
