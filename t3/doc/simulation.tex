@@ -1,22 +1,22 @@
 \section{Simulation Analysis}
 \label{sec:simulation}
 
-The circuit under analysis was also simulated using Ngspice (revision 31) and maintaining the already mentioned node convention (figure. The forward subsections establish a comparison between theoretical and simulation results.
+The circuit under analysis was also simulated using Ngspice (revision 31) and maintaining the already mentioned node convention (figure REF-RC). The forward subsections establish a comparison between theoretical and simulation results.
 
 \subsection{Envelope Detector}
 
-At t$<$0, all voltage and current sources have constant output, so the capacitor is inactive (equivalent to an open circuit), leaving a simple and linear circuit. So it is not strange that theoretical(table and simulation (table results are in fine-tune.
+
 
 
 \begin{figure}[h] \centering
   \begin{minipage}{.5\textwidth}
-    \includegraphics[width=.9\textwidth]{../sim/env.eps}
+    \includegraphics[width=.9\textwidth]{../sim/t3env.eps}
     \caption{Magnitude response in dB (related to the frequency of Vs) - simulation}
     \label{fig:simenv}
     \end{minipage}%
   \begin{minipage}{.5\textwidth}
   \centering
-    \includegraphics[width=.99\textwidth]{../sim/env.eps}
+    \includegraphics[width=.99\textwidth]{../sim/t3env.eps}
     \caption{Magnitude responsein dB (related to the frequency of Vs) - theoretical analysis }
     \label{fig:compenv}
       \end{minipage}%
@@ -31,13 +31,13 @@ Having simulated the circuit for t$<$0, there must be performed an intermediate 
 
 \begin{figure}[h] \centering
   \begin{minipage}{.5\textwidth}
-    \includegraphics[width=.9\textwidth]{../sim/out.eps}
+    \includegraphics[width=.9\textwidth]{../sim/t3out.eps}
     \caption{Magnitude response in dB (related to the frequency of Vs) - simulation}
     \label{fig:simout}
     \end{minipage}%
   \begin{minipage}{.5\textwidth}
   \centering
-    \includegraphics[width=.99\textwidth]{../sim/out.eps}
+    \includegraphics[width=.99\textwidth]{../sim/t3out.eps}
     \caption{Magnitude responsein dB (related to the frequency of Vs) - theoretical analysis }
     \label{fig:compout}
       \end{minipage}%
@@ -45,13 +45,13 @@ Having simulated the circuit for t$<$0, there must be performed an intermediate 
 
 \begin{figure}[h] \centering
   \begin{minipage}{.5\textwidth}
-    \includegraphics[width=.9\textwidth]{../sim/outcomp.eps}
+    \includegraphics[width=.9\textwidth]{../sim/t3outcomp.eps}
     \caption{Magnitude response in dB (related to the frequency of Vs) - simulation}
     \label{fig:simdev}
     \end{minipage}%
   \begin{minipage}{.5\textwidth}
   \centering
-    \includegraphics[width=.99\textwidth]{../sim/outcomp.eps}
+    \includegraphics[width=.99\textwidth]{../sim/t3outcomp.eps}
     \caption{Magnitude responsein dB (related to the frequency of Vs) - theoretical analysis }
     \label{fig:compdev}
       \end{minipage}%
