@@ -27,6 +27,15 @@ Vripple=Vs*(1-exp(-T/Rb1/Ca1))
 %vO = zeros(1, length(t));
 
 
+filename = 'tabela1.tex'
+fid=fopen(filename,'w')
+
+fprintf(fid,'Vs [V]& %f\\\\ \\hline \n',double(Vs));
+fprintf(fid,'C [F]& %f\\\\ \\hline \n',double(Ca1));
+fprintf(fid,'Rb [$\Omega$]& %f\\\\ \\hline \n',double(Rb1));
+fprintf(fid,'Vripple [V] & %f\\\\ \\hline \n',double(Vripple));
+fclose(fid)
+
 m = Vripple/T;
 figure
 plot(t,Vbridge);
@@ -66,6 +75,15 @@ new_ripple=nb_diodes*rd/(nb_diodes*rd+Rb1)*Vripple
 
 t=linspace(0,T,100);
 vF = -new_ripple/T*t;
+
+filename = 'tabela2.tex'
+fid=fopen(filename,'w')
+fprintf(fid,'Vd [V] & %f\\\\ \\hline \n',double(vD));
+fprintf(fid,'Rd [$\Omega$]& %f\\\\ \\hline \n',double(rd));
+fprintf(fid,'Req [$\Omega$]& %f\\\\ \\hline \n',double(Req));
+fprintf(fid,' Previous Vripple [V]& %f\\\\ \\hline \n',double(Vripple));
+fprintf(fid,' Final Vripple [V]& %f\\\\ \\hline \n',double(new_ripple));
+fclose(fid)
 
 ripplef = zeros (1,2000);
 VF = zeros (1,2000);
