@@ -44,12 +44,7 @@ Dbp19 318 319 Default
 Dbp20 319 320 Default
 Dbp21 320 321 Default
 Dbp22 321 322 Default
-*Dbp23 322 323 Default
-*Dbp24 323 324 Default
-*Dbp25 324 325 Default
-*Dbp26 325 326 Default
-*Dbp27 326 327 Default
-Dbp28 322 4 Default
+Dbp23 322 4 Default
 
 
 *.include s.txt
@@ -78,19 +73,36 @@ set color6=rgb:4/0/0
 * analise no tempo
 tran 2e-4 3.2 3.0
 
-print maximum(v(3)-v(4))
-print mean(V(3)-v(4))
-print abs(mean(V(3)-v(4)-12))
-print abs({maximum(v(3)-v(4)) - minimum (v(3)-v(4))})
-print 1./((abs(mean(V(3)-V(4)-12)) + abs(maximum(v(3)-v(4)) - minimum (v(3)-v(4))) + 0.000001)*(0.1*27 + 20))
+let average  =  mean(V(3)-v(4))
+let deviation = abs(mean(V(3)-v(4)-12))
+let ripple = abs({maximum(v(3)-v(4)) - minimum (v(3)-v(4))})
+let merit = 1./((abs(mean(V(3)-V(4)-12)) + abs(maximum(v(3)-v(4)) - minimum (v(3)-v(4))) + 0.000001)*(0.1*27 + 20))
+
+echo "sim_TAB"
+print average
+print deviation
+print ripple
+print merit
+echo "sim_END"
+
+*print maximum(v(3)-v(4))
+*print mean(V(3)-v(4))
+*print abs(mean(V(3)-v(4)-12))
+*print abs({maximum(v(3)-v(4)) - minimum (v(3)-v(4))})
+*print 1./((abs(mean(V(3)-V(4)-12)) + abs(maximum(v(3)-v(4)) - minimum (v(3)-v(4))) + 0.000001)*(0.1*27 + 20))
 *plot  v(3)-v(4) 11 12 13
 *plot v(3)-v(4)
 *plot (311)-v(312)
 *print mean(V(311)-v(312))*25
+
+
 ******************************************
 hardcopy t3out.ps v(3)-v(4)
-hardcopy t3outcomp.ps v(3)-v(4)-12 
+echo "t3out_FIG"
+hardcopy t3outcomp.ps v(3)-v(4)-12
+echo "t3outcomp_FIG"
 hardcopy t3env.ps v(2)-v(4)
+echo "t3env_FIG"
 
 
 
