@@ -15,6 +15,7 @@ Ca1=10e-6;   %F
 Rb1=10e3;    %Ohm
 nb_diodes = 23;
 
+
 T=1/2/f; %meio periodo
 
 t=linspace(0,T,100);

@@ -7,6 +7,11 @@ As seen in Figure \ref{fig:rc.pdf}, this circuit can be divided in four parts: \
 
 \subsection{Envelope Detector Analysis}
 
+The envelope detector consist of a full wave bridge rectifier and a capacitor, with $1\mu$F.
+The rectifier used is the full wave bridge, composed by four diodes. Ideally, this means that the output(vO) is the absolute value of the input (vS) of this rectifier: vO = |vS|.
+
+The capacitor was used to smooth the wave in order to make it as close to a line as possible.
+
 \begin{table}[h]
   \centering
   \begin{tabular}{|c|c|}
@@ -35,6 +40,10 @@ As seen in Figure \ref{fig:rc.pdf}, this circuit can be divided in four parts: \
 
 
 \subsection{Voltage Regulator Analysis}
+
+The voltage regulator consists of a resistor and a limiter, which itself is composed by 23 diodes connected in series. This component takes advantage of the non-linear diode characteristics to attenuate oscillations in the input signal.
+
+The limiter’s function is to regulate the voltage to the voltage output we want, which is 12V.
 
 \begin{table}[h]
   \centering
