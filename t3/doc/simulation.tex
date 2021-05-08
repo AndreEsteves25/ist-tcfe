@@ -1,0 +1,90 @@
+\section{Simulation Analysis}
+\label{sec:simulation}
+
+The circuit under analysis was also simulated using Ngspice (revision 31) and maintaining the already mentioned node convention (figure. The forward subsections establish a comparison between theoretical and simulation results.
+
+\subsection{Envelope Detector}
+
+At t$<$0, all voltage and current sources have constant output, so the capacitor is inactive (equivalent to an open circuit), leaving a simple and linear circuit. So it is not strange that theoretical(table and simulation (table results are in fine-tune.
+
+
+\begin{figure}[h] \centering
+  \begin{minipage}{.5\textwidth}
+    \includegraphics[width=.9\textwidth]{../sim/env.eps}
+    \caption{Magnitude response in dB (related to the frequency of Vs) - simulation}
+    \label{fig:simenv}
+    \end{minipage}%
+  \begin{minipage}{.5\textwidth}
+  \centering
+    \includegraphics[width=.99\textwidth]{../sim/env.eps}
+    \caption{Magnitude responsein dB (related to the frequency of Vs) - theoretical analysis }
+    \label{fig:compenv}
+      \end{minipage}%
+\end{figure}
+
+\subsection{Voltage Regulator}
+
+Having simulated the circuit for t$<$0, there must be performed an intermediate step at t=0, before jumping to the transient analysis imposed by the sinusoidal output of Vs at t$\geq$0. This additional step is the calculation of the initial conditions for the capacitor' terminals at the transient phase. These values are obtained having Vs=0, and replacing the capacitor by a voltage source that imposes the voltage difference verified between the capacitor' terminals at t$<$0 (nodes 6 and 8). Given the conditions of simplicity, this step, much like the previous one, shows a great deal of consistency between simulation (table  and theoretical (table ref{comp2}) results. 
+
+
+
+
+\begin{figure}[h] \centering
+  \begin{minipage}{.5\textwidth}
+    \includegraphics[width=.9\textwidth]{../sim/out.eps}
+    \caption{Magnitude response in dB (related to the frequency of Vs) - simulation}
+    \label{fig:simout}
+    \end{minipage}%
+  \begin{minipage}{.5\textwidth}
+  \centering
+    \includegraphics[width=.99\textwidth]{../sim/out.eps}
+    \caption{Magnitude responsein dB (related to the frequency of Vs) - theoretical analysis }
+    \label{fig:compout}
+      \end{minipage}%
+\end{figure}
+
+\begin{figure}[h] \centering
+  \begin{minipage}{.5\textwidth}
+    \includegraphics[width=.9\textwidth]{../sim/outcomp.eps}
+    \caption{Magnitude response in dB (related to the frequency of Vs) - simulation}
+    \label{fig:simdev}
+    \end{minipage}%
+  \begin{minipage}{.5\textwidth}
+  \centering
+    \includegraphics[width=.99\textwidth]{../sim/outcomp.eps}
+    \caption{Magnitude responsein dB (related to the frequency of Vs) - theoretical analysis }
+    \label{fig:compdev}
+      \end{minipage}%
+\end{figure}
+
+
+\begin{table}[!htb]
+  \begin{minipage}{.5\linewidth}
+     \centering
+  \begin{tabular}{|c|c|}
+    \hline    
+    {\bf Parameter} & {\bf Value} \\ \hline
+    \input{../sim/sim_tab.tex}
+ \end{tabular}
+ \caption{Simulation results. A variable preceded by @ is of type {\em current}
+   and expressed in Ampere; other variables are of type {\it voltage} and expressed in
+   Volt.}
+ \label{tab:sim}
+  \end{minipage}%
+  \hspace{3mm}
+    \begin{minipage}{.5\linewidth}
+      \centering
+        \begin{tabular}{|c|c|}
+    \hline    
+    {\bf Parameter} & {\bf Value} \\ \hline
+    \input{../sim/sim_tab.tex}
+ \end{tabular}
+        \caption{Current values on each branch and voltage values on each node(t$<$0)}
+        \label{comppar}
+    \end{minipage} 
+\end{table}
+
+
+
+\newpage
+
