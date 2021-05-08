@@ -10,16 +10,9 @@ Octave was also used to obtain the theoretical output values of the envelope det
 The envelope detector consist of a full wave bridge rectifier and a capacitor, with $1\mu$F.
 The rectifier used is the full wave bridge, composed by four diodes. Ideally, this means that the output(vO) is the absolute value of the input (vS) of this rectifier: vO = $|vS|$.
 
-The capacitor was used to smooth the wave in order to make it as close to a line as possible. It was assumed that 
+The capacitor was used to smooth the wave in order to make it as close to a line as possible. It was assumed that the capacitor discharges through as series of resistors (composed by the resistor $Rb1$ in series with 25 diodes).
 
 
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width = 0.6\linewidth]{envelope.eps}
-    \caption{{\it Octave} output: Envelope Dectector Plot}
-    \label{fig:OctaveOut}
-\end{figure}
 
 \begin{figure}[h]
     \centering
@@ -32,9 +25,16 @@ The capacitor was used to smooth the wave in order to make it as close to a line
 
 \subsection{Voltage Regulator Analysis}
 
-The voltage regulator consists of a resistor and a limiter, which itself is composed by 23 diodes connected in series. This component takes advantage of the non-linear diode characteristics to attenuate oscillations in the input signal.
+The voltage regulator consists of a resistor and a limiter (25 diodes in series). This subcircuit takes advantage of the non-linear diode characteristics to attenuate oscillations in the input signal.
 
-The limiter’s function is to regulate the voltage to the voltage output we want, which is 12V.
+We followed the incremental diode model to analise this subcircuit, assuming that the mean output voltage is 12V (confirmed by the ngspice simulation).
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width = 0.6\linewidth]{final.eps}
+    \caption{{\it Octave} output: Voltage Regulator Plot}
+    \label{fig:OctaveOut}
+\end{figure}
 
 \begin{table}[h]
   \centering
@@ -43,15 +43,6 @@ The limiter’s function is to regulate the voltage to the voltage output we wan
      & { Value} \\ \hline
     \input{../mat/tabela.tex}
  \end{tabular}
- \caption{Values used for each component and results from envelope detector analysis}
+ \caption{Results oh theoretical analysis}
   \label{tab:op2}
 \end{table}
-
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width = 0.6\linewidth]{final.eps}
-    \caption{{\it Octave} output: Envelope Dectector Plot}
-    \label{fig:OctaveOut}
-\end{figure}
-
