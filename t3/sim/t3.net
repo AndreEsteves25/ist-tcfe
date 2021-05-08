@@ -10,17 +10,17 @@
 
 *13.13068
 *input voltage source
-Vi 1 0 0 sin(0 13.25625 50)
+Vi 1 0 0 sin(0 13.11611 50)
 Da1 1 2 Default
 Da2 0 2 Default
 Da3 4 0 Default
 Da4 4 1 Default
 
 *envelope detector
-Ca1 2 4 10u
+Ca1 2 4 1u
 
 *voltage regulator
-Rb1 2 3 10k
+Rb1 2 3 1k
 
 Dbp1 3 31 Default
 Dbp2 31 32 Default
@@ -44,7 +44,9 @@ Dbp19 318 319 Default
 Dbp20 319 320 Default
 Dbp21 320 321 Default
 Dbp22 321 322 Default
-Dbp23 322 4 Default
+Dbp23 322 323 Default
+Dbp24 323 324 Default
+Dbp25 324 4 Default
 
 
 *.include s.txt
@@ -76,7 +78,7 @@ tran 2e-4 3.2 3.0
 let average  =  mean(V(3)-v(4))
 let deviation = abs(mean(V(3)-v(4)-12))
 let ripple = abs({maximum(v(3)-v(4)) - minimum (v(3)-v(4))})
-let merit = 1./((abs(mean(V(3)-V(4)-12)) + abs(maximum(v(3)-v(4)) - minimum (v(3)-v(4))) + 0.000001)*(0.1*27 + 20))
+let merit = 1./((abs(mean(V(3)-V(4)-12)) + abs(maximum(v(3)-v(4)) - minimum (v(3)-v(4))) + 0.000001)*(0.1*29 + 2))
 
 echo "sim_TAB"
 print average
@@ -89,20 +91,16 @@ echo "sim_END"
 *print mean(V(3)-v(4))
 *print abs(mean(V(3)-v(4)-12))
 *print abs({maximum(v(3)-v(4)) - minimum (v(3)-v(4))})
-*print 1./((abs(mean(V(3)-V(4)-12)) + abs(maximum(v(3)-v(4)) - minimum (v(3)-v(4))) + 0.000001)*(0.1*27 + 20))
+*print 1./((abs(mean(V(3)-V(4)-12)) + abs(maximum(v(3)-v(4)) - minimum (v(3)-v(4))) + 0.000001)*(0.1*29 + 2))
 *plot  v(3)-v(4) 11 12 13
 *plot v(3)-v(4)
 *plot (311)-v(312)
 *print mean(V(311)-v(312))*25
 
-
 ******************************************
 hardcopy t3out.ps v(3)-v(4)
-echo "t3out_FIG"
-hardcopy t3outcomp.ps v(3)-v(4)-12
-echo "t3outcomp_FIG"
+hardcopy t3outcomp.ps v(3)-v(4)-12 
 hardcopy t3env.ps v(2)-v(4)
-echo "t3env_FIG"
 
 
 
