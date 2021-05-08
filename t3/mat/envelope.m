@@ -110,6 +110,7 @@ fid=fopen(filename,'w');
 fprintf(fid,'cost & %f\\\\ \\hline \n',cost);
 fprintf(fid,'DC level & 12\\\\ \\hline \n');
 fprintf(fid,'deviation & 0\\\\ \\hline \n');
-fprintf(fid,'merit & %f\\\\ \\hline \n',merit);
 fprintf(fid,'ripple & %f\\\\ \\hline \n',new_ripple);
+fprintf(fid,'merit & %f\\\\ \\hline \n',merit);
+
 fclose(fid)
