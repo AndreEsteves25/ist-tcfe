@@ -7,10 +7,10 @@ Octave was used to obtain the theoretical output values of the envelope detector
 
 \subsection{Envelope Detector Analysis}
 
-The envelope detector consist of a full wave bridge rectifier and a capacitor, with $1\mu$F.
-The rectifier used is the full wave bridge, composed by four diodes. Ideally, this means that the output(vO) is the absolute value of the input (vS) of this rectifier: vO = $|vS|$.
+The envelope detector consists of a full-wave bridge rectifier and a capacitor, with $1\mu$F.
+The rectifier used is the full-wave bridge, composed by four diodes. Ideally, this means that the output(vO) is the absolute value of the input (vS) of this rectifier: vO = $|vS|$.
 
-The capacitor was used to smooth the wave in order to make it as close to a line as possible. It was assumed that the capacitor discharges through as series of resistors (composed by the resistor $Rb1$ in series with 25 diodes).
+The capacitor was used to smooth the wave to make it as close to a line as possible. It was assumed that the capacitor discharges through a series of resistors (composed by the resistor $Rb1$ in series with 25 diodes).
 
 \begin{figure}[h] \centering
   \begin{minipage}{.5\textwidth}
@@ -33,7 +33,7 @@ The capacitor was used to smooth the wave in order to make it as close to a line
 
 The voltage regulator consists of a resistor and a limiter (25 diodes in series). This subcircuit takes advantage of the non-linear diode characteristics to attenuate oscillations in the input signal.
 
-We followed the incremental diode model to analise this subcircuit, assuming that the mean output voltage is 12V (confirmed by the ngspice simulation).
+We followed the incremental diode model to analyse this subcircuit, assuming that the mean output voltage is 12V (confirmed by the ngspice simulation).
 
 
 \begin{figure}[h] \centering

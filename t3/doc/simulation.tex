@@ -5,7 +5,7 @@ The circuit under analysis was also simulated using Ngspice (revision 31) and ma
 
 \subsection{Envelope Detector}
 
-Simulating the circuit led to the conclusion that the envelope detector reduced a lot the amplitude of the oscillations. However, it is impossible to dissociate its effect from the effect of the voltage regulator that is attached to it. Nonetheless as the theoretical analysis predicted and some experimentation confirmed it the envelope detector has a crucial role in this circuit. Without it the circuit only with the diods would incapable of oscillate around 12V since it would not be able to store energy in such a way to allow that. The following figures shows the envelope detector output measured in the simulation and compares it to the theoretical prediction, which anticipates a larger ripple since it does not take into account the non linear behavior of the diodes. 
+Simulating the circuit led to the conclusion that the envelope detector reduced a lot the amplitude of the oscillations. However, it is impossible to dissociate its effect from the effect of the voltage regulator that is attached to it. Nonetheless, as the theoretical analysis predicted and some experimentation confirmed it the envelope detector has a crucial role in this circuit. Without it, the circuit only with the diodes would incapable of oscillating around 12V since it would not be able to store energy in such a way to allow that. The following figures show the envelope detector output measured in the simulation and compare it to the theoretical prediction, which anticipates a larger ripple since it does not take into account the nonlinear behavior of the diodes. 
 
 
 
@@ -27,7 +27,7 @@ Simulating the circuit led to the conclusion that the envelope detector reduced 
 \newpage
 \subsection{Voltage Regulator}
 
-The output of the circuit, which is the same as the output of the voltage regulator seems like the voltage regulator is to some extend dispensable. But that is not case, since the non linear behavior of diodes does a lot of work in reducing the ripple (as it was discovered by experimentation). The theoretical concept of incremental voltage divider was applied but it was a minor player but nonetheless a contributor. Like in the envelope detector, the theoretical analysis falls short in predictions because it didn't take into account the non linear behavior of diodes. Figures \ref{fig:simout} and \ref{fig:compout} show the final output of circuit as predicted by simulation and by theoretical analysis respectivelly. The oscillations around the desired DC output (12V) was also plotted and the comparision between simulation and therotical analysis is shown in figures \ref{fig:simdev}and  \ref{fig:simdev}.
+The output of the circuit, which is the same as the output of the voltage regulator seems like the voltage regulator is to some extend dispensable. But that is not the case, since the nonlinear behavior of diodes does a lot of work in reducing the ripple (as was discovered by experimentation). The theoretical concept of incremental voltage divider was applied but it was a minor player but a contributor. Like in the envelope detector, the theoretical analysis falls short in predictions because it didn't take into account the nonlinear behavior of diodes. Figures \ref{fig:simout} and \ref{fig:compout} shows the final output of the circuit as predicted by simulation and by theoretical analysis respectively. The oscillations around the desired DC output (12V) were also plotted and the comparison between simulation and theoretical analysis is shown in figures \ref{fig:simdev}and  \ref{fig:simdev}.
 
 
 
@@ -63,8 +63,7 @@ The output of the circuit, which is the same as the output of the voltage regula
 \end{figure}
 
 \newpage
-Finally, the quality of the implemented circuit was evaluated by it's average output (ideally 12V), it's ripple (ideally 0V) and it's relation between performance and cost (merit which is ideally infinite). The following tables show that results for the simulation and the theoretical. Ww will return to this matter right away in the conclusion.
-
+Finally, the quality of the implemented circuit was evaluated by its average output (ideally 12V), its ripple (ideally 0V), and its relation between performance and cost (merit which is ideally infinite). The following tables show the results for the simulation and the theoretical. We will return to this matter right away in the conclusion.
 
 \begin{table}[!htb]
   \begin{minipage}{.5\linewidth}
