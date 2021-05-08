@@ -98,7 +98,7 @@ echo "sim_END"
 *print mean(V(311)-v(312))*25
 
 ******************************************
-hardcopy t3out.eps v(3)-v(4)
+hardcopy t3out.eps v(3)-v(4) 12
 hardcopy t3outcomp.eps v(3)-v(4)-12 
 hardcopy t3env.eps v(2)-v(4)
 
