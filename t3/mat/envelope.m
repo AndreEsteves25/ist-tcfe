@@ -52,7 +52,8 @@ endfor
 t=linspace(3,3.2,2000);
 plot(t,vENV);
 title("Envelope Detector");
-xlabel("t[s]");
+xlabel ("t [s]");
+ylabel ("V");
 %legend("bridge","envelope")
 print ("envelope.eps", "-depsc");
 
@@ -60,7 +61,9 @@ figure;
 plot(t,bridge)
 hold
 plot(t,vENV)
-legend("bridge output","envelope output")
+legend("bridge output","envelope output");
+xlabel ("t [s]");
+ylabel ("V");
 print ("envelope2.eps", "-depsc");
 
 
@@ -84,7 +87,9 @@ endfor
 figure;
 hold;
 t=linspace(3,3.2,2000);
-plot(t,ripplef)
+plot(t,ripplef);
+xlabel ("t [s]");
+ylabel ("V");
 title=("Ripple final")
 print ("final.eps", "-depsc");
 
@@ -96,6 +101,8 @@ plot(t,12+0*t);
 hold on;
 plot(t,ripplef+12);
 legend("DC level","final output");
+xlabel ("t [s]");
+ylabel ("V");
 print ("final2.eps", "-depsc");
 
 filename = 'tabela.tex';

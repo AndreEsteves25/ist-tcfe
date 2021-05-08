@@ -12,14 +12,20 @@ The rectifier used is the full wave bridge, composed by four diodes. Ideally, th
 
 The capacitor was used to smooth the wave in order to make it as close to a line as possible. It was assumed that the capacitor discharges through as series of resistors (composed by the resistor $Rb1$ in series with 25 diodes).
 
-
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width = 0.6\linewidth]{envelope2.eps}
-    \caption{{\it Octave} output: Envelope Dectector Plot}
-    \label{fig:OctaveOut}
+\begin{figure}[h] \centering
+  \begin{minipage}{.5\textwidth}
+    \includegraphics[width=.9\textwidth]{envelope.eps}
+    \caption{Final voltage ripple}
+    \label{fig:simenv}
+    \end{minipage}%
+  \begin{minipage}{.5\textwidth}
+  \centering
+    \includegraphics[width=.99\textwidth]{envelope2.eps}
+    \caption{Final output (DC level and its deviation)}
+    \label{fig:compenv}
+      \end{minipage}%
 \end{figure}
+
 
 
 
@@ -45,12 +51,6 @@ We followed the incremental diode model to analise this subcircuit, assuming tha
 \end{figure}
 
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width = 0.6\linewidth]{final.eps}
-    \caption{{\it Octave} output: Voltage Regulator Plot}
-    \label{fig:OctaveOut}
-\end{figure}
 
 \begin{table}[h]
   \centering
@@ -59,6 +59,6 @@ We followed the incremental diode model to analise this subcircuit, assuming tha
      & { Value} \\ \hline
     \input{../mat/tabela.tex}
  \end{tabular}
- \caption{Results oh theoretical analysis}
+ \caption{Results of theoretical analysis}
   \label{tab:op2}
 \end{table}
