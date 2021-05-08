@@ -1,37 +1,66 @@
 \section{Theoretical Analysis} \label{sec:analysis}
 
-In this section, the circuit shown in Figure \ref{fig:rc} is analysed theoretically.
-To obtained the theoretical output values of the envelope detector and the voltage regulator Octave was used. 
+In this section, the circuit shown in Figure \ref{fig:rc} is analysed theoretically, using Kirchhoff laws, Ohm's Law and the ideal diode model.
+Ocateve was also used to obtained the theoretical output values of the envelope detector and the voltage regulator. 
 
+As seen in Figure \ref{fig:rc.pdf}, this circuit can be divided in four parts: \textbf{Voltage Source}, which has an amplitude of 230 V and a frequency of 50 Hz; \textbf{Transformer}, used to transform the supplied voltage into a lower voltage; \textbf{Envelope Detector}, which includes a full wave bridge rectifier and a capacitor ;\textbf{Voltage Regulator}, which consists in a capacitor, a resistor and also a limiter composed by a group of 23 diodes in series.
 
+\subsection{Envelope Detector Analysis}
 
-\subsection{Circuit at t=0}
+The envelope detector consist of a full wave bridge rectifier and a capacitor, with $1\mu$F.
+The rectifier used is the full wave bridge, composed by four diodes. Ideally, this means that the output(vO) is the absolute value of the input (vS) of this rectifier: vO = |vS|.
 
-\begin{table}[!htb]
-    %\caption{Global caption}
-    \begin{minipage}{.5\linewidth}
-      
-      \centering
-        \begin{tabular}{|c|c|}
-        \hline    
-        {\bf Node} & {\bf V\textsubscript{i} [V]} \\ \hline
-        \input{../mat/tabelaNodes2.tex}
-        \end{tabular}
-        \caption{Voltage values on each node (t=0)}
-    \end{minipage}%
-    \begin{minipage}{.5\linewidth}
-      \centering
-        
-        \begin{tabular}{|c|c|}
-        \hline    
-        {\bf } & {\bf Value} \\ \hline
-        \input{../mat/capacitor.tex}
-        \end{tabular}
-        \caption{Data that caracterizes the capacitor at t=0}
-    \end{minipage} 
+The capacitor was used to smooth the wave in order to make it as close to a line as possible.
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline    
+     & { Value } \\ \hline
+    \input{../mat/tabela1.tex}
+ \end{tabular}
+ \caption{Values used for each component and results from envelope detector analysis}
+  \label{tab:op}
 \end{table}
-\newpage
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width = 0.6\linewidth]{envelope.eps}
+    \caption{{\it Octave} output: Envelope Dectector Plot}
+    \label{fig:OctaveOut}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width = 0.6\linewidth]{envelope2.eps}
+    \caption{{\it Octave} output: Envelope Dectector Plot}
+    \label{fig:OctaveOut}
+\end{figure}
 
 
 
+\subsection{Voltage Regulator Analysis}
+
+The voltage regulator consists of a resistor and a limiter, which itself is composed by 23 diodes connected in series. This component takes advantage of the non-linear diode characteristics to attenuate oscillations in the input signal.
+
+The limiter’s function is to regulate the voltage to the voltage output we want, which is 12V.
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline    
+     & { Value} \\ \hline
+    \input{../mat/tabela2.tex}
+ \end{tabular}
+ \caption{Values used for each component and results from envelope detector analysis}
+  \label{tab:op2}
+\end{table}
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width = 0.6\linewidth]{final.eps}
+    \caption{{\it Octave} output: Envelope Dectector Plot}
+    \label{fig:OctaveOut}
+\end{figure}
 
