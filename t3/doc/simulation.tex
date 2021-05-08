@@ -5,39 +5,39 @@ The circuit under analysis was also simulated using Ngspice (revision 31) and ma
 
 \subsection{Envelope Detector}
 
-
+Simulating the circuit led to the conclusion that the envelope detector reduced a lot the amplitude of the oscillations. However, it is impossible to dissociate its effect from the effect of the voltage regulator that is attached to it. Nontheless as the theoretical analysis predicted and some experimentation confirmed it the envelope detector has a crucial role in this circuit. Without it the circuit only with the diods would incapable of oscillate around 12V since it would not be able to store energy in such a way to allow that. The following figures shows the envelope detector output measured in the simulation and compares it to the theoretical prediction, which anticipates a larger ripple since it does not take into account the non linear behavior of the diodes. 
 
 
 \begin{figure}[h] \centering
   \begin{minipage}{.5\textwidth}
-    \includegraphics[width=.9\textwidth]{t3env.eps}
+    \includegraphics[width=.99\textwidth]{t3env.eps}
     \caption{Magnitude response in dB (related to the frequency of Vs) - simulation}
     \label{fig:simenv}
-    \end{minipage}%
+    \end{minipage}
   \begin{minipage}{.5\textwidth}
   \centering
-    \includegraphics[width=.99\textwidth]{t3env.eps}
+    \includegraphics[width=.99\textwidth]{envelope.eps}
     \caption{Magnitude responsein dB (related to the frequency of Vs) - theoretical analysis }
     \label{fig:compenv}
-      \end{minipage}%
+      \end{minipage}
 \end{figure}
 
 \subsection{Voltage Regulator}
 
-Having simulated the circuit for t$<$0, there must be performed an intermediate step at t=0, before jumping to the transient analysis imposed by the sinusoidal output of Vs at t$\geq$0. This additional step is the calculation of the initial conditions for the capacitor' terminals at the transient phase. These values are obtained having Vs=0, and replacing the capacitor by a voltage source that imposes the voltage difference verified between the capacitor' terminals at t$<$0 (nodes 6 and 8). Given the conditions of simplicity, this step, much like the previous one, shows a great deal of consistency between simulation (table  and theoretical (table ref{comp2}) results. 
+The output of the circuit, which is the same as the output of the voltage regulator seems like the voltage regulator is to some extend dispensable. But that is not case, since the non linear behavior of diodes does a lot of work in reducing the ripple (as it was discovered by experimentation). The theoretical concept of incremental voltage divider was applied but it was a minor player but nonetheless a contributor. Like in the envelope detector, the theoretical analysis falls short in predictions because it didn't take into account the non linear behavior of diodes. Figures \ref{fig:simout} and \ref{fig:compout} show the final output of circuit as predicted by simulation and by theoretical analysis respectivelly. The oscillations around the desired DC output (12V) was also plotted and the comparision between simulation and therotical analysis is shown in figures \ref{fig:simdev}and  \ref{fig:simdev}.
 
 
 
 
 \begin{figure}[h] \centering
   \begin{minipage}{.5\textwidth}
-    \includegraphics[width=.9\textwidth]{t3out.eps}
+    \includegraphics[width=.99\textwidth]{t3out.eps}
     \caption{Magnitude response in dB (related to the frequency of Vs) - simulation}
     \label{fig:simout}
     \end{minipage}%
   \begin{minipage}{.5\textwidth}
   \centering
-    \includegraphics[width=.99\textwidth]{t3out.eps}
+    \includegraphics[width=.99\textwidth]{final2.eps}
     \caption{Magnitude responsein dB (related to the frequency of Vs) - theoretical analysis }
     \label{fig:compout}
       \end{minipage}%
@@ -45,18 +45,20 @@ Having simulated the circuit for t$<$0, there must be performed an intermediate 
 
 \begin{figure}[h] \centering
   \begin{minipage}{.5\textwidth}
-    \includegraphics[width=.9\textwidth]{t3outcomp.eps}
+    \includegraphics[width=.99\textwidth]{t3outcomp.eps}
     \caption{Magnitude response in dB (related to the frequency of Vs) - simulation}
     \label{fig:simdev}
     \end{minipage}%
   \begin{minipage}{.5\textwidth}
   \centering
-    \includegraphics[width=.99\textwidth]{t3outcomp.eps}
+    \includegraphics[width=.99\textwidth]{final.eps}
     \caption{Magnitude responsein dB (related to the frequency of Vs) - theoretical analysis }
     \label{fig:compdev}
       \end{minipage}%
 \end{figure}
 
+
+Finally, the quality of the implemented circuit was evaluated by it's average output (ideally 12V), it's ripple (ideally 0V) and it's relation between performance and cost (merit which is ideally infinite). The following tables show that results for the simulation and the theoretical analysis.
 
 \begin{table}[!htb]
   \begin{minipage}{.5\linewidth}
@@ -71,13 +73,12 @@ Having simulated the circuit for t$<$0, there must be performed an intermediate 
    Volt.}
  \label{tab:sim}
   \end{minipage}%
-  \hspace{3mm}
     \begin{minipage}{.5\linewidth}
       \centering
         \begin{tabular}{|c|c|}
     \hline    
     {\bf Parameter} & {\bf Value} \\ \hline
-    \input{../sim/sim_tab.tex}
+    \input{../mat/tabela.tex}
  \end{tabular}
         \caption{Current values on each branch and voltage values on each node(t$<$0)}
         \label{comppar}
