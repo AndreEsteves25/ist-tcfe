@@ -36,8 +36,7 @@ Vripple=Vs*(1-exp(-T/Req/Ca1))
 
 
 m = Vripple/T;
-figure
-plot(t,Vbridge);
+figure;
 hold;
 vO=-m*t+Vs;
 
@@ -50,15 +49,14 @@ for i=1:20
     bridge((i-1)*100+j)=Vbridge(j);
     endfor
 endfor
-
+t=linspace(3,3.2,2000);
 plot(t,vENV);
 title("Envelope Detector");
 xlabel("t[s]");
 %legend("bridge","envelope")
 print ("envelope.eps", "-depsc");
 
-figure
-t=linspace(3,3.2,2000);
+figure;
 plot(t,bridge)
 hold
 plot(t,vENV)
