@@ -1,6 +1,6 @@
 %gain stage
 
-VT=25e-3
+VT=25e-3 %termal voltage
 BFN=178.7
 VAFN=69.7
 RE1=100
@@ -11,6 +11,11 @@ VBEON=0.7
 VCC=12
 RS=100
 
+C1=1E-3
+C2=1E-3
+C3=1E-3
+
+%gain stage - operating point   
 RB=1/(1/RB1+1/RB2)
 VEQ=RB2/(RB1+RB2)*VCC
 IB1=(VEQ-VBEON)/(RB+(1+BFN)*RE1)
@@ -63,6 +68,9 @@ go2 = IC2/VAFP
 gpi2 = gm2/BFP
 ge2 = 1/RE2
 
+rpi2=1/gpi2
+ro2=1/go2
+
 AV2 = gm2/(gm2+gpi2+go2+ge2)
 ZI2 = (gm2+gpi2+go2+ge2)/gpi2/(gpi2+go2+ge2)
 ZO2 = 1/(gm2+gpi2+go2+ge2)
@@ -74,3 +82,54 @@ AV = (gB+gm2/gpi2*gB)/(gB+ge2+go2+gm2/gpi2*gB)*AV1
 AV_DB = 20*log10(abs(AV))
 ZI=ZI1
 ZO=1/(go2+gm2/gpi2*gB+ge2+gB)
+
+
+
+%%%%%%%frequency response
+
+f = logspace(1,8,80);
+
+RE1=100
+Load=8%ohm
+vin=1
+
+gain=zeros(1,80);
+gainDB=zeros(1,80);
+for i=1:1:80
+ 
+w=2*pi*f(i)
+
+ZC1=1./j/w/C1 %input capacitor
+ZC2=1./j/w/C2 %RE capacitor
+ZC3=1./j/w/C3 %final coupling capacitor 
+
+ZE=1/(1/ZC2+1/RE1)
+Zeqf=1/(1/RE2+1/(ZC3+Load))
+
+A=[
+RS+ZC1+RB,-RB,0,0,0,0,0;
+-RB,RB+rpi1+ZE,0,-ZE,0,0,0;
+0,gm1*rpi1,1,0,0,0,0;
+0,-ZE,-ro1,ZE+ro1+RC1,-RC1,0,0;
+0,0,0,-RC1,RC1+rpi2+Zeqf,-Zeqf,0;
+0,0,0,0,-Zeqf,Zeqf+ro2,-ro2;
+0,0,0,0,gm2*rpi2,0,1;]; 
+
+B=[vin;0;0;0;0;0;0];
+
+I=A\B
+
+Vout=(I(6)-I(5))*Zeqf
+
+gain(i)=Vout*Load/(Load+ZC3)/vin;
+gainDB(i)=20*log10(gain(i))
+  endfor
+
+a=figure()
+F=log10(f)
+plot(F,gainDB,"");
+legend("Gain");
+xlabel("log(f) [Hz]");
+ylabel("Gain (dB)");
+print(a,"frequencyresponse.eps","-depsc");
+  
