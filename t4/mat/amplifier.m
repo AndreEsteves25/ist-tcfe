@@ -1,19 +1,22 @@
 %gain stage
 
-VT=25e-3 %termal voltage
-BFN=178.7
-VAFN=69.7
-RE1=100
+%valores a mudar
+RE_1=80
+RE2=100
 RC1=1000
 RB1=80000
 RB2=20000
+RS=100
+C1=1E-3
+C2=0.6E-6
+C3=1E-3
+
+VT=25e-3 %termal voltage
+BFN=178.7
+VAFN=69.7
 VBEON=0.7
 VCC=12
-RS=100
-
-C1=1E-3
-C2=1E-3
-C3=1E-3
+RE1=100
 
 %gain stage - operating point   
 RB=1/(1/RB1+1/RB2)
@@ -43,7 +46,7 @@ AVI_DB = 20*log10(abs(AV1))
 AV1simple =  - RSB/RS * gm1*RC1/(1+gm1*RE1)
 AVIsimple_DB = 20*log10(abs(AV1simple))
 
-RE1=100
+RE1=RE_1
 ZI1 = 1/(1/RB+1/(((ro1+RC1+RE1)*(rpi1+RE1)+gm1*RE1*ro1*rpi1 - RE1^2)/(ro1+RC1+RE1)))
 ZX = ro1*((RSB+rpi1)*RE1/(RSB+rpi1+RE1))/(1/(1/ro1+1/(rpi1+RSB)+1/RE1+gm1*rpi1/(rpi1+RSB)))
 ZX = ro1*(   1/RE1+1/(rpi1+RSB)+1/ro1+gm1*rpi1/(rpi1+RSB)  )/(   1/RE1+1/(rpi1+RSB) ) 
@@ -53,10 +56,18 @@ RE1=0
 ZI1 = 1/(1/RB+1/(((ro1+RC1+RE1)*(rpi1+RE1)+gm1*RE1*ro1*rpi1 - RE1^2)/(ro1+RC1+RE1)))
 ZO1 = 1/(1/ro1+1/RC1)
 
+
+tab=fopen("gainstage.tex","w");
+
+fprintf(tab, "Gain & %fdB \\\\ \\hline \n", AVI_DB);
+fprintf(tab, "Input Impedance & %f \\\\ \\hline \n", ZI1);
+fprintf(tab, "Output Impedance & %f \\\\ \\hline \n", ZO1);
+
+fclose(tab);
+
 %ouput stage
 BFP = 227.3
 VAFP = 37.2
-RE2 = 100
 VEBON = 0.7
 VI2 = VO1
 IE2 = (VCC-VEBON-VI2)/RE2
@@ -72,9 +83,18 @@ rpi2=1/gpi2
 ro2=1/go2
 
 AV2 = gm2/(gm2+gpi2+go2+ge2)
+AV2_DB = 20*log10(abs(AV2))
 ZI2 = (gm2+gpi2+go2+ge2)/gpi2/(gpi2+go2+ge2)
 ZO2 = 1/(gm2+gpi2+go2+ge2)
 
+
+tab=fopen("outputstage.tex","w");
+
+fprintf(tab, "Gain & %fdB \\\\ \\hline \n", AV2_DB);
+fprintf(tab, "Input Impedance & %f \\\\ \\hline \n", ZI2);
+fprintf(tab, "Output Impedance & %f \\\\ \\hline \n", ZO2);
+
+fclose(tab);
 
 %total
 gB = 1/(1/gpi2+ZO1)
@@ -83,15 +103,21 @@ AV_DB = 20*log10(abs(AV))
 ZI=ZI1
 ZO=1/(go2+gm2/gpi2*gB+ge2+gB)
 
+tab=fopen("total.tex","w");
 
+fprintf(tab, "Gain & %fdB \\\\ \\hline \n", AV_DB);
+fprintf(tab, "Input Impedance & %f \\\\ \\hline \n", ZI);
+fprintf(tab, "Output Impedance & %f \\\\ \\hline \n", ZO);
+
+fclose(tab);
 
 %%%%%%%frequency response
 
 f = logspace(1,8,80);
 
-RE1=100
+RE1=RE_1
 Load=8%ohm
-vin=1
+vin=0.01
 
 gain=zeros(1,80);
 gainDB=zeros(1,80);
@@ -122,11 +148,11 @@ I=A\B
 Vout=(I(6)-I(5))*Zeqf
 
 gain(i)=Vout*Load/(Load+ZC3)/vin;
-gainDB(i)=20*log10(gain(i))
+gainDB(i)=20*log10(gain(i));
   endfor
 
-a=figure()
-F=log10(f)
+a=figure();
+F=log10(f);
 plot(F,gainDB,"");
 legend("Gain");
 xlabel("log(f) [Hz]");
