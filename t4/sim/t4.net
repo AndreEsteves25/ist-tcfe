@@ -68,8 +68,9 @@ meas ac f1 WHEN vdb(out)=cutoff RISE=1
 meas ac f2 WHEN vdb(out)=cutoff CROSS=LAST
 let bandwidth = f2-f1
 print bandwidth
+print f1
 
-let merit = (gain*bandwidth)/(cost*cutoff)
+let merit = (gain*bandwidth)/(cost*f1)
 print merit
 
 plot vdb(out)
