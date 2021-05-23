@@ -45,7 +45,7 @@ Vout out 0 0 ac 1.0 sin(0 1 1k)
 
 
 * time analysis
-tran 1e-5 1e-2
+*tran 1e-5 1e-2
 
 
 * frequency analysis
@@ -57,7 +57,9 @@ ac dec 10 10 100MEG
 *print all
 
 let zo = -v(out)[40]/vout#branch[40]
+echo "zo_TAB"
 print zo
+echo "zo_END"
 
 
 .endc 

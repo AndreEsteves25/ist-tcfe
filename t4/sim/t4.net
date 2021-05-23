@@ -43,47 +43,69 @@ RL out 0 8
 
 .control
 
+*makes plots in color
+set hcopypscolor=1
+set color0=white
+set color1=black
+set color2=red
+set color3=blue
+set color4=violet
+set color5=rgb:3/8/0
+set color6=rgb:4/0/0
 
 * time analysis
 tran 1e-5 1e-2
 plot v(coll)
 plot v(in)
 plot v(out)
-hardcopy vo1.ps vdb(coll)
+hardcopy vcoll.ps v(coll)
 hardcopy vout.ps v(out)
+hardcopy vin.ps v(in)
 
 * frequency analysis
 ac dec 10 10 100MEG
 plot vdb(coll)
 plot vp(coll)
-hardcopy vo1f.ps vdb(coll)
-
-*merit
-let cost = 0.2 + 100*0.001 +3000+ 80 + 20 + 1 + 80*0.001 +6000 +30*0.001+ 1000+ 8*0.001
-print cost
-
-let gain = vecmax(-v(out))
-print gain
-let  cutoff = vecmax(vdb(out))-3
-meas ac f1 WHEN vdb(out)=cutoff RISE=1
-meas ac f2 WHEN vdb(out)=cutoff CROSS=LAST
-let bandwidth = f2-f1
-print bandwidth
-print f1
-
-let merit = (gain*bandwidth)/(cost*f1)
-print merit
+hardcopy vdbcoll.ps vdb(coll)
+hardcopy vpcoll.ps vp(coll)
 
 plot vdb(out)
 plot vp(out)
-hardcopy vo2f.ps vdb(coll)
+hardcopy vdbout.ps vdb(out)
+hardcopy vpout.ps vp(out)
+
+
+*merit
+let cost = 0.2  +3000+ 80 + 20 + 1 + 80*0.001 +6000 +30*0.001+ 1000
+
+
+let gain = vecmax(-v(out))
+
+let  cutoff = vecmax(vdb(out))-3
+meas ac flow WHEN vdb(out)=cutoff RISE=1
+meas ac f2 WHEN vdb(out)=cutoff CROSS=LAST
+let bandwidth = f2-flow
+
+
+let merit = (gain*bandwidth)/(cost*flow)
+
+echo "merit_TAB"
+print cost
+print gain
+print flow
+print bandwidth
+print merit
+echo "merit_END"
+
 
 *input impedance in kohm
 *print all
 
 *plot abs(v(in2)[40]/vin#branch[40])
 let zi = -v(in2)[40]/vin#branch[40]
+echo "zi_TAB"
 print zi
+echo "zi_END"
 
 *need a different setup to measure output impedance
 
