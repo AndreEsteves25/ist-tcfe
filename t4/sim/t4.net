@@ -9,7 +9,7 @@
 
 Vcc vcc 0 12.0
 Vin in 0 0 ac 1.0 sin(0 10m 1k)
-Rin in in2 0.001
+Rin in in2 100
 
 * input coupling capacitor
 Ci in2 base 3m
@@ -59,7 +59,7 @@ plot vp(coll)
 hardcopy vo1f.ps vdb(coll)
 
 *merit
-let cost = 0.2 + 0.001*0.001 +3000+ 80 + 20 + 1 + 80*0.001 +6000 +30*0.001+ 1000+ 8*0.001
+let cost = 0.2 + 100*0.001 +3000+ 80 + 20 + 1 + 80*0.001 +6000 +30*0.001+ 1000+ 8*0.001
 print cost
 
 let gain = vecmax(-v(out))
