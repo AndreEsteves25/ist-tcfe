@@ -7,8 +7,8 @@
 
 
 
-Vcc vcc 0 0
-Vin in 0 0 ac 1.0 sin(0 0 1k)
+Vcc vcc 0 12
+Vin in 0 0 ac 0 sin(0 0 1k)
 Rin in in2 0.001
 
 * input coupling capacitor
