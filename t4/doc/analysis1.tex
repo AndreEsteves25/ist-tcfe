@@ -149,21 +149,36 @@ The theoretical operating point analysis is mostly in tune with the simulated re
         \label{compmerit}
     \end{minipage} 
 \end{table}
-
+\newpage
 \subsection{Frequency Response}
  In this subsection, we tried to study the circuit's response over different input frequencies. To achieve a better high cut off frequency, we considered a transistor incremental model with capacitance, as we can see in the picture bellow.
  
  \begin{figure}[h] \centering
-\includegraphics[width=0.99\linewidth]{transistor.png}
-\vspace{-5mm}
+\includegraphics[width=0.4\linewidth]{transistor.png}
+\vspace{-3mm}
 \caption{Transistor incremental model with capacitance}\label{fig:rc}
 \end{figure}
+
+The transistors' capacitances are conccuring with the spice model.
+
+\begin{equation}
+ \begin{cases}
+  C_{\pi 1}=16.1pF\\
+  C_{\mu 1}=4.388pF\\
+  C_{\pi 2}=14pF\\
+  C_{\mu 2}=11.13pF
+ \end{cases}
+\end{equation}
+
+where $C_{\pi}$ refers to the base-emitter junction capacitance and $C_{\mu}$ is the colector-base junction capacitance.
 
 The results are the following:
 
  \begin{figure}[h] \centering
-\includegraphics[width=0.99\linewidth]{frequencyresponse.eps}
+\includegraphics[width=0.5\linewidth]{frequencyresponse.eps}
 \vspace{-5mm}
 \caption{Theoretical Frequency Response}\label{fig:rc}
 \end{figure}
 
+
+\newpage
