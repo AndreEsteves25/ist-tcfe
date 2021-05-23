@@ -29,10 +29,10 @@ Cb emit 0 0.6m
 
 * output stage
 Q2 0 coll emit2 BC557A
-Rout emit2 vcc 120
+Rout emit2 vcc 30
 
 * output coupling capacitor
-Co emit2 out 5u
+Co emit2 out 1000u
 
 * load
 RL out 0 8
@@ -58,7 +58,7 @@ plot vp(coll)
 hardcopy vo1f.ps vdb(coll)
 
 *merit
-let cost = 0.2 + 0.001*0.001 +3000+ 80 + 20 + 1 + 80*0.001 +600 +120*0.001+ 5+ 8*0.001
+let cost = 0.2 + 0.001*0.001 +3000+ 80 + 20 + 1 + 80*0.001 +600 +30*0.001+ 1000+ 8*0.001
 print cost
 
 let gain = vecmax(v(out))
@@ -81,7 +81,8 @@ hardcopy vo2f.ps vdb(coll)
 *print all
 
 *plot abs(v(in2)[40]/vin#branch[40]/(-1000))
-*print v(in2)[40]/vin#branch[40]/(-1000)
+let zi = v(in2)[40]/vin#branch[40]
+print zi
 
 *need a different setup to measure output impedance
 
