@@ -134,31 +134,3 @@ Besides the already presented input and output impedances, the performance and q
     \end{minipage} 
 \end{table}
 
-
-\newpage
-
-The theoretical operating point analysis is mostly in tune with the simulated result, for the gain stage only parameters there is a fine tune. deviations start to occur when we compared values that are majorly influenced by the coupling of the two stages.But even then they are approximately equal.
-
-\begin{table}[!htb]
-  \begin{minipage}{.5\linewidth}
-     \centering
-  \begin{tabular}{|c|c|}
-    \hline    
-    {\bf Parameter} & {\bf Value} \\ \hline
-    \input{../mat/OP.tex}
- \end{tabular}
- \caption{Results of theoretical analysis (operating point in volts)}
- \label{tab:merit}
-  \end{minipage}%
-    \hspace{2 mm}
-    \begin{minipage}{.5\linewidth}
-      \centering
-        \begin{tabular}{|c|c|}
-    \hline    
-    {\bf Parameter} & {\bf Value} \\ \hline
-    \input{../sim/op_tab.tex}
- \end{tabular}
-        \caption{Results of simulation analysis (operating point in volts)}
-        \label{compmerit}
-    \end{minipage} 
-\end{table}

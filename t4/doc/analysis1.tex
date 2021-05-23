@@ -70,12 +70,100 @@ The results are shown in the following table.
  \caption{Results Gain Stage}\label{tab:gainstage}
 \end{table}
 
-As we can see, we are increasing the input voltage by 44 dB. The imput impedance is also pretty compatible with the 
+As we can see, we are increasing the input voltage by 44 dB. The imput impedance is also pretty compatible with the resistance R\textsubscript S (Z\textsubscript I$>>$ ) R\textsubscript S. Unfortunately, Z\textsubscript O isn't compatible with the load impedance (8 Ohm), hence yhe inclusion of the output stage.
 
 \subsection{Output Stage}
 
+In this stage, we followed similar steps in order to compute the gain and impedances regarding this subcircuit.
+
+Computing the operating point, we have
+
+\begin{equation}
+ \begin{cases}
+  I_{E2}=\frac{V_{CC}-V_{EBON}-VI{2}}{R_O} \\
+  I_{C2}=\frac{\beta_{FP}}{\beta_{FP}+1}I_{E2}\\
+  V_{02}=V_{CC}-R_O I_{E2}
+ \end{cases}
+\end{equation}
+
+Once again, we can compute, the following incremental data, which concerns the bipolar transitor small signal model (AC)
+\begin{equation}
+ \begin{cases}
+g_{m2}= I_{C2}/V_{T}\\
+r_{\pi 2}=\beta_{FP}/g_{m1}\\
+r_{o 2}=V_{AFP}/I_{C2}
+ \end{cases}
+\end{equation}
+
+where $g_{m2}$ is the transconductance, $r_{\pi 2}$ is the input incremental impedance, $\beta_{FP}$=227.3 is the common emmiter current gain, $r_{o 1}$ is the output incremental resistance, and finally, $V_{AFP}$=37.2V is the forward mode early voltage.
+
+Finally, we compute the output stage's gain and impedances:
+\begin{equation}
+ \begin{cases}
+ \frac{vo}{vi}=\frac{g_{m2}}{g_{\pi 2}+g_O+g_{o2}+g_{m2}}\\
+  Z_{I2}=\frac{g_{\pi 2}+g_O+g_{o2}+g_{m2}}{g_{\pi 2}(g_O+g_{o2}+g_{m2})}\\
+  Z_{02}=\frac{1}{g_{\pi 2}+g_O+g_{o2}+g_{m2}}
+ \end{cases}
+\end{equation}
+
+where $g_{\pi 2}$ is the input incremental conductance, $g_{o 2}$ and $g_O$ is the $R_O$'s conductance
+
+
+The results are shown in the following table.
+
+\begin{table}[!htb]
+\centering
+  \begin{tabular}{|c|c|}
+    \hline    
+    {\bf Parameter} & {\bf Value} \\ \hline
+    \input{../mat/outputstage.tex}
+ \end{tabular}
+ \caption{Results Output Stage}\label{tab:outputstage}
+\end{table}
+
+As we can see, $Z_{I2}$ is very compatible with gain stage's output impedance ($Z_{I2}>>Z_{01}$), hence the two subcircuits can be connected without significant loss. Also, $Z_{O2}<<R_{load}$, hence there's less amplification loss.
+
+
+The theoretical operating point analysis is mostly in tune with the simulated result, for the gain stage only parameters there is a fine tune. Deviations start to occur when we compared values that are majorly influenced by the coupling of the two stages. But even then they are approximately equal.
+
+\begin{table}[!htb]
+  \begin{minipage}{.5\linewidth}
+     \centering
+  \begin{tabular}{|c|c|}
+    \hline    
+    {\bf Parameter} & {\bf Value} \\ \hline
+    \input{../mat/OP.tex}
+ \end{tabular}
+ \caption{Results of theoretical analysis (operating point in volts)}
+ \label{tab:merit}
+  \end{minipage}%
+    \hspace{2 mm}
+    \begin{minipage}{.5\linewidth}
+      \centering
+        \begin{tabular}{|c|c|}
+    \hline    
+    {\bf Parameter} & {\bf Value} \\ \hline
+    \input{../sim/op_tab.tex}
+ \end{tabular}
+        \caption{Results of simulation analysis (operating point in volts)}
+        \label{compmerit}
+    \end{minipage} 
+\end{table}
+
 \subsection{Frequency Response}
+ In this subsection, we tried to study the circuit's response over different input frequencies. To achieve a better high cut off frequency, we considered a transistor incremental model with capacitance, as we can see in the picture bellow.
+ 
+ \begin{figure}[h] \centering
+\includegraphics[width=0.99\linewidth]{transistor.png}
+\vspace{-5mm}
+\caption{Transistor incremental model with capacitance}\label{fig:rc}
+\end{figure}
 
+The results are the following:
 
-
+ \begin{figure}[h] \centering
+\includegraphics[width=0.99\linewidth]{frequencyresponse.eps}
+\vspace{-5mm}
+\caption{Theoretical Frequency Response}\label{fig:rc}
+\end{figure}
 
