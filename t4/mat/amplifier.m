@@ -248,5 +248,5 @@ fprintf(tab, "M & %f \\\\ \\hline \n", M);
 fclose(tab);
 
 tab=fopen("ganho2.tex","w");
-fprintf(tab, "ganho & %f (V)\\\\ \\hline \n", GAIN2);
+fprintf(tab, "%f", GAIN2);
 fclose(tab);
