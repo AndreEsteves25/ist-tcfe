@@ -21,10 +21,11 @@ R2 base 0 20k
 * gain stage
 Q1 coll base emit BC547A
 Rc vcc coll 1k
+*Rc a 0.1k aumenta muito o merito mas reduz o ganho (aumenta a bandwidth na gama das freq. altas - eu nao o comprava - discutir com o pai)
 Re emit 0 80
 
 * bypass capacitor
-Cb emit 0 0.6m
+Cb emit 0 6m
 
 
 * output stage
@@ -58,10 +59,10 @@ plot vp(coll)
 hardcopy vo1f.ps vdb(coll)
 
 *merit
-let cost = 0.2 + 0.001*0.001 +3000+ 80 + 20 + 1 + 80*0.001 +600 +30*0.001+ 1000+ 8*0.001
+let cost = 0.2 + 0.001*0.001 +3000+ 80 + 20 + 1 + 80*0.001 +6000 +30*0.001+ 1000+ 8*0.001
 print cost
 
-let gain = vecmax(v(out))
+let gain = vecmax(-v(out))
 print gain
 let  cutoff = vecmax(vdb(out))-3
 meas ac f1 WHEN vdb(out)=cutoff RISE=1
@@ -80,8 +81,8 @@ hardcopy vo2f.ps vdb(coll)
 *input impedance in kohm
 *print all
 
-*plot abs(v(in2)[40]/vin#branch[40]/(-1000))
-let zi = v(in2)[40]/vin#branch[40]
+*plot abs(v(in2)[40]/vin#branch[40])
+let zi = -v(in2)[40]/vin#branch[40]
 print zi
 
 *need a different setup to measure output impedance
