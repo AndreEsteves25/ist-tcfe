@@ -1,0 +1,95 @@
+\section{Simulation Analysis}
+\label{sec:simulation}
+
+The circuit under analysis was also simulated using Ngspice (revision 31) and maintaining the already mentioned node convention (figure REF-RC). The forward subsections establish a comparison between theoretical and simulation results.
+
+\subsection{Envelope Detector}
+
+Simulating the circuit led to the conclusion that the envelope detector reduced a lot the amplitude of the oscillations. However, it is impossible to dissociate its effect from the effect of the voltage regulator that is attached to it. Nonetheless, as the theoretical analysis predicted and some experimentation confirmed it the envelope detector has a crucial role in this circuit. Without it, the circuit only with the diodes would incapable of oscillating around 12V since it would not be able to store energy in such a way to allow that. The following figures show the envelope detector output measured in the simulation and compare it to the theoretical prediction, which anticipates a larger ripple since it does not take into account the nonlinear behavior of the diodes. 
+
+
+
+\begin{figure}[h] \centering
+  \begin{minipage}{.45\textwidth}
+    \includegraphics[width=.8\textwidth]{t3env.eps}
+    \caption{Envelope detector output - simulation analysis}
+    \label{fig:simenv}
+  \end{minipage}%
+    \hspace{2 mm}
+  \begin{minipage}{.45\textwidth}
+  \centering
+    \includegraphics[width=.9\textwidth]{envelope.eps}
+    \caption{Envelope detector - theoretical analysis}
+    \label{fig:compenv}
+      \end{minipage}%
+\end{figure}
+
+\newpage
+\subsection{Voltage Regulator}
+
+The output of the circuit, which is the same as the output of the voltage regulator seems like the voltage regulator is to some extend dispensable. But that is not the case, since the nonlinear behavior of diodes does a lot of work in reducing the ripple (as was discovered by experimentation). The theoretical concept of incremental voltage divider was applied but it was a minor player but a contributor. Like in the envelope detector, the theoretical analysis falls short in predictions because it didn't take into account the nonlinear behavior of diodes. Figures \ref{fig:simout} and \ref{fig:compout} shows the final output of the circuit as predicted by simulation and by theoretical analysis respectively. The oscillations around the desired DC output (12V) were also plotted and the comparison between simulation and theoretical analysis is shown in figures \ref{fig:simdev}and  \ref{fig:simdev}.
+
+
+
+
+\begin{figure}[h] \centering
+  \begin{minipage}{.45\textwidth}
+    \includegraphics[width=.8\textwidth]{t3out.eps}
+    \caption{ACDC converter output - simulation analysis (which is also the voltage regulator output)}
+    \label{fig:simout}
+  \end{minipage}%
+  \hspace{2 mm}
+  \begin{minipage}{.45\textwidth}
+  \centering
+    \includegraphics[width=.9\textwidth]{final.eps}
+    \caption{ACDC converter output - theoretical analysis (which is also the voltage regulator output)}
+    \label{fig:compout}
+      \end{minipage}%
+\end{figure}
+
+\begin{figure}[h] \centering
+  \begin{minipage}{.45\textwidth}
+    \includegraphics[width=.8\textwidth]{t3outcomp.eps}
+    \caption{ACDC converter output oscillation - theoretical analysis}
+    \label{fig:simdev}
+  \end{minipage}%
+    \hspace{2 mm}
+  \begin{minipage}{.45\textwidth}
+  \centering
+    \includegraphics[width=.9\textwidth]{final.eps}
+    \caption{ACDC converter output oscillation - theoretical analysis}
+    \label{fig:compdev}
+      \end{minipage}%
+\end{figure}
+
+\newpage
+Finally, the quality of the implemented circuit was evaluated by its average output (ideally 12V), its ripple (ideally 0V), and its relation between performance and cost (merit which is ideally infinite). The following tables show the results for the simulation and the theoretical. We will return to this matter right away in the conclusion.
+
+\begin{table}[!htb]
+  \begin{minipage}{.5\linewidth}
+     \centering
+  \begin{tabular}{|c|c|}
+    \hline    
+    {\bf Parameter} & {\bf Value} \\ \hline
+    \input{../sim/sim_tab.tex}
+ \end{tabular}
+ \caption{Results of simulation analysis}
+ \label{tab:sim}
+  \end{minipage}%
+    \hspace{2 mm}
+    \begin{minipage}{.5\linewidth}
+      \centering
+        \begin{tabular}{|c|c|}
+    \hline    
+    {\bf Parameter} & {\bf Value} \\ \hline
+    \input{../mat/tabela.tex}
+ \end{tabular}
+        \caption{Results of theoretical analysis}
+        \label{comppar}
+    \end{minipage} 
+\end{table}
+
+
+
+\newpage
+
