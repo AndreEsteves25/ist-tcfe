@@ -1,36 +1,68 @@
 \section{Simulation Analysis}
 \label{sec:simulation}
 
-The circuit under analysis was also simulated using Ngspice (revision 31) and maintaining the already mentioned node convention (figure \ref{fig:rc}). The forward subsections establish a comparison between theoretical and simulation results.
+The circuit under analysis was also simulated using Ngspice (revision 31) and maintaining the already mentioned node convention (figure \ref{fig:rc}). The forward subsections establish a comparison between theoretical and simulation results. The operating point analysis is already discussed in the theoretical anaylisis section and therefore it will not be mentioned again.
 
 \subsection{Gain Stage}
-From the simulation, one can conclude that a great deal of small-signal amplification occurs at the gain stage which is exactly this section's function. However, the signal has a huge DC deviation which is undesirable. Also, according to the rough estimates of the theoretical analysis, this stage has a huge output impedance which means that it enclosures the voltage out of the real output zone. This is why we need the output stage to impose enough signal amplitude arriving at the load. A graph of the signal at node C (the signal at the end of the gain stage) in a 100Hz regime is shown below. Bellow that is shown the frequency response of the gain stage's output which has some clear irregularities but a large bandwidth. These irregularities will also be corrected at the output stage.
+From the simulation, one can conclude that a great deal of small-signal amplification occurs at the gain stage which is exactly this section's function. However, the signal has a huge DC deviation which is undesirable. Also, according to the rough estimates of the theoretical analysis, this stage has a huge output impedance which means that it enclosures the voltage out of the real output zone. This is why we need the output stage to impose enough signal amplitude arriving at the load. A graph of the signal at node C (the signal at the end of the gain stage) in a 100Hz regime is shown below. Bellow that is shown the frequency response of the gain stage's output which has some clear irregularities but a large bandwidth. These irregularities will also be corrected at the output stage. There is also the phase which is of lesser importance in a sound pitch context but is nonetheless displayed in figure \ref{fig:vpcoll}.
 
 \begin{figure}[h] \centering
-\includegraphics[width=0.9\linewidth]{vcoll.eps}
+\includegraphics[width=0.4\linewidth]{vcoll.eps}%0.9
 \vspace{-5mm}
 \caption{Gain Stage output at 100Hz}
 \label{fig:vcoll}
 \end{figure}
+\vspace{-5mm}
+
+%\begin{figure}[h] \centering
+%\includegraphics[width=0.9\linewidth]{vdbcoll.eps}
+%\vspace{-5mm}
+%\caption{Gain Stage output-frequency response}
+%\label{fig:vdbcoll}
+%\end{figure}
 
 \begin{figure}[h] \centering
-\includegraphics[width=0.9\linewidth]{vdbcoll.eps}
-\vspace{-5mm}
-\caption{Gain Stage output-frequency response}
-\label{fig:vdbcoll}
+  \begin{minipage}{.45\textwidth}
+    \includegraphics[width=.8\textwidth]{vdbcoll.eps}
+    \caption{Gain Stage output-frequency response (amplitude)}
+    \label{fig:vdbcoll}
+  \end{minipage}%
+    \hspace{2 mm}
+  \begin{minipage}{.45\textwidth}
+  \centering
+    \includegraphics[width=.8\textwidth]{vpcoll.eps}
+    \caption{Gain Stage output-frequency response (phase)}
+    \label{fig:vpcoll}
+      \end{minipage}%
 \end{figure}
 
 \newpage
 \subsection{Output Stage}
 
-The simulation shows that the output stage accomplishes its essential function. The output impedance is reduced (table \ref{tab:z}). And as shown in figure \ref{fig:vout} the output signal has a gain of roughly 50 (the input signal has an amplitude of 10 volts) and has no DC deviation and negligible distortion. The output signal also shows a large and plane bandwidth in the frequency response as desired (figure \ref{fig:vdbout}). The comparison between theoretical and simulation analysis will be discussed in detail in the conclusion section. It is also noted that the input impedance is high compared to the 100 Ohms of the input resistance which is also a desired feature.
+The simulation shows that the output stage accomplishes its essential function. The output impedance is reduced (table \ref{tab:z}). And as shown in figure \ref{fig:vout} the output signal has a gain of roughly 50 (the input signal has an amplitude of 10 volts) and has no DC deviation and negligible distortion. The output signal also shows a large and plane bandwidth in the frequency response as desired (figure \ref{fig:vdbout}). The comparison between theoretical and simulation analysis will be discussed in detail in the conclusion section. It is also noted that the input impedance is high compared to the 100 Ohms of the input resistance which is also a desired feature.As already mentioned the phase dislayed in figure \ref{fig:vpout} is of minor importance.
+
+%\begin{figure}[h] \centering
+%\includegraphics[width=0.9\linewidth]{vout.eps}
+%\vspace{-5mm}
+%\caption{Output at 100Hz}
+%\label{fig:vout}
+%\end{figure}
 
 \begin{figure}[h] \centering
-\includegraphics[width=0.9\linewidth]{vout.eps}
-\vspace{-5mm}
-\caption{Output at 100Hz}
-\label{fig:vout}
+  \begin{minipage}{.45\textwidth}
+    \includegraphics[width=.8\textwidth]{vout.eps}
+    \caption{Output frequency response - theoretical analysis}
+    \label{fig:vout}
+  \end{minipage}%
+    \hspace{2 mm}
+  \begin{minipage}{.45\textwidth}
+  \centering
+    \includegraphics[width=.8\textwidth]{vpout.eps}
+    \caption{Output frequency response - theoretical analysis}
+    \label{fig:vpout}
+      \end{minipage}%
 \end{figure}
+
 
 \begin{figure}[h] \centering
   \begin{minipage}{.45\textwidth}
@@ -102,4 +134,31 @@ Besides the already presented input and output impedances, the performance and q
     \end{minipage} 
 \end{table}
 
+
 \newpage
+
+The theoretical operating point analysis is mostly in tune with the simulated result, for the gain stage only parameters there is a fine tune. deviations start to occur when we compared values that are majorly influenced by the coupling of the two stages.But even then they are approximately equal.
+
+\begin{table}[!htb]
+  \begin{minipage}{.5\linewidth}
+     \centering
+  \begin{tabular}{|c|c|}
+    \hline    
+    {\bf Parameter} & {\bf Value} \\ \hline
+    \input{../mat/OP.tex}
+ \end{tabular}
+ \caption{Results of theoretical analysis (operating point in volts)}
+ \label{tab:merit}
+  \end{minipage}%
+    \hspace{2 mm}
+    \begin{minipage}{.5\linewidth}
+      \centering
+        \begin{tabular}{|c|c|}
+    \hline    
+    {\bf Parameter} & {\bf Value} \\ \hline
+    \input{../sim/op_tab.tex}
+ \end{tabular}
+        \caption{Results of simulation analysis (operating point in volts)}
+        \label{compmerit}
+    \end{minipage} 
+\end{table}
