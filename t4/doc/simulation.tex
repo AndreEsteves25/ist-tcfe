@@ -7,16 +7,16 @@ The circuit under analysis was also simulated using Ngspice (revision 31) and ma
 From the simulation one can conclude that a great deal of small signal amplification occurs at the gain stage wich is exaclty this section' function. However the signal has a huge DC deviation wich is undesirable. Also, according to the rought estimates of the theoretical analysis this stage has a huge output impedance which means that it enclosures the voltage out of the real output zone. This is why we need the output stage to impose enought signal amplitude arriving at the load. A graph of the signal at the node C (the signal at the end of the gain stage) in a 100Hz regime is shown bellow. Bellow that is shown the frequency response of the gain stage's output wich has some clear irregularities but a large bandiwdth. This irregularities will also be corrected at the output stage.
 
 \begin{figure}[h] \centering
-\includegraphics[width=0.99\linewidth]{vcoll.eps}
+\includegraphics[width=0.9\linewidth]{vcoll.eps}
 \vspace{-5mm}
 \caption{Gain Stage output at 100Hz}
 \label{fig:vcoll}
 \end{figure}
 
 \begin{figure}[h] \centering
-\includegraphics[width=0.99\linewidth]{vdbcoll.eps}
+\includegraphics[width=0.9\linewidth]{vdbcoll.eps}
 \vspace{-5mm}
-\caption{Gain Stage output }
+\caption{Gain Stage output-frequency response}
 \label{fig:vdbcoll}
 \end{figure}
 
@@ -26,23 +26,23 @@ The simulation shows that the output stage accomplishes its essential function. 
 
 
 \begin{figure}[h] \centering
-\includegraphics[width=0.99\linewidth]{vout.eps}
+\includegraphics[width=0.9\linewidth]{vout.eps}
 \vspace{-5mm}
-\caption{Gain Stage output at 100Hz}
+\caption{Output at 100Hz}
 \label{fig:vout}
 \end{figure}
 
 \begin{figure}[h] \centering
   \begin{minipage}{.45\textwidth}
     \includegraphics[width=.8\textwidth]{vdbout.eps}
-    \caption{ACDC converter output oscillation - theoretical analysis}
+    \caption{Output frequency response - theoretical analysis}
     \label{fig:vdbout}
   \end{minipage}%
     \hspace{2 mm}
   \begin{minipage}{.45\textwidth}
   \centering
     \includegraphics[width=.9\textwidth]{frequencyresponse.eps}
-    \caption{ACDC converter output oscillation - theoretical analysis}
+    \caption{Output frequency response - theoretical analysis}
     \label{fig:compvdbout}
       \end{minipage}%
 \end{figure}
@@ -56,7 +56,7 @@ The simulation shows that the output stage accomplishes its essential function. 
     \input{../sim/zi_tab.tex}
     \input{../sim/zo_tab.tex}
  \end{tabular}
- \caption{Results of simulation analysis}
+ \caption{Impedance (in Ohms) -  simulation analysis}
  \label{tab:z}
   \end{minipage}
     \hspace{2 mm}
@@ -67,7 +67,7 @@ The simulation shows that the output stage accomplishes its essential function. 
     {\bf Parameter} & {\bf Value} \\ \hline
      \input{../mat/total.tex}
  \end{tabular}
-        \caption{Results of theoretical analysis}
+        \caption{Impedance (in Ohms) - theoretical analysis}
         \label{tab:compz}
     \end{minipage} 
 \end{table}
