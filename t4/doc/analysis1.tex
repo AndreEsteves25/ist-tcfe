@@ -15,7 +15,7 @@ Looking at the circuit as a voltage divider, we have
 V_{eq} = \frac{R_{2}}{R_{1}+R_{2}} V_{cc}
 \end{equation}
 
-To calculate the current passes through the node \textit{e} we know that $I_E$=(1+\beta)$I_B$.
+To calculate the current passes through the node \textit{e} we know that $I_E$=(1+$\beta$)$I_B$.
 
 Using the mesh analysis for the mesh on the left side and assuming that the current is going clockwise,
 \begin{equation}
@@ -33,70 +33,3 @@ I_{B1} = \frac{V_{eq}-V_{BEON}}{R_B + (1+\beta_{FN}) R_{E1}}
 
 
 
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%
-Octave was used to obtain the theoretical output values of the envelope detector and the voltage regulator. 
-
-
-
-\subsection{Envelope Detector Analysis}
-
-The envelope detector consists of a full-wave bridge rectifier and a capacitor, with $1\mu$F.
-The rectifier used is the full-wave bridge, composed by four diodes. Ideally, this means that the output(vO) is the absolute value of the input (vS) of this rectifier: vO = \textbar vS\textbar.
-
-The capacitor was used to smooth the wave to make it as close to a line as possible. It was assumed that the capacitor discharges through a series of resistors (composed by the resistor $Rb1$ in series with 25 diodes).
-
-\begin{figure}[h] \centering
-  \begin{minipage}{.5\textwidth}
-    \includegraphics[width=.9\textwidth]{envelope.eps}
-    \caption{Envelope voltage ripple}
-    \label{fig:simenv}
-    \end{minipage}%
-  \begin{minipage}{.5\textwidth}
-  \centering
-    \includegraphics[width=.9\textwidth]{envelope2.eps}
-    \caption{Bridge and envelope output}
-    \label{fig:compenv}
-      \end{minipage}%
-\end{figure}
-
-
-
-
-\subsection{Voltage Regulator Analysis}
-
-The voltage regulator consists of a resistor and a limiter (25 diodes in series). This subcircuit takes advantage of the non-linear diode characteristics to attenuate oscillations in the input signal.
-
-We followed the incremental diode model to analyse this subcircuit, assuming that the mean output voltage is 12V (confirmed by the ngspice simulation).
-
-
-\begin{figure}[h] \centering
-  \begin{minipage}{.5\textwidth}
-    \includegraphics[width=.9\textwidth]{final.eps}
-    \caption{Final voltage ripple}
-    \label{fig:simenv}
-    \end{minipage}%
-  \begin{minipage}{.5\textwidth}
-  \centering
-    \includegraphics[width=.9\textwidth]{final2.eps}
-    \caption{Final output (DC level and its deviation)}
-    \label{fig:compenv}
-      \end{minipage}%
-\end{figure}
-
-
-
-\begin{table}[h]
-  \centering
-  \begin{tabular}{|c|c|}
-    \hline    
-     & { Value} \\ \hline
-    \input{../mat/tabela.tex}
- \end{tabular}
- \caption{Results of theoretical analysis}
-  \label{tab:op2}
-\end{table}
