@@ -53,6 +53,15 @@ set color4=violet
 set color5=rgb:3/8/0
 set color6=rgb:4/0/0
 
+op
+echo "op_TAB"
+print v(base)
+print v(coll)
+print v(emit)
+print v(emit2)
+print v(out)
+echo "op_END"
+
 * time analysis
 tran 1e-5 1e-2
 plot v(coll)
