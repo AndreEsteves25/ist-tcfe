@@ -85,13 +85,12 @@ VB2=VBEON+VE1
 
 
 tab=fopen("OP.tex","w");
-fprintf(tab, "%f V\\\\ \\hline \n",VB1);
-fprintf(tab, "%f V\\\\ \\hline \n",VO1);
-fprintf(tab, "%fV\\\\ \\hline \n",VE1);
-fprintf(tab, "%fV\\\\ \\hline \n",VO2);
-fprintf(tab, "0V\\\\ \\hline \n");
+fprintf(tab, "v(base) & %f V\\\\ \\hline \n",VB1);
+fprintf(tab, "v(coll) & %f V\\\\ \\hline \n",VO1);
+fprintf(tab, "v(emit) &  %f V\\\\ \\hline \n",VE1);
+fprintf(tab, "v(emit2) & %f V\\\\ \\hline \n",VO2);
+fprintf(tab, "v(out) & 0V\\\\ \\hline \n");
 fclose(tab);
-
 
 gm2 = IC2/VT;
 go2 = IC2/VAFP;
