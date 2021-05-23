@@ -13,7 +13,7 @@ RE2=30;
 Cost=(RB1+RB2+RE_1+RE2+RC1)/1000+(C1+C2+C3)*10^6+2*0.1;
 
 tab=fopen("custo.tex","w");
-fprintf(tab, "%f MU",COST);
+fprintf(tab, "%f MU",Cost);
 fclose(tab);
 
 VT=25e-3; %termal voltage
