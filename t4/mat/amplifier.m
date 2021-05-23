@@ -128,20 +128,37 @@ ZC3=1./j/w/C3 %final coupling capacitor
 ZE=1/(1/ZC2+1/RE1)
 Zeqf=1/(1/RE2+1/(ZC3+Load))
 
-A=[
-RS+ZC1+RB,-RB,0,0,0,0,0;
--RB,RB+rpi1+ZE,0,-ZE,0,0,0;
-0,gm1*rpi1,1,0,0,0,0;
-0,-ZE,-ro1,ZE+ro1+RC1,-RC1,0,0;
-0,0,0,-RC1,RC1+rpi2+Zeqf,-Zeqf,0;
-0,0,0,0,-Zeqf,Zeqf+ro2,-ro2;
-0,0,0,0,gm2*rpi2,0,1;]; 
 
-B=[vin;0;0;0;0;0;0];
+Cpi1=1.61E-11;
+Cmu1=4.388E-12;
+Cpi2=1.4E-11;
+Cmu2=1.113E-11;
+
+ZCpi1=1/j/w/Cpi1;
+ZCmu1=1/j/w/Cmu1;
+ZCpi2=1/j/w/Cpi2;
+ZCmu2=1/j/w/Cmu2;
+
+
+A=[
+RS+ZC1+RB,-RB,0,0,0,0,0,0,0,0,0;
+-RB,RB+rpi1+ZE,0,0,0,-ZE,0,0,0,0,0;
+0,-rpi1,rpi1+ZCpi1,-ZCpi1,0,0,0,0,0,0,0;
+0,0,-ZCpi1,ZCpi1+ZCmu1,ro1,-ro1,0,0,0,0,0;
+0,gm1*rpi1,-gm1*rpi1,1,-1,0,0,0,0,0,0;
+0,-ZE,0,0,-ro1,ZE+ro1+RC1,-RC1,0,0,0,0;
+0,0,0,0,0,-RC1,RC1+rpi2+Zeqf,-rpi2,0,0,-Zeqf;
+0,0,0,0,0,0,-rpi2,rpi2+ZCpi2,-ZCpi2,0,0;
+0,0,0,0,0,0,0,-ZCpi2,ZCpi2+ZCmu2,ro2,-ro2;
+0,0,0,0,0,0,gm2*rpi2,-gm2*rpi2,1,-1,0;
+0,0,0,0,0,0,-Zeqf,0,0,-ro2,Zeqf+ro2;
+]; 
+
+B=[vin;0;0;0;0;0;0;0;0;0;0];
 
 I=A\B
 
-Vout=(I(6)-I(5))*Zeqf
+Vout=(I(7)-I(11))*Zeqf
 
 gain(i)=Vout*Load/(Load+ZC3)/vin;
 gainDB(i)=20*log10(gain(i));
