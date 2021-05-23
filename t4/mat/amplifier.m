@@ -107,7 +107,7 @@ ZI=ZI1;
 ZO=1/(go2+gm2/gpi2*gB+ge2+gB);
 
 tab=fopen("total.tex","w"); %speak about overall impedances and compare w/ spice model
-fprintf(tab, "Gain & %fdB \\\\ \\hline \n", AV_DB);
+%fprintf(tab, "Gain & %fdB \\\\ \\hline \n", AV_DB);
 fprintf(tab, "Input Impedance & %f \\\\ \\hline \n", ZI);
 fprintf(tab, "Output Impedance & %f \\\\ \\hline \n", ZO);
 fclose(tab);
