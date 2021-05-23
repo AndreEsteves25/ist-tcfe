@@ -1,5 +1,29 @@
 \section{Theoretical Analysis} \label{sec:analysis}
+ 
+
+
 \subsection{Gain Stage}
+The bias circuit $V_{cc}$, $R_1$, $R_2$ will determine the base voltage $V_B$ and ensure the BEJ is on.
+
+To be easier to analyse the bias circuit we can ignore the capacitors and make a Thevenin equivalent, replacing resistors $R_{1}$ and $R_{2}$, which are in parallel, with an equivalent resistor $R_{B}$:
+\begin{equation}
+R_B = \frac{R_{1} R_{2}}{R_{1}+R_{2}}
+\end{equation}
+
+Looking at the circuit as a voltage divider, we have
+\begin{equation}
+V_{eq} = \frac{R_{2}}{R_{1}+R_{2}} V_{cc}
+\end{equation}
+
+To calculate the current passes through the node \textit{e} we know that $I_E$=(1+\beta)$I_B$.
+
+Using the mesh analysis for the mesh on the left side and assuming that the current is going clockwise,
+\begin{equation}
+V_{eq} + R_B I_{B1} + V_{BEON} + R_{E1} I_{E1} = 0
+I_{B1} = \frac{V_{eq}-V_{BEON}}{R_B + (1+\beta_{FN}) R_{E1}}
+\end{equation}
+
+
 \subsubsection{Operating Point}
 \subsubsection{Incremental Analysis}
 \subsection{Output Stage}
