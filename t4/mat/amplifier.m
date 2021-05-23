@@ -30,9 +30,10 @@ VEQ=RB2/(RB1+RB2)*VCC;
 IB1=(VEQ-VBEON)/(RB+(1+BFN)*RE1);
 IC1=BFN*IB1;
 IE1=(1+BFN)*IB1;
-VE1=RE1*IE1;
-VO1=VCC-RC1*IC1;
+VE1=RE1*IE1
+VO1=VCC-RC1*IC1
 VCE=VO1-VE1;
+VB1=VBEON+VE1
 
 tab=fopen("FAR.tex","w");
 fprintf(tab, "%f V",VCE);
@@ -67,7 +68,7 @@ ZO1 = 1/(1/ro1+1/RC1);
 
 
 tab=fopen("gainstage.tex","w");
-fprintf(tab, "Gain & %fdB \\\\ \\hline \n", AVIsimple_DB);
+fprintf(tab, "Gain & %fdB \\\\ \\hline \n", AVI_DB);
 fprintf(tab, "Input Impedance & %f \\\\ \\hline \n", ZI1); %must be compatible w/ RS=100 ohm Zi>>Rs=100
 fprintf(tab, "Output Impedance & %f \\\\ \\hline \n", ZO1);
 fclose(tab);
@@ -77,9 +78,20 @@ BFP = 227.3;
 VAFP = 37.2;
 VEBON = 0.7;
 VI2 = VO1;
-IE2 = (VCC-VEBON-VI2)/RE2;
+IE2 = (VCC-VEBON-VI2)/RE2
 IC2 = BFP/(BFP+1)*IE2;
-VO2 = VCC - RE2*IE2;
+VO2 = VCC - RE2*IE2
+VB2=VBEON+VE1
+
+
+tab=fopen("OP.tex","w");
+fprintf(tab, "%f V\\\\ \\hline \n",VB1);
+fprintf(tab, "%f V\\\\ \\hline \n",VO1);
+fprintf(tab, "%fV\\\\ \\hline \n",VE1);
+fprintf(tab, "%fV\\\\ \\hline \n",VO2);
+fprintf(tab, "0V\\\\ \\hline \n");
+fclose(tab);
+
 
 gm2 = IC2/VT;
 go2 = IC2/VAFP;

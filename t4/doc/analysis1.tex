@@ -50,9 +50,15 @@ where $g_{m1}$ is the transconductance, $V_{T}$=25mV is the termal voltage, $r_{
 
 Assuming that the capacitor C\textsubscript{E} is a short-circuit when we are analysing the AC component, we have R\textsubscript{E}=0,
 
-\begin{align*} 
-\frac{vo}{vi}=-g_{m1} (R_C\parallel r_o) \frac{r_\pi \parallel R_B} {R_s+r_\pi\parallel R_B} v_s
-\end{align*}
+\begin{equation}
+\begin{cases} 
+\frac{vo}{vi}=-g_{m1} (R_C\parallel r_{o1}) \frac{r_{\pi1} \parallel R_B} {R_s+r_{\pi1}\parallel R_B} v_s \\
+Z_I= R_B \parallel r_{\pi1} \\
+Z_0=R_C\parallel r_{o1}
+\end{cases}
+\end{equation}
+
+The results are shown in the following table.
 
 \begin{table}[!htb]
 \centering
@@ -61,8 +67,10 @@ Assuming that the capacitor C\textsubscript{E} is a short-circuit when we are an
     {\bf Parameter} & {\bf Value} \\ \hline
     \input{../mat/gainstage.tex}
  \end{tabular}
- \caption{Results of simulation analysis}\label{tab:gainstage}
+ \caption{Results Gain Stage}\label{tab:gainstage}
 \end{table}
+
+As we can see, we are increasing the input voltage by 44 dB. The imput impedance is also pretty compatible with the 
 
 \subsection{Output Stage}
 
