@@ -2,17 +2,18 @@
 \label{sec:introduction}
 
 % state the learning objective 
-The objective of this laboratory assignment is to create an AC/DC Converter, a circuit that converts alternate current into direct current, and then, analyse it. This converter is composed by an envelope detector and a voltage regulator.
+The objective of this laboratory assignment is to build an audio amplifier, increasing its gain and bandwidth and minimizing both cost and the value of the lower cutoff frequency. This audio amplifier is composed by gain and output stage.
 
-As seen in Figure \ref{fig:rc}, this circuit can be divided into four parts: \textbf{Voltage Source}, which has an amplitude of 230 V and a frequency of 50 Hz; \textbf{Transformer}, used to transform the supplied voltage into a lower voltage; \textbf{Envelope Detector}, which includes a full-wave bridge rectifier and a capacitor; \textbf{Voltage Regulator}, which consists of a capacitor, a resistor and also a limiter - 25 diodes in series.
+As seen in Figure \ref{fig:rc}, this circuit has a supply voltage source is $Vcc=12 V$, and can be divided into four parts: \textbf{Input Voltage}, which is an sinusoidal (AC) signal $V_s$, it has a maximum amplitude of $10 mV$ and it's in series with a resistor $R_s=100 \Omega$; \textbf{Gain Stage},composed by a degenerated common emitter amplifier composed by a bias circuit with a bypass capacitor, and an NPN transistor; \textbf{Outuput Stage}, wchich is a common collector amplifier with a PNP transistor; \textbf{Speaker}, which is the load of the circuit with $8 \Omega$.
 
 
 \begin{figure}[h] \centering
 \includegraphics[width=0.99\linewidth]{rc.pdf}
 \vspace{-5mm}
-\caption{The AC/DC converter}
+\caption{The Audio Amplifier}
 \label{fig:rc}
 \end{figure}
+
 
 \begin{table}[h]
   \centering
