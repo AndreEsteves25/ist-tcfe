@@ -10,12 +10,12 @@ C2=6E-3;
 C3=1E-3;
 RE2=30;
 
-Cost=(RB1+RB2+RE_1+RE2+RC1)/1000+(C1+C2+C3)*10^6+2*0.1
+Cost=(RB1+RB2+RE_1+RE2+RC1)/1000+(C1+C2+C3)*10^6+2*0.1;
 
 VT=25e-3; %termal voltage
 BFN=178.7;
 VAFN=69.7;
-VBEON=0.7;
+VBEON=0.7
 VCC=12;
 RE1=RE_1;
 RS=100;
@@ -30,6 +30,9 @@ VE1=RE1*IE1;
 VO1=VCC-RC1*IC1;
 VCE=VO1-VE1;
 
+tab=fopen("FAR.tex","w");
+fprintf(tab, "%f V",VCE);
+fclose(tab);
 
 gm1=IC1/VT;
 rpi1=BFN/gm1;
@@ -175,6 +178,7 @@ ylabel("Gain (dB)");
 axis([1 8 0 60]);
 print(a,"frequencyresponse.eps","-depsc");
 
+
 GAIN=max(gain);
 GAINDB=max(gainDB);
 
@@ -231,6 +235,9 @@ I=A\B
 Vout=(I(6)-I(5))*Zeqf
 gain2(i)=real(Vout*Load/(Load+ZC3)/vin);
 gainDB2(i)=20*log10(gain(i));
+
+
+
   endfor
 
   
