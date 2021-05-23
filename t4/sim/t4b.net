@@ -56,7 +56,7 @@ ac dec 10 10 100MEG
 *output impedance in ohms
 *print all
 
-let zo = -v(out)[40]/vout#branch[40]
+let zo = real(-v(out)[40]/vout#branch[40])
 echo "zo_TAB"
 print zo
 echo "zo_END"

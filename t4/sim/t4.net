@@ -80,7 +80,7 @@ hardcopy vpout.eps vp(out)
 let cost = 0.2  +3000+ 240 + 60 + 1 + 80*0.001 +6000 +30*0.001+ 1000
 
 
-let gain = vecmax(-v(out)/v(in2))
+let gain =  real(vecmax(-v(out)/v(in2)))
 
 let  cutoff = vecmax(vdb(out))-3
 meas ac flow WHEN vdb(out)=cutoff RISE=1
@@ -89,6 +89,7 @@ let bandwidth = f2-flow
 
 
 let merit = (gain*bandwidth)/(cost*flow)
+write meritex.txt merit
 
 echo "merit_TAB"
 print cost
@@ -103,7 +104,7 @@ echo "merit_END"
 *print all
 
 *plot abs(v(in2)[40]/vin#branch[40])
-let zi = -v(in2)[40]/vin#branch[40]
+let zi = real(-v(in2)[40]/vin#branch[40])
 echo "zi_TAB"
 print zi
 echo "zi_END"
