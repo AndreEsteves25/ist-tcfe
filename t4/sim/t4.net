@@ -98,7 +98,7 @@ let bandwidth = f2-flow
 
 
 let merit = (gain*bandwidth)/(cost*flow)
-write meritex.txt merit
+
 
 echo "merit_TAB"
 print cost
