@@ -16,6 +16,6 @@ ngspice.log: t4.net
 
 
 clean:
-	@rm -f *.log  *.tex *.pdf *.eps *~ *.ps
+	@rm -f *.log  *.tex *.pdf *.eps *~
 
 .PHONY: all clean

@@ -58,22 +58,22 @@ tran 1e-5 1e-2
 plot v(coll)
 plot v(in)
 plot v(out)
-hardcopy vcoll.ps v(coll)
-hardcopy vout.ps v(out)
-hardcopy vin.ps v(in)
-hardcopy vin2.ps v(in2)
+hardcopy vcoll.eps v(coll)
+hardcopy vout.eps v(out)
+hardcopy vin.eps v(in)
+hardcopy vin2.eps v(in2)
 
 * frequency analysis
 ac dec 10 10 100MEG
 plot vdb(coll)
 plot vp(coll)
-hardcopy vdbcoll.ps vdb(coll)
-hardcopy vpcoll.ps vp(coll)
+hardcopy vdbcoll.eps vdb(coll)
+hardcopy vpcoll.eps vp(coll)
 
 plot vdb(out)
 plot vp(out)
-hardcopy vdbout.ps vdb(out)
-hardcopy vpout.ps vp(out)
+hardcopy vdbout.eps vdb(out)
+hardcopy vpout.eps vp(out)
 
 
 *merit
