@@ -38,11 +38,16 @@ From this transistor model, we also know that
 
 In the operating point calculations, we are also checking if the transistor is in the forward active region:  V\textsubscript{ce} = \input{../mat/FAR.tex} $<$ 0.7= V\textsubscript{BEon}, as we inteded.
 \subsubsection{Incremental Analysis}
-
+Following the operating point analysis, we can compute, the following incremental data, which concerns the bipolar transitor small signal model (AC)
 \begin{align*} 
-2x - 5y &=  8 \\ 
-3x + 9y &=  -12
+g_{m1}= I_{C1}/V_{T}\\
+r_{\pi 1}=\beta_{FN}/g_{m1}\\
+r_{o 1}=V_{AFN}/I_{C1}
 \end{align*}
+
+where $g_{m1}$ is the transconductance, $V_{T}$=25mV is the termal voltage, $r_{\pi 1}$ is the input incremental impedance, $\beta_{FN}$=178.7 is the common emmiter current gain, $r_{o 1}$ is the output incremental resistance.
+
+Assuming that the capacitor C\textsubscript{E} is a short-circuit when we are analysing the AC component, we have R\textsubscript{E}=0,
 
 \subsection{Output Stage}
 
