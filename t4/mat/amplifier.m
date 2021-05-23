@@ -2,21 +2,21 @@
 
 %valores a mudar
 RE_1=80
-RE2=100
 RC1=1000
-RB1=80000
-RB2=20000
-RS=100
-C1=1E-3
-C2=0.6E-6
+RB1=240E3
+RB2=60E3
+C1=0.3E-3
+C2=0.6E-3
 C3=1E-3
+RE2=30
 
 VT=25e-3 %termal voltage
 BFN=178.7
 VAFN=69.7
 VBEON=0.7
 VCC=12
-RE1=100
+RE1=RE_1
+RS=100
 
 %gain stage - operating point   
 RB=1/(1/RB1+1/RB2)
@@ -58,11 +58,9 @@ ZO1 = 1/(1/ro1+1/RC1)
 
 
 tab=fopen("gainstage.tex","w");
-
 fprintf(tab, "Gain & %fdB \\\\ \\hline \n", AVI_DB);
-fprintf(tab, "Input Impedance & %f \\\\ \\hline \n", ZI1);
+fprintf(tab, "Input Impedance & %f \\\\ \\hline \n", ZI1); %must be compatible w/ RS=100 ohm Zi>>Rs=100
 fprintf(tab, "Output Impedance & %f \\\\ \\hline \n", ZO1);
-
 fclose(tab);
 
 %ouput stage
@@ -91,8 +89,8 @@ ZO2 = 1/(gm2+gpi2+go2+ge2)
 tab=fopen("outputstage.tex","w");
 
 fprintf(tab, "Gain & %fdB \\\\ \\hline \n", AV2_DB);
-fprintf(tab, "Input Impedance & %f \\\\ \\hline \n", ZI2);
-fprintf(tab, "Output Impedance & %f \\\\ \\hline \n", ZO2);
+fprintf(tab, "Input Impedance & %f \\\\ \\hline \n", ZI2);%must be compatible w/gain stage Zo, Z1 output>>Zo gain
+fprintf(tab, "Output Impedance & %f \\\\ \\hline \n", ZO2); %must be lower than 8ohm
 
 fclose(tab);
 
@@ -103,12 +101,10 @@ AV_DB = 20*log10(abs(AV))
 ZI=ZI1
 ZO=1/(go2+gm2/gpi2*gB+ge2+gB)
 
-tab=fopen("total.tex","w");
-
+tab=fopen("total.tex","w"); %speak about overall impedances and compare w/ spice model
 fprintf(tab, "Gain & %fdB \\\\ \\hline \n", AV_DB);
 fprintf(tab, "Input Impedance & %f \\\\ \\hline \n", ZI);
 fprintf(tab, "Output Impedance & %f \\\\ \\hline \n", ZO);
-
 fclose(tab);
 
 %%%%%%%frequency response
