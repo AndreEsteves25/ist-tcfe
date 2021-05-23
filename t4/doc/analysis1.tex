@@ -8,12 +8,12 @@ The bias circuit V\textsubscript{cc}, R\textsubscript1, R\textsubscript2 will de
 
 To be easier to analyse the bias circuit we can ignore the capacitors and make a Thévenin equivalent, replacing resistors R\textsubscript{1} and R\textsubscript{2}, which are in parallel, with an equivalent resistor R\textsubscript{B}:
 \begin{equation}
-R_B = \frac{R_{1} R_{2}}{R_{1}+R_{2}}
+R_B = \frac{R_{B1} R_{B2}}{R_{B1}+R_{B2}}
 \end{equation}
 
 Looking at the circuit as a voltage divider, we have
 \begin{equation}
-V_{eq} = \frac{R_{2}}{R_{1}+R_{2}} V_{cc}
+V_{eq} = \frac{R_{B2}}{R_{B1}+R_{B2}} V_{cc}
 \end{equation}
 
 To calculate the current passing through the node \textit{e} we know that I\textsubscript E =(1+$\beta_F$)I\textsubscript B.
@@ -36,7 +36,7 @@ From this transistor model, we also know that
  V_{c}=V_{cc}-R_{c}I_{C1};
 \end{equation}
 
-In the operating point calculations, we are also checking if the transistor is in the forward active region:  V\textsubscript{ce} = \input{../mat/FAR.tex} $<$ 0.7= V\textsubscript{BEon}, as we inteded.
+In the operating point calculations, we are also checking if the transistor is in the forward active region:  V\textsubscript{ce} = \input{../mat/FAR.tex} $>$ 0.7= V\textsubscript{BEon}, as we inteded.
 \subsubsection{Incremental Analysis}
 Following the operating point analysis, we can compute, the following incremental data, which concerns the bipolar transitor small signal model (AC)
 \begin{align*} 
@@ -45,9 +45,24 @@ r_{\pi 1}=\beta_{FN}/g_{m1}\\
 r_{o 1}=V_{AFN}/I_{C1}
 \end{align*}
 
-where $g_{m1}$ is the transconductance, $V_{T}$=25mV is the termal voltage, $r_{\pi 1}$ is the input incremental impedance, $\beta_{FN}$=178.7 is the common emmiter current gain, $r_{o 1}$ is the output incremental resistance.
+where $g_{m1}$ is the transconductance, $V_{T}$=25mV is the termal voltage, $r_{\pi 1}$ is the input incremental impedance, $\beta_{FN}$=178.7 is the common emmiter current gain, $r_{o 1}$ is the output incremental resistance, and finally, $V_{AFN}$=69.7V is the forward mode early voltage.
+
 
 Assuming that the capacitor C\textsubscript{E} is a short-circuit when we are analysing the AC component, we have R\textsubscript{E}=0,
+
+\begin{align*} 
+\frac{vo}{vi}=-g_{m1} (R_C\parallel r_o) \frac{r_\pi \parallel R_B} {R_s+r_\pi\parallel R_B} v_s
+\end{align*}
+
+\begin{table}[!htb]
+\centering
+  \begin{tabular}{|c|c|}
+    \hline    
+    {\bf Parameter} & {\bf Value} \\ \hline
+    \input{../mat/gainstage.tex}
+ \end{tabular}
+ \caption{Results of simulation analysis}\label{tab:gainstage}
+\end{table}
 
 \subsection{Output Stage}
 
