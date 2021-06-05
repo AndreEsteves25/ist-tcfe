@@ -1,12 +1,23 @@
 %chosen components
-R1=1000
-R2=1/(1/(1000)+1/(20000))
-R3=2*100*10^3+10000
-R4=1000
+R1=1*10^3
+R2=1*10^3
+R3=200*10^3
+R4=1*10^3
 
 C1=220*10^(-9)
-C2=220*10^(-9)
+C2=220*10^(-9)/2
 
+%computing COST
+costR=(R1+R2+R3+R4)/1000
+costC=(C1+C2)*10^(12)
+
+%computing input and output impedances
+f=1000
+w=2*pi*f
+ZC1=1./(j*w*C1);
+ZC2=1./(j*w*C2);
+Zin=ZC1+R1;
+Zout=1/(1/R2+1/ZC2);
 
 %computing capacitor's impedances
 f=1:0.1:8;;
@@ -15,6 +26,7 @@ w=2*pi*power(10,f);
 
 ZC1=1./(j*w*C1);
 ZC2=1./(j*w*C2);
+
 
 %computing transfer function
 fator1=R1./(R1+ZC1);
@@ -34,6 +46,37 @@ print ("T.eps", "-depsc");
 
 
 %computing maximum gain
-A=max(TdB)
+max=max(TdB)
 
-%computing cut off frequencies
+%computing cut off frequencies (finding out the frequency 3dB bellow the max gain)
+flag1=0; 
+flag2=0;
+for i=1:length(f)
+  if(flag1==0 && TdB(i)>=(max-3))
+  lowf=f(i-1)
+  lowF=power(10,lowf)
+  wL=2*pi*power(10,lowf)
+  flag1=1;
+endif
+  if((flag1==1) && (flag2==0) && (TdB(i)<(max-3)))
+   highf=f(i-1)
+   highF=power(10,highf)
+   wH=2*pi*power(10,highf)
+   flag2=1;
+ endif 
+endfor
+
+%central frequency + deviation
+fc=sqrt(lowF*highF)
+wc=sqrt(wL*wH)
+fdev=abs(1000-fc)
+
+%gain + deviation
+%40dB <=> 100 amplification
+a=log10(fc)
+b=int32(10*log10(fc)-10) %finding out iteration corresponding to the central frequency
+gain = T(b)
+gaindB=TdB(b)%so para ver
+gaindev=abs(100-gain)
+
+
