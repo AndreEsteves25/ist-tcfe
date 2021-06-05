@@ -1,6 +1,9 @@
 all: octave.log
 
-octave.log: amplifier.m
+octave.log: BPF.m
+	octave $< > $@
+
+octave1.log: 1.m
 	octave $< > $@
 
 clean:
