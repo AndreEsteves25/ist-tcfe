@@ -86,7 +86,9 @@ hold on;
 plot(f,40.+0*f);
 hold on;
 line ([lowf lowf], [-60 60], "linestyle", "--", "color", "g");
-legend("gain dB","40 db");
+hold on;
+line ([highf highf], [-60 60], "linestyle", "--", "color", "k");
+legend("gain dB","40 db","F_L");
 xlabel ("log10(f) [Hz]");
 ylabel ("gain [dB]");
 print ("T.eps", "-depsc");
@@ -96,6 +98,7 @@ fprintf(tab, "Input Impedance & %f Ohm \\\\ \\hline \n", Zin);
 fprintf(tab, "Output Impedance & %f Ohm \\\\ \\hline \n", Zout);
 fclose(tab);
 
+tab=fopen("final.tex", "w");
 fprintf(tab, "Gain DB & %f dB \\\\ \\hline \n", gaindB);
 fprintf(tab, "Gain & %f \\\\ \\hline \n", gain);
 fprintf(tab, "Bandwidth & %f Hz \\\\ \\hline \n", highF-lowF);
