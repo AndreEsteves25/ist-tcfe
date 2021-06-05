@@ -41,14 +41,7 @@ T=abs(ZC2./(ZC2+R2).*fator12);
 %converting gain (directly from transfer function to dB)
 TdB=20*log10(T);
 
-figure;
-plot(f,TdB);
-hold on;
-plot(f,40.+0*f)
-legend("gain dB","40 db");
-xlabel ("log10(f) [Hz]");
-ylabel ("gain [dB]");
-print ("T.eps", "-depsc");
+
 
 
 %computing maximum gain
@@ -87,6 +80,16 @@ gaindev=abs(100-gain)
 
 MERIT=1/(COST*gaindev*fdev+10^(-6))
 
+figure;
+plot(f,TdB);
+hold on;
+plot(f,40.+0*f);
+hold on;
+line ([lowf lowf], [-60 60], "linestyle", "--", "color", "g");
+legend("gain dB","40 db");
+xlabel ("log10(f) [Hz]");
+ylabel ("gain [dB]");
+print ("T.eps", "-depsc");
 
 tab=fopen("impedances.tex", "w");
 fprintf(tab, "Input Impedance & %f Ohm \\\\ \\hline \n", Zin);
