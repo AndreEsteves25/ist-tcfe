@@ -9,7 +9,13 @@ C2=220*10^(-9)/2
 
 %computing COST
 costR=(R1+R2+R3+R4)/1000
-costC=(C1+C2)*10^(12)
+costC=(C1+C2)*10^(6)
+
+costR741=(1e3+50e3+1e3+5e3+50e3+50+50+25+7.5e3+4.5e5+39e3)/1000
+costC741=(30*10^(-12))*10^(6)
+cost741=costR741+costC741+22*0.1+1*0.1
+
+COST=costR+costC+cost741
 
 %computing input and output impedances
 f=1000
@@ -79,4 +85,20 @@ gain = T(b)
 gaindB=TdB(b)%so para ver
 gaindev=abs(100-gain)
 
+MERIT=1/(COST*gaindev*fdev+10^(-6))
 
+
+tab=fopen("impedances.tex", "w");
+fprintf(tab, "Input Impedance & %f Ohm \\\\ \\hline \n", Zin);
+fprintf(tab, "Output Impedance & %f Ohm \\\\ \\hline \n", Zout);
+fclose(tab);
+
+fprintf(tab, "Gain DB & %f dB \\\\ \\hline \n", gaindB);
+fprintf(tab, "Gain & %f \\\\ \\hline \n", gain);
+fprintf(tab, "Bandwidth & %f Hz \\\\ \\hline \n", highF-lowF);
+fprintf(tab, "Central Frequency & %f Hz \\\\ \\hline \n", fc);
+fprintf(tab, "Frequency Deviation & %f Hz \\\\ \\hline \n", fdev);
+fprintf(tab, "Gain Deviation & %f Hz\\\\ \\hline \n", gaindev);
+fprintf(tab, "Cost & %f MU\\\\ \\hline \n", COST);
+fprintf(tab, "Merit & %f\\\\ \\hline \n", MERIT);
+fclose(tab);	
