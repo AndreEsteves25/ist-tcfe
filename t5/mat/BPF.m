@@ -88,7 +88,7 @@ hold on;
 line ([lowf lowf], [-60 60], "linestyle", "--", "color", "g");
 hold on;
 line ([highf highf], [-60 60], "linestyle", "--", "color", "k");
-legend("gain dB","40 db","F_L");
+legend("gain dB","40 db","f_L","f_H");
 xlabel ("log10(f) [Hz]");
 ylabel ("gain [dB]");
 print ("T.eps", "-depsc");
