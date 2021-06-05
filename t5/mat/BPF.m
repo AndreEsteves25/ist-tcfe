@@ -22,8 +22,8 @@ f=1000
 w=2*pi*f
 ZC1=1./(j*w*C1);
 ZC2=1./(j*w*C2);
-Zin=ZC1+R1;
-Zout=1/(1/R2+1/ZC2);
+Zin=ZC1+R1
+Zout=1/(1/R2+1/ZC2)
 
 %computing capacitor's impedances
 f=1:0.1:8;;
@@ -78,7 +78,7 @@ gain = T(b)
 gaindB=TdB(b)%so para ver
 gaindev=abs(100-gain)
 
-MERIT=1/(COST*gaindev*fdev+10^(-6))
+MERIT=1/(COST*(gaindev+fdev+10^(-6)))
 
 figure;
 plot(f,TdB);
