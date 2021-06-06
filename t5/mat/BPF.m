@@ -1,8 +1,8 @@
 %chosen components
 R1=1*10^3
 R2=1*10^3
-R3=200*10^3
-R4=1*10^3
+R3= 110*10^3+ (200*10^3*10*10^3)/(210*10^3)
+R4=(1*10^3*10*10^3)/(11*10^3)
 
 C1=220*10^(-9)
 C2=220*10^(-9)/2
@@ -78,11 +78,7 @@ gain = T(b)
 gaindB=TdB(b)%so para ver
 gaindev=abs(100-gain)
 
-<<<<<<< HEAD
-MERIT=1/COST*(gaindev+fdev+10^(-6))
-=======
 MERIT=1/(COST*(gaindev+fdev+10^(-6)))
->>>>>>> 1093a7b360451cb7e2d16c7bed53ee79f86346f3
 
 figure;
 plot(f,TdB);
