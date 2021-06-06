@@ -92,7 +92,7 @@ tran 1e-5 1e-2
 
 
 * frequency analysis
-ac dec 10 10 100MEG
+ac dec 100 10 100MEG
 *plot vdb(3)
 *plot vdb(6)
 *plot vdb (out) 40
@@ -141,7 +141,8 @@ meas ac volt_out FIND v(out) AT=fc
 
 print volt_out
 print curr_out
-let zout =  -volt_out/curr_out
+*let zout =  -volt_out/curr_out
+let zout = -volt_out/vout#branch[199]
 
 echo "sim2_TAB"
 print zout

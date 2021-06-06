@@ -84,20 +84,20 @@ print all
 
 * time analysis
 tran 1e-5 1e-2 1e-3 
-plot v(out)
+*plot v(out)
 *plot v(1)
 hardcopy vout.eps v(out)
 
 
 * frequency analysis
-ac dec 10 10 100MEG
+ac dec 100 10 100MEG
 *plot vdb(3)
 *plot vdb(6)
-plot vdb (out) 40
+*plot vdb (out) 40
 *print vdb(out)
 *plot vdb(1)
 *plot v(out)/v(1)
-plot vp(out)
+*plot vp(out)
 hardcopy vbdout.eps vdb(out) 40
 hardcopy vpout.eps vp(out)
 
@@ -130,10 +130,12 @@ let merit = 1.0/(cost*(abs(1000-fc)*abs(lingain-100))+ 0.000001)
 
 meas ac curr_in FIND vin#branch AT=fc
 meas ac volt_in FIND v(1) AT=fc
+print vin#branch
 
 print volt_in
 print curr_in
-let zin =  -volt_in/curr_in
+*let zin =  -volt_in/curr_in
+let zin = -volt_in/vin#branch[199]
 
 echo "sim_TAB"
 print gain
