@@ -2,20 +2,6 @@
  
 The transfer function that caracterizes the studied circuit is given by
 
-<<<<<<< HEAD
-
-\subsection{Gain Stage}
-
-
-
-\begin{equation}
- \begin{cases}
- \frac{vo}{vi}=\frac{g_{m2}}{g_{\pi 2}+g_O+g_{o2}+g_{m2}}\\
-  Z_{I2}=\frac{g_{\pi 2}+g_O+g_{o2}+g_{m2}}{g_{\pi 2}(g_O+g_{o2}+g_{m2})}\\
-  Z_{02}=\frac{1}{g_{\pi 2}+g_O+g_{o2}+g_{m2}}
- \end{cases}
-\end{equation}
-=======
 \begin{equation} \label{eq:transfer}
  \text{T(s)}=\frac{\text{R\textsubscript1}}{\text{Z\textsubscript{C1}+R\textsubscript1}} \left( 1+\frac{\text{R\textsubscript3}}{\text{R\textsubscript4}}\right) \frac{\text{Z\textsubscript{C2}}}{\text{Z\textsubscript{C2}+R\textsubscript2}}
 \end{equation}
@@ -58,7 +44,6 @@ The following graphics are obtained directly from the transfer function's (\ref{
 \end{figure}
 
 \subsection{Input and Output Impedances}
->>>>>>> e9d1ce0697082388b8bcfdcb0208311d7d27c292
 
 To compute the input and output impedances, we followed the ideal OP-AMP model : Z\textsubscript{in}=$\infty$ and Z\textsubscript{out}=0.
 
@@ -70,25 +55,10 @@ The results are the following:
 \centering
   \begin{tabular}{|c|c|}
     \hline    
-<<<<<<< HEAD
-    {\bf Parameter} & {\bf Value} \\ \hline
-    \input{../mat/outputstage.tex}
- \end{tabular}
- \caption{Results Output Stage}\label{tab:outputstage}
-\end{table}
- with capacitance, as we can see in the picture bellow.
- 
- \begin{figure}[h] \centering
-\includegraphics[width=0.4\linewidth]{transistor.png}
-\vspace{-3mm}
-\caption{Transistor incremental model with capacitance}\label{fig:rc}
-\end{figure}
-=======
     \input{../mat/impedances.tex}
  \end{tabular}
  \caption{Real part of the input and output impedances}\label{tab:theo:impedances}
 \end{table}
->>>>>>> e9d1ce0697082388b8bcfdcb0208311d7d27c292
 
 
 
