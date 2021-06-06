@@ -1,0 +1,82 @@
+\section{Simulation Analysis}
+\label{sec:simulation}
+
+The circuit under analysis was also simulated using Ngspice (revision 31) and maintaining the already mentioned node convention (figure \ref{fig:rc}). The forward subsections establish a comparison between theoretical and simulation results.
+
+
+
+
+\begin{figure}[h] \centering
+\includegraphics[width=0.4\linewidth]{vout.eps}%0.9
+\vspace{-5mm}
+\caption{Output voltage at 100Hz}
+\label{fig:vout}
+\end{figure}
+\vspace{-5mm}
+
+%\begin{figure}[h] \centering
+%\includegraphics[width=0.9\linewidth]{vdbcoll.eps}
+%\vspace{-5mm}
+%\caption{Gain Stage output-frequency response}
+%\label{fig:vdbcoll}
+%\end{figure}
+
+\begin{figure}[h] \centering
+  \begin{minipage}{.45\textwidth}
+    \includegraphics[width=.8\textwidth]{vdbout.eps}
+    \caption{Output voltage - frequency response (amplitude) (simulation result)}
+    \label{fig:vdbout}
+  \end{minipage}%
+    \hspace{2 mm}
+  \begin{minipage}{.45\textwidth}
+  \centering
+    \includegraphics[width=.8\textwidth]{vpout.eps}
+    \caption{Gain Stage output-frequency response (amplitude) (theoretical result)}
+    \label{fig:compvdbout}
+      \end{minipage}%
+\end{figure}
+
+\begin{figure}[h] \centering
+  \begin{minipage}{.45\textwidth}
+    \includegraphics[width=.8\textwidth]{vdbout.eps}
+    \caption{Output voltage -frequency response (phase) (theoretical result)}
+    \label{fig:vpout}
+  \end{minipage}%
+    \hspace{2 mm}
+  \begin{minipage}{.45\textwidth}
+  \centering
+    \includegraphics[width=.8\textwidth]{vpout.eps}
+    \caption{Gain Stage output-frequency response (phase) (simulation result)}
+    \label{fig:compvpout}
+      \end{minipage}%
+\end{figure}
+
+\newpage
+
+\begin{table}[!htb]
+  \begin{minipage}{.5\linewidth}
+     \centering
+  \begin{tabular}{|c|c|}
+    \hline    
+    {\bf Parameter} & {\bf Value} \\ \hline
+    \input{../sim/sim_tab.tex}
+    \input{../sim/sim2_tab.tex}
+ \end{tabular}
+ \caption{Essentia lresults (simulation analysis)}
+ \label{tab:sim}
+  \end{minipage}
+    \hspace{2 mm}
+    \begin{minipage}{.5\linewidth}
+      \centering
+        \begin{tabular}{|c|c|}
+    \hline    
+    {\bf Parameter} & {\bf Value} \\ \hline
+    \input{../sim/sim_tab.tex}
+    \input{../sim/sim2_tab.tex}
+ \end{tabular}
+        \caption{Essential results (theoretical analysis)}
+        \label{tab:compsim}
+    \end{minipage} 
+\end{table}
+
+
