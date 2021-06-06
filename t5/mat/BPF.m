@@ -40,6 +40,8 @@ TdB=20*log10(T);
 %computing maximum gain
 max=max(TdB)
 
+
+
 %computing cut off frequencies (finding out the frequency 3dB bellow the max gain)
 flag1=0; 
 flag2=0;
@@ -103,6 +105,16 @@ xlabel("log10(f) [Hz]");
 ylabel("phase response (degrees)");
 print ("Tphase.eps", "-depsc");
 
+tab=fopen("max.tex", "w");
+fprintf(tab, "%f", max);
+fclose(tab);
+
+tab=fopen("frequencies.tex", "w");
+fprintf(tab, "f\\textsubscript{L} & %f Hz\\\\ \\hline \n", lowF);
+fprintf(tab, "f\\textsubscript{H} & %f Hz\\\\ \\hline \n", highF);
+fprintf(tab, "f\\textsubscript{c} & %f Hz\\\\ \\hline \n", fc);
+fclose(tab);
+
 
 
 tab=fopen("final.tex", "w");
@@ -139,3 +151,8 @@ fprintf(tab, "R4  & %f k$\\Omega$ \\\\ \\hline \n",R4/1000);
 fprintf(tab, "C1  & %f nF \\\\ \\hline \n",C1*10^(9));
 fprintf(tab, "C2  & %f nF \\\\ \\hline \n",C2*10^(9));
 fclose(tab);
+
+%k=1+R3/R4
+
+%wl=1/(R1*C1)
+%wF=1/(R2*C2)
