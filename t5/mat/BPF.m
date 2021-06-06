@@ -32,6 +32,7 @@ ZC2=1./(j*w*C2);
 fator1=R1./(R1+ZC1);
 fator12=(1+R3/R4).*fator1;
 T=abs(ZC2./(ZC2+R2).*fator12);
+Tphase=arg(ZC2./(ZC2+R2).*fator12);
 %converting gain (directly from transfer function to dB)
 TdB=20*log10(T);
 
@@ -88,6 +89,19 @@ legend("gain dB","40 db","f_L","f_H","f_c");
 xlabel ("log10(f) [Hz]");
 ylabel ("gain [dB]");
 print ("T.eps", "-depsc");
+
+figure;
+plot(f,Tphase*180/pi);
+hold on;
+line ([lowf lowf], [-100 100], "linestyle", "--", "color", "g");
+hold on;
+line ([highf highf], [-100 100], "linestyle", "--", "color", "k");
+hold on;
+line ([log10(fc) log10(fc)], [-100 100], "linestyle", "--", "color", "m");
+legend("phase response (degrees)","f_L","f_H","f_c");
+xlabel("log10(f) [Hz]");
+ylabel("phase response (degrees)");
+print ("Tphase.eps", "-depsc");
 
 
 
