@@ -131,7 +131,7 @@ fclose(tab);
 
 %componentes tabel
 tab=fopen("components.tex", "w");
-fprintf(tab, "Component  & Value\\\\ \\hline \n");
+fprintf(tab, "\\bf Component  & \\bf Value\\\\ \\hline \n");
 fprintf(tab, "R1  & %f k$\\Omega$ \\\\ \\hline \n",R1/1000);
 fprintf(tab, "R2  & %f k$\\Omega$ \\\\ \\hline \n",R2/1000);
 fprintf(tab, "R3  & %f k$\\Omega$ \\\\ \\hline \n",R3/1000);
