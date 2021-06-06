@@ -87,17 +87,39 @@ V_4= V_7+V_c\\
 \end{equation}
 
 Now we substitute $V_b=V_2-V_4$ and $V_c=-K_c\frac{V_6}{R_6}$ and obtained the following equations system, presented in matrix form:
+\[
+    \begin{bmatrix*}
+    
+     R_{in}+ ZC_{I}+ R_{B}&-R_{B} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0  \\
+      -R_{B} & R_{B}+r_{\pi1}+R_{E}& 0 & 0 & 0 & -R_{E} & 0 & 0 & 0 & 0 & 0  \\
+      0 & -r_{\pi1} & r_{\pi1}+ c_{\pi1} & -Zc_{\pi1} & 0 & 0 & 0 & 0 & 0 & 0 & 0  \\
+     \end{bmatrix*}
+     \]
+ \[    
 
-\begin{gather}
-    \begin{bmatrix}
-     1 & 0 & 0 & 0 & 0 & 0 & 0  \\
-     \frac{1}{R_1} & -\frac{1}{R_1}-\frac{1}{R_2}-\frac{1}{R_3} &\frac{1}{R_2} & \frac{1}{R_3} & 0 & 0 & 0\\
-     0 & \frac{1}{R_2+K_b} & -\frac{1}{R_2}& -K_b & 0 & 0 & 0\\
-     0 & 0 & 0 & 1 & 0 & \frac{K_c}{R_6} & -1\\
-     0 & -K_b & 0 & \frac{1}{R_5}+K_b & -\frac{1}{R_5} & 0 & 0\\
-     0 & 0 & 0 & 0 & 0 & -\frac{1}{R_6}-\frac{1}{R_7} & \frac{1}{R_7}\\
-     0 & \frac{1}{R_3} & 0 & -\frac{1}{R_3}-\frac{1}{R_4}-\frac{1}{R_5} & \frac{1}{R_5} & \frac{1}{R_7} & -\frac{1}{R_7}
-    \end{bmatrix}
+\tiny{\begin{gather}
+
+    \begin{bmatrix*}
+    \setcounter{MaxMatrixCols}{11}
+
+     R_{in}+ ZC_{I}+ R_{B}&-R_{B} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0  \\
+     
+     -R_{B} & R_{B}+r_{\pi1}+R_{E}& 0 & 0 & 0 & -R_{E} & 0 & 0 & 0 & 0 & 0  \\
+     
+     0 & -r_{\pi1} & r_{\pi1}+ c_{\pi1} & -Zc_{\pi1} & 0 & 0 & 0 & 0 & 0 & 0 & 0  \\
+     
+     0 & 0 & -Zc_{\pi1} & Zc_{\pi1} +Zc_{\mu1} & r_{o1} & -r_{o1} & 0 & 0 & 0 & 0 & 0  \\
+     
+     0 & g_{m}r_{\pi1} & -g_{m}r_{\pi1} & 1 & -1 & 0 & 0 & 0 & 0 & 0 & 0  \\
+     0 & -R_{E} & 0 & 0 & -r_{o1} & R_{E} +r_{o1}+ R_{C} & -R_{C} & 0 & 0 & 0 & 0  \\
+     0 & 0 & 0 & 0 & 0 & -R_{C}& R_{C}+r_{\pi2}+Z_{eqf} & -r_{\pi2} & 0 & 0 & 0 & -Z_{eqf}  \\
+     0 & 0 & 0 & 0 & 0 & 0 & -r_{\pi2} & r_{\pi2}+Zc_{\pi2} & -Zc_{\pi2} & 0 & 0  \\
+     0 & 0 & 0 & 0 & 0 & 0 & 0 & -Zc_{\pi2} & Zc_{\pi2}+Zc_{\mu2} & r_{o2} & -r_{o2} \\
+     0 & 0 & 0 & 0 & 0 & 0 & g_{m2}*r_{\pi2} & -g_{m2}*r_{\pi2} & 1 & -1 & 0  \\
+     0 & 0 & 0 & 0 & 0 & 0 & -Z_{eqf} & 0 & 0 & -r_{o2} & Z_{eqf}+r_{o2}  \\
+     
+    \end{bmatrix*}
+  
     \begin{bmatrix}
      V_1\\
      V_2\\
@@ -105,19 +127,31 @@ Now we substitute $V_b=V_2-V_4$ and $V_c=-K_c\frac{V_6}{R_6}$ and obtained the f
      V_4\\
      V_5\\
      V_6\\
-     V_7
+     V_7\\
+     0\\
+     0\\
+     0\\
+     0\\
+     0
     \end{bmatrix}
     =
     \begin{bmatrix}
-     V_a\\
+     V_{in}\\
      0\\
      0\\
      0\\
-     -I_d\\
      0\\
-     I_d
+     0\\
+     0\\
+     0\\
+     0\\
+     0\\
+     0
+     
     \end{bmatrix}
 \end{gather}
+ \]
+}
 
 
 Finally, solving this linear system, using \textit{GNU Octave}, we have the values of each voltage, in the circuit:

@@ -78,7 +78,7 @@ gain = T(b)
 gaindB=TdB(b)%so para ver
 gaindev=abs(100-gain)
 
-MERIT=1/(COST*gaindev*fdev+10^(-6))
+MERIT=1/COST*(gaindev+fdev+10^(-6))
 
 figure;
 plot(f,TdB);
