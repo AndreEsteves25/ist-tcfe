@@ -4,12 +4,25 @@
 % state the learning objective 
 The objective of this laboratory assignment is to build an amplifying circuit based on an OP-AMP component.
 
-As we can see in the figure \ref{fig:rc}, the circuit (similar to the one studied in the presential lab) is composed by a High Pass Filter Stage (C1 and R1), Amplification Stage (R3, R4 and a $\mu$741 OP-AMP as a non-inverting amplifier) and a Low Pass Filter Stage (R2 and C2).
+As we can see in the figure \ref{fig:rc} and \ref{fig:rc2}, the circuit (similar to the one studied in the presential lab) is composed by a High Pass Filter Stage (C1 and R1), Amplification Stage (R3, R4 and a $\mu$741 OP-AMP as a non-inverting amplifier) and a Low Pass Filter Stage (R2 and C2).
 
 \begin{figure}[h] \centering
-\includegraphics[width=0.99\linewidth]{rc.pdf}
+\includegraphics[width=80\linewidth]{rc.pdf}
 \vspace{-5mm}
-\caption{The Bandpass Filter}\label{fig:rc}
+\caption{The Bandpass Filter simplified}\label{fig:rc}
+\end{figure}
+
+However, itś important to note that the value of $R_3$, $R_4$ and $C_2$ are given by the following equations:
+\begin{equation}
+ R_3= (100+ \frac{100\times100}{100+100}) k\Omega;     
+ R_4= \frac{1\times(10+10+10)}{1+(10+10+10)} k\Omega;     
+ C_2=\frac{220\times220}{220+220} nF
+ \end{equation}
+
+\begin{figure}[h] \centering
+\includegraphics[width=0.80\linewidth]{rc2.pdf}
+\vspace{-5mm}
+\caption{The real Bandpass Filter }\label{fig:rc}
 \end{figure}
 
 The final values of the components used are the following:

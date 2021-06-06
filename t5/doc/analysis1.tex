@@ -1,3 +1,49 @@
+\section{Laboratorial Testing} \label{sec:Lab}
+
+In the laboratory, it was possible to simulate with real components the circuit in Figure \ref{fig:rc}. However, there were used some components that were not allowed for the theoretical and simulation analysis such as resistors with 2k$\Omega$ and more that three resistors of 1k$\Omega$. So the values used for the components were:
+\begin{table}[!htb]
+\centering
+  \begin{tabular}{|c | c|}
+    \hline    
+\bf Component  & \bf Value\\ \hline 
+R1  & 0.67 k$\Omega$ \\ \hline 
+R2  & 1.00 k$\Omega$ \\ \hline 
+R3  & 100.00 k$\Omega$ \\ \hline 
+R4  & 0.50 k$\Omega$ \\ \hline 
+C1  & 220.00 nF \\ \hline 
+C2  & 220.0 0nF \\ \hline 
+
+\end{tabular}
+ \caption{Components used in the laboratory}\label{tab:labb}
+\end{table}
+
+With $R_2= 1k\Omega \parallelsum 1k\Omega$ and $R_4= 1k\Omega \parallelsum 2k\Omega$.
+
+The results obtained were, for a frequency of $f = 1\ kHz$: 
+
+\begin{align*}
+  v_i &= 64.0\ mV \\
+  v_o &= 5.9\ V \\
+  Gain &\approx 90.68 \\
+  Gain_{dB} &\approx 39,15 \\
+\end{align*}
+
+Altough we didn't use this exact values, the laboratory work helped to understand how the circuit work and the changes we will need to do, in the following analysis, to achieve the desired values.
+
+\begin{figure}[h] \centering
+  \begin{minipage}{.5\textwidth}
+    \includegraphics[width=.9\textwidth]{lab1.jpg}
+    \caption{Image of the circuit built in the laboratory}
+    \label{fig:simenv}
+    \end{minipage}%
+  \begin{minipage}{.5\textwidth}
+  \centering
+    \includegraphics[width=.9\textwidth]{lab2.jpg}
+    \caption{Results obtained in the osciloscope}
+    \label{fig:compenv}
+      \end{minipage}%
+\end{figure}
+
 \section{Theoretical Analysis} \label{sec:analysis}
  
 The transfer function that caracterizes the studied circuit is given by
@@ -45,10 +91,25 @@ The following graphics are obtained directly from the transfer function's (\ref{
 
 \subsection{Input and Output Impedances}
 
-To compute the input and output impedances, we followed the ideal OP-AMP model : Z\textsubscript{in}=$\infty$ and Z\textsubscript{out}=0.
+To compute the input and output impedances, we followed the ideal OP-AMP model : Z\textsubscript{in}=$\infty$ and Z\textsubscript{out}=0, resulting in the following equations:
 
-(...)
+\begin{gather}\label{impedances}
+\begin{cases}
+  |Z_i| = |Z_{C1} + R1 \parallelsum \infty| = |Z_{C1} + R_1|\\
+  |Z_o| = |Z_{C2} \parallelsum (R_2 + R_3 \parallelsum 0)| = |Z_{C2} \parallelsum R2| 
+  = |\frac{Z_{C2}R_2}{Z_{C2}+R_2}|\\
+ \end{cases}
+\end{gather}
 
+ Considering that:
+ 
+ \begin{gather}
+ \begin{cases}
+    v_- = v_+ = \frac{R1}{R1+Z_{C1}} v_i\\
+    v_A = \left(1 + \frac{R3}{R4}\right) v_-\\
+    v_o = \frac{Z_{C2}}{Z_{C2}+R2} v_A\\
+  \end{cases}
+\end{gather}
 The results are the following:
 
 \begin{table}[!htb]
@@ -58,6 +119,18 @@ The results are the following:
     \input{../mat/impedances.tex}
  \end{tabular}
  \caption{Real part of the input and output impedances}\label{tab:theo:impedances}
+\end{table}
+
+In the following table, there are the final result for the value of the merit, such as all the quantities that influence it (Gain obtainded, Gain Deviation, Central Frequency, Frequency Deviation and Cost):
+
+
+\begin{table}[!htb]
+\centering
+  \begin{tabular}{|c | c|}
+    \hline    
+    \input{../mat/final.tex}
+ \end{tabular}
+ \caption{Central and cut-off frequencies}\label{tab:theo:frequencies}
 \end{table}
 
 
