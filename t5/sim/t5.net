@@ -120,9 +120,8 @@ meas ac lingain  FIND v(out) AT=fc
 
 *print lingain
 
-*let cost = 1*3+100*3+10*3+220*3e3+ 0.1*2 + 1e-3*( 100 + 530500 + 183600 + 13190000 + 150) + 38.66e-18 
-let cost = 1400
-
+let cost = 13223.09204 + 333 + 0.66
+print cost
 
 let merit = 1.0/(cost*(abs(1000-fc)*abs(lingain-100))+ 0.000001)
 *print merit
