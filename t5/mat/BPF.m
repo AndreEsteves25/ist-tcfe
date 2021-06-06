@@ -128,3 +128,14 @@ tab=fopen("impedances.tex", "w");
 fprintf(tab, "Input Impedance & %f Ohm \\\\ \\hline \n", Zin);
 fprintf(tab, "Output Impedance & %f Ohm \\\\ \\hline \n", Zout);
 fclose(tab);
+
+%componentes tabel
+tab=fopen("components.tex", "w");
+fprintf(tab, "Component  & Value\\\\ \\hline \n");
+fprintf(tab, "R1  & %f k$\\Omega$ \\\\ \\hline \n",R1/1000);
+fprintf(tab, "R2  & %f k$\\Omega$ \\\\ \\hline \n",R2/1000);
+fprintf(tab, "R3  & %f k$\\Omega$ \\\\ \\hline \n",R3/1000);
+fprintf(tab, "R4  & %f k$\\Omega$ \\\\ \\hline \n",R4/1000);
+fprintf(tab, "C1  & %f nF \\\\ \\hline \n",C1*10^(9));
+fprintf(tab, "C2  & %f nF \\\\ \\hline \n",C2*10^(9));
+fclose(tab);
