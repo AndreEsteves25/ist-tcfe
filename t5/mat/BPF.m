@@ -17,13 +17,7 @@ cost741=costR741+costC741+22*0.1+1*0.1
 
 COST=costR+costC+cost741
 
-%computing input and output impedances
-f=1000
-w=2*pi*f
-ZC1=1./(j*w*C1);
-ZC2=1./(j*w*C2);
-Zin=ZC1+R1
-Zout=1/(1/R2+1/ZC2)
+
 
 %computing capacitor's impedances
 f=1:0.1:8;;
@@ -95,10 +89,7 @@ xlabel ("log10(f) [Hz]");
 ylabel ("gain [dB]");
 print ("T.eps", "-depsc");
 
-tab=fopen("impedances.tex", "w");
-fprintf(tab, "Input Impedance & %f Ohm \\\\ \\hline \n", Zin);
-fprintf(tab, "Output Impedance & %f Ohm \\\\ \\hline \n", Zout);
-fclose(tab);
+
 
 tab=fopen("final.tex", "w");
 fprintf(tab, "Gain DB & %f dB \\\\ \\hline \n", gaindB);
@@ -109,4 +100,17 @@ fprintf(tab, "Frequency Deviation & %f Hz \\\\ \\hline \n", fdev);
 fprintf(tab, "Gain Deviation & %f Hz\\\\ \\hline \n", gaindev);
 fprintf(tab, "Cost & %f MU\\\\ \\hline \n", COST);
 fprintf(tab, "Merit & %f\\\\ \\hline \n", MERIT);
-fclose(tab);	
+fclose(tab);
+
+%computing input and output impedances
+f=fc
+w=2*pi*f
+ZC1=1./(j*w*C1);
+ZC2=1./(j*w*C2);
+Zin=ZC1+R1
+Zout=1/(1/R2+1/ZC2)
+
+tab=fopen("impedances.tex", "w");
+fprintf(tab, "Input Impedance & %f Ohm \\\\ \\hline \n", Zin);
+fprintf(tab, "Output Impedance & %f Ohm \\\\ \\hline \n", Zout);
+fclose(tab);
