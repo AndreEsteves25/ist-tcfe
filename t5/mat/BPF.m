@@ -8,14 +8,14 @@ C1=220*10^(-9)
 C2=220*10^(-9)/2
 
 %computing COST
-costR=1*3+100*3+10
-costC=220*3*10^3
+costR=333             %all resistors
+costC=220*3*10^(-3)   %3 capacitors
 
 %costR741=(1e3+50e3+1e3+5e3+50e3+50+50+25+7.5e3+4.5e5+39e3)/1000
 %costC741=(30*10^(-12))*10^(6)
-%cost741=costR741+costC741+22*0.1+1*0.1
+cost741=13223.09204
 
-COST=costR+ costC+ 0.1*2 + 1e-3*( 100 + 530500 + 183600 + 13190000 + 150) + 38.66e-18 
+COST= costR+costC+cost741
 
 %computing capacitor's impedances
 f=1:0.1:8;;
