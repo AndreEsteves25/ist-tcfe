@@ -98,7 +98,7 @@ ac dec 100 10 100MEG
 *plot vdb(1)
 *plot v(out)/v(1)
 *plot vp(out)
-hardcopy vbdout.eps vdb(out) 40
+hardcopy vdbout.eps vdb(out) 40
 hardcopy vpout.eps vp(out)
 
 *let gain = vecmax(vdb(out))
