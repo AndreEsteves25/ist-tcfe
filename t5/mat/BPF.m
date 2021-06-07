@@ -117,16 +117,7 @@ fclose(tab);
 
 
 
-tab=fopen("final.tex", "w");
-fprintf(tab, "Gain DB & %f dB \\\\ \\hline \n", gaindB);
-fprintf(tab, "Gain & %f \\\\ \\hline \n", gain);
-fprintf(tab, "Bandwidth & %f Hz \\\\ \\hline \n", highF-lowF);
-fprintf(tab, "Central Frequency & %f Hz \\\\ \\hline \n", fc);
-fprintf(tab, "Frequency Deviation & %f Hz \\\\ \\hline \n", fdev);
-fprintf(tab, "Gain Deviation & %f Hz\\\\ \\hline \n", gaindev);
-fprintf(tab, "Cost & %f MU\\\\ \\hline \n", COST);
-fprintf(tab, "Merit & %f\\\\ \\hline \n", MERIT);
-fclose(tab);
+
 
 %computing input and output impedances
 f=fc
@@ -135,6 +126,23 @@ ZC1=1./(j*w*C1);
 ZC2=1./(j*w*C2);
 Zin=ZC1+R1
 Zout=1/(1/R2+1/ZC2)
+
+tab=fopen("final.tex", "w");
+fprintf(tab, "Gain & %f \\\\ \\hline \n", gaindB);
+fprintf(tab, "f\\textsubscript{L} & %f Hz\\\\ \\hline \n", lowF);
+fprintf(tab, "f\\textsubscript{H} & %f Hz\\\\ \\hline \n", highF);
+fprintf(tab, "f\\textsubscript{c} & %f Hz\\\\ \\hline \n", fc);
+
+%fprintf(tab, "Bandwidth & %f Hz \\\\ \\hline \n", highF-lowF);
+%fprintf(tab, "Central Frequency & %f Hz \\\\ \\hline \n", fc);
+%fprintf(tab, "Frequency Deviation & %f Hz \\\\ \\hline \n", fdev);
+%fprintf(tab, "Gain Deviation & %f Hz\\\\ \\hline \n", gaindev);
+%fprintf(tab, "Cost & %f MU\\\\ \\hline \n", COST);
+fprintf(tab, "Merit & %f\\\\ \\hline \n", MERIT);
+fprintf(tab, "Input Impedance & %f + %f i\\\\ \\hline \n", real(Zin),imag(Zin));
+fprintf(tab, "Output Impedance & %f+ %f i\\\\ \\hline \n", real(Zout),imag(Zout));
+
+fclose(tab);
 
 tab=fopen("impedances.tex", "w");
 fprintf(tab, "Input Impedance & %f Ohm \\\\ \\hline \n", Zin);
