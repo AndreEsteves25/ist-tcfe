@@ -17,9 +17,9 @@ C2  & 220.0 0nF \\ \hline
  \caption{Components used in the laboratory}\label{tab:labb}
 \end{table}
 
-With $R_2= 1k\Omega \parallelsum 1k\Omega$ and $R_4= 1k\Omega \parallelsum 2k\Omega$.
+With $R_2$= 1k $\Omega \parallel$ 1k$\Omega$ and $R_4$= 1k$\Omega \parallel 2k\Omega$.
 
-The results obtained were, for a frequency of $f = 1\ kHz$: 
+The results obtained were, for a frequency of f = 1\ kHz: 
 
 \begin{align*}
   v_i &= 64.0\ mV \\
@@ -93,23 +93,24 @@ The following graphics are obtained directly from the transfer function's (\ref{
 
 To compute the input and output impedances, we followed the ideal OP-AMP model : Z\textsubscript{in}=$\infty$ and Z\textsubscript{out}=0, resulting in the following equations:
 
-\begin{gather}\label{impedances}
+\begin{equation}\label{impedances}
 \begin{cases}
-  |Z_i| = |Z_{C1} + R1 \parallelsum \infty| = |Z_{C1} + R_1|\\
-  |Z_o| = |Z_{C2} \parallelsum (R_2 + R_3 \parallelsum 0)| = |Z_{C2} \parallelsum R2| 
+  |Z_i| = |Z_{C1} + R1 \parallel \infty| = |Z_{C1} + R_1|\\
+  |Z_o| = |Z_{C2} \parallel (R_2 + R_3 \parallel 0)| = |Z_{C2} \parallel R2| 
   = |\frac{Z_{C2}R_2}{Z_{C2}+R_2}|\\
  \end{cases}
-\end{gather}
+\end{equation}
+
 
  Considering that:
  
- \begin{gather}
+ \begin{equation}
  \begin{cases}
     v_- = v_+ = \frac{R1}{R1+Z_{C1}} v_i\\
     v_A = \left(1 + \frac{R3}{R4}\right) v_-\\
     v_o = \frac{Z_{C2}}{Z_{C2}+R2} v_A\\
   \end{cases}
-\end{gather}
+ \end{equation}
 The results are the following:
 
 \begin{table}[!htb]
