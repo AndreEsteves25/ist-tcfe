@@ -109,6 +109,10 @@ tab=fopen("max.tex", "w");
 fprintf(tab, "%f", max);
 fclose(tab);
 
+tab=fopen("merit.tex", "w");
+fprintf(tab, "%f", MERIT);
+fclose(tab);
+
 tab=fopen("frequencies.tex", "w");
 fprintf(tab, "f\\textsubscript{L} & %f Hz\\\\ \\hline \n", lowF);
 fprintf(tab, "f\\textsubscript{H} & %f Hz\\\\ \\hline \n", highF);
