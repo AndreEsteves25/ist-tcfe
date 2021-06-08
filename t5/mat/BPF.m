@@ -133,7 +133,7 @@ Zin=ZC1+R1
 Zout=1/(1/R2+1/ZC2)
 
 tab=fopen("final.tex", "w");
-fprintf(tab, "GaiN & %f dB\\\\ \\hline \n", gaindB);
+fprintf(tab, "Gain & %f dB\\\\ \\hline \n", gaindB);
 fprintf(tab, "f\\textsubscript{L} & %f Hz\\\\ \\hline \n", lowF);
 fprintf(tab, "f\\textsubscript{H} & %f Hz\\\\ \\hline \n", highF);
 fprintf(tab, "f\\textsubscript{c} & %f Hz\\\\ \\hline \n", fc);
