@@ -99,7 +99,7 @@ ac dec 100 10 100MEG
 *plot v(out)/v(1)
 *plot vp(out)
 hardcopy vdbout.eps vdb(out) 40
-hardcopy vpout.eps vp(out)
+hardcopy vpout.eps 57.30*vp(out)
 
 *let gain = vecmax(vdb(out))
 *let lingain = vecmax(v(out))
@@ -110,20 +110,28 @@ meas ac fhigh WHEN vdb(out)=cutoff CROSS=LAST
 *let bandwidth = f2-flow
 *print vdb(out)
 *print gain
-let fc = sqrt(flow*fhigh)
+let max = vecmax(vdb(out))
+meas ac fc1 WHEN vdb(out)=max RISE=1
+meas ac fc2 WHEN vdb(out)=max FALL=1
+let fc = fc1*0.5 + fc2*0.5
+*let fc = sqrt(flow*fhigh)
 *print fc
 *print flow
 *print fhigh
 
 meas ac gain FIND vdb(out) AT=fc
 meas ac lingain  FIND v(out) AT=fc
+meas ac v1 FIND vdb(out) AT=flow
+meas ac v2 FIND vdb(out) AT=fhigh
+hardcopy vdbout2.eps vdb(out) cutoff v1 
+
 
 *print lingain
 
 let cost = 13223.09204 + 333 + 0.66
 print cost
 
-let merit = 1.0/(cost*(abs(1000-fc)*abs(lingain-100))+ 0.000001)
+let merit = 1.0/(cost+(abs(1000-fc)+abs(lingain-100))+ 0.000001)
 *print merit
 
 *input impedance in kohm
