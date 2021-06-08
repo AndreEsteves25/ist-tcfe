@@ -154,6 +154,7 @@ print merit
 print zin
 echo "sim_END"
 echo "let fc = " "$&fc" > fc.txt
+echo "$&merit" > simmerit.txt
 
 
 
