@@ -148,8 +148,8 @@ fprintf(tab, "f\\textsubscript{c} & %f Hz\\\\ \\hline \n", fc);
 %fprintf(tab, "Gain Deviation & %f Hz\\\\ \\hline \n", gaindev);
 %fprintf(tab, "Cost & %f MU\\\\ \\hline \n", COST);
 fprintf(tab, "Merit & %f\\\\ \\hline \n", MERIT);
-fprintf(tab, "Input Impedance & %f + %f i\\\\ \\hline \n", real(Zin),imag(Zin));
-fprintf(tab, "Output Impedance & %f+ %f i\\\\ \\hline \n", real(Zout),imag(Zout));
+fprintf(tab, "Input Impedance & %f  %f i\\\\ \\hline \n", real(Zin),imag(Zin));
+fprintf(tab, "Output Impedance & %f %f i\\\\ \\hline \n", real(Zout),imag(Zout));
 
 fclose(tab);
 
