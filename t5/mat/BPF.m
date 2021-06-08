@@ -158,8 +158,8 @@ fprintf(tab, "Cost & %f MU\\\\ \\hline \n", COST);
 fclose(tab);
 
 tab=fopen("impedances.tex", "w");
-fprintf(tab, "Input Impedance & %f + %f i\\\\ \\hline \n", real(Zin),imag(Zin));
-fprintf(tab, "Output Impedance & %f+ %f i\\\\ \\hline \n", real(Zout),imag(Zout));
+fprintf(tab, "Input Impedance & %f  %f i\\\\ \\hline \n", real(Zin),imag(Zin));
+fprintf(tab, "Output Impedance & %f %f i\\\\ \\hline \n", real(Zout),imag(Zout));
 fclose(tab);
 
 %componentes tabel
